@@ -1,0 +1,245 @@
+\defn{
+    Suppose $f:A\to B,g:C\to D$ are morphisms in $\catC$. We say $f$ is a \term{retract} of $g$ if there exists a commutative diagram
+    $$\xymatrix{A\ar[d]_{f}\ar[r]^{p}&C\ar[d]^{g}\ar[r]^{q}&A\ar[d]^{f}\\B\ar[r]^{r}&D\ar[r]^{s}&B}$$ such that $sr=\1,qp=\1$.
+}
+
+\defn{
+    A \term{functorial factorization} of a category $\catC$ is an ordered pair $(\alpha,\beta)$ of functors $\catC^{[1]}\to\catC^{[1]}$ such that
+    $d\alpha=d,c\alpha=d\beta,c\beta=c$, where $d,c:\catC^{[1]}\to\catC$ are the domain functor and the codomain functor, respectively, and for any
+     $f\in\catC^{[1]}$, $f=\beta f\circ\alpha f$. Here $[1]$ denotes the category with 2 objects and 3 morphisms.
+}
+
+\defn{
+    Suppose $i:A\to B$ and $p:X\to Y$ are morphisms in $\catC$. We say $i$ has \term{left lifting property (LLP)} with respect to $p$, and $p$ has
+    \term{right lifting property (RLP)} with respect to $i$, written $i\nearrow p$, if for any commutative diagram
+    $$\xymatrix{A\ar[r]^{f}\ar[d]_{i}&X\ar[d]^{p}\\B\ar[r]^{g}&Y,}$$ there exists some $h:B\to X$ such that $ph=g,hi=f$.
+}
+
+\defn{
+    Suppose $\catC$ is a category. A \term{model structure} on $\catC$ consists of three classes of morphisms $\Cof,\Fib,\W$ together with
+     two functorial factorizations $(\alpha,\beta),(\gamma,\delta)$, such that:
+    \begin{enumerate}[i)]
+    \item $\Cof,\Fib,\W$ are closed under compositions and retracts.
+    \item For any morphisms $f,g$ such that $gf$ is defined, if two of the three morphisms $f,g,gf$ are in $\W$, so is the third.
+    (This is called the \term{2-out-of-3 property})
+    \item $\Cof\cap\W\nearrow\Fib,\Cof\nearrow\Fib\cap\W$.
+    \item For any morphism $f$, $\alpha f\in\Cof, \beta f\in\Fib\cap\W, \gamma f\in\Cof\cap\W,\delta f\in\Fib$.
+    \end{enumerate} 
+    Morphisms in $\Cof,\Fib,\W,\Cof\cap\W,\Fib\cap\W$ are called \term{cofibrations, fibrations, weak equivalences, trivial cofibrations, trivial fibrations},
+    respectively.
+}
+
+\defn{
+    A \term{model category} is a category $\catC$ with all small limits and colimits together with a model structure on $\catC$.
+}
+
+\eg{
+    Suppose $\catC$ is an arbitrary category, then the following structures are all model structures on $\catC$:
+    \begin{enumerate}[i)]
+    \item $\Cof=\mathrm{Iso}\,\catC,\Fib=\W=\mathrm{Mor}\,\catC,\alpha f=\gamma f=\1_{df},\beta f=\delta f=f$;
+    \item $\Fib=\mathrm{Iso}\,\catC,\Cof=\W=\mathrm{Mor}\,\catC,\alpha f=\gamma f=f,\beta f=\delta f=\1_{cf}$;
+    \item $\W=\mathrm{Iso}\,\catC,\Cof=\Fib=\mathrm{Mor}\,\catC,\gamma f=\1_{df},\alpha f=\delta f=f,\beta f=\1_{cf}$,
+    \end{enumerate}
+    where $\mathrm{Mor}\,\catC$ is the class of all morphisms in $\catC$, $\mathrm{Iso}\,\catC$ is the class of all isomorphisms in $\catC$.
+    These model structures are called the \term{trivial model structures}.
+}
+
+\eg{
+    If $\catC_i(i\in I)$ are model categories and $I$ is a set, then $\prod\limits_{i\in I}\catC_i$ is a model category,
+    where $\Cof=\prod\limits_{i\in I}\Cof_{\catC_i},\Fib=\prod\limits_{i\in I}\Fib_{\catC_i},\W=\prod\limits_{i\in I}\W_{\catC_i}$.
+    The model structure on $\prod\limits_{i\in I}\catC_i$ is called the \term{product model structure}.
+}
+
+\eg{
+    If $\catC$ is a model category, then $\catC^\op$ is a model category, where $\Cof_{\catC^\op}=\Fib_{\catC}^\op,\Fib_{\catC^\op}=\Cof_{\catC}^\op,
+    \W_{\catC^\op}=\W_{\catC}^\op$. This model structure called the \term{dual model structure}.
+}
+
+\defn{
+    Suppose $\catC$ is a model category. An object $A$ is called \term{cofibrant} if the morphism $\phi\to A$ is a cofibration, where $\phi$ is the
+    initial object; it is called \term{fibrant} if the morphism $A\to*$ is a fibration, where $*$ is the terminal object.
+}
+
+\defn{
+    A category $\catC$ is called \term{pointed} if the initial object and the terminal object are isomorphic.
+}
+
+\defn{
+    Suppose $\catC$ is a category with terminal object $*$. Define the \term{pointed category} of $\catC$, written $\catC_*$,
+    to be the category with objects $\{(X,v)|X\in\catC,v:*\to X\}$, and $\Hom_{\catC_*}((X,v),(Y,w))=\{f:X\to Y|fv=w\}$.
+    If $(X,v)\in\catC_*$, we denote $v$ the \term{basepoint} of $X$. Define the functor $-_+:\catC\to\catC_*$ to be the functor
+    that takes $X$ to $X\amalg*$ with basepoint $*$.
+}
+
+\lem{
+    For any category $\catC$ with terminal object $*$, $\catC_*$ is pointed. Moreover, $\catC$ is pointed if and only if $-_+$ is an isomorphism.
+    Furthermore, $-_+$ is left adjoint to the forgetful functor $U:\catC_*\to\catC,(X,v)\mapsto X$.
+}
+
+\lem{
+    For any category $\catC,\catD$ with terminal objects,
+    there is a functor $$-_*:\Adj(\catC,\catD)\to\Adj(\catC_*,\catD_*),(F,G,\vp)\mapsto(F_*,G_*,\vp_*),$$
+    where $G_*(Y,w)=(GY,Gw)$ and $F_*(X,v)$ is defined by the pushout diagram:
+    $$\xymatrix{
+    F*\ar[d]\ar[r]^{Fv}&FX\ar[d]\\
+    {*}\ar[r]&F_*(X,v)
+    }$$
+    Furthermore, $F_*(-_+)$ and $(F-)_+$ are naturally isomorphic.
+}
+
+\prop{
+    If $\catC$ is a model category, then $\catC_*$ is a model category, where $$\Cof_{\catC_*}=U^{-1}(\Cof_{\catC}),\Fib_{\catC_*}=U^{-1}(\Fib_{\catC}),
+    \W_{\catC_*}=U^{-1}(\W_{\catC}).$$
+}
+
+\defn{
+    Suppose $\catC$ is a model category. We define the functor $Q:\catC\to\catC, X\mapsto d\beta(\phi\to X)$ to be
+     the \term{cofibrant replacement functor}, and the functor $R:\catC\to\catC, X\mapsto c\gamma(X\to*)$ to be the \term{fibrant replacement functor}.
+}
+
+\lem{
+    Suppose $\catC$ is a model category. Then there is a natural transformation $q:Q\to\1$ with $q_X=\beta(\phi\to X)$ for any $X$,
+    and a natural transformation $r:\1\to R$ with $r_X=\gamma(X\to*)$ for any $X$. Moreover $q_X$ is a trivial fibration and $r_X$
+     is a trivial cofibration. Furthermore, $Q,R$ preserves and reflects weak equivalences.
+}
+
+\lem{[The Retract Argument]
+    Suppose $\catC$ is a category, and we have a factorization $f=pi$. If $f\nearrow p$ then $f$ is a retract of $i$.
+     Dually if $i\nearrow f$ then $f$ is a retract of $p$.
+}
+
+\lem{
+    Suppose $\catC$ is a model category. Then $f\nearrow\Fib\cap\W$ if and only if $f\in\Cof$, $f\nearrow\Fib$ if and only if $f\in\Cof\cap\W$,
+    $\Cof\cap\W\nearrow f$ if and only if $f\in\Fib$, $\Cof\nearrow f$ if and only if $f\in\Fib\cap\W$.
+}
+
+\cor{
+    Suppose $\catC$ is a model category. Then $\Cof$, $\Cof\cap\W$ are closed under pushouts, $\Fib$, $\Fib\cap\W$ are closed under pullbacks.
+}
+
+\lem{[Ken Brown's Lemma]
+    Suppose $\catC$ is a model category, $\catD$ is a \term{category with weak equivalences}, i.e. a category with a class of morphisms $\W$
+    called weak equivalences, such that $\W$ is closed under composition and satisfies 2-out-of-3 property.
+    If $F:\catC\to\catD$ is a functor that takes trivial cofibrations between cofibrant objects to weak equivalences,
+    then $F$ takes weak equivalences between cofibrant objects to weak equivalences.
+    Dually if $F:\catC\to\catD$ is a functor that takes trivial fibrations between fibrant objects to weak equivalences,
+    then $F$ takes weak equivalences between fibrant objects to weak equivalences.
+}
+
+\defn{
+    Suppose $\catC$ is a model category. Define $\catC_c,\catC_f$ and $\catC_{cf}$ to be the full subcategory of cofibrant, fibrant,
+    cofibrant and fibrant objects of $\catC$, respectively.
+}
+
+\defn{
+    Suppose $\catC$ is a model category, $A\in\catC$. $A'$ is called a \term{cylinder object of $A$} if the map $A\amalg A\to A$ factors through $A'$:
+    $A\amalg A\xrightarrow{i_0+i_1}A'\xrightarrow{\sigma}A$, such that $i_0+i_1\in\Cof$ and $\sigma\in\W$. $A''$ is called a \term{path object of $A$}
+    if the map $A\to A\times A$ factors through $A''$: $A\xrightarrow{s}A''\xrightarrow{(p_0,p_1)}A\times A$, such that $s\in\W$ and $(p_0,p_1)\in\Fib$.
+}
+
+\lem{
+    Suppose $\catC$ is a model category, $A\in\catC$, if $A'$ is a cylinder object or a path object of $A$ in $\catC$,
+    then $A'$ is a path object or a cylinder object of $A$ in $\catC^\op$, respectively.
+}
+
+\lem{
+    Suppose $\catC$ is a model category. There is a functor $\Cyl:\catC\to\catC,A\mapsto d\circ\beta(A\amalg A\to A)$, such that $\Cyl(A)$ 
+    is a cylinder object, and the structure map $\sigma$ is a trivial fibration. Dually there is a functor $\Path:\catC\to\catC,
+    A\mapsto c\circ\gamma(A\to A\times A)$, such that $\Path(A)$ is a path object, and the structure map $s$ is a trivial cofibration.
+}
+
+\lem{
+    Suppose $\catC$ is a model category, $A\in\catC$. Then for any cylinder object $A'$ of $A$, there exists a map $A'\to\Cyl(A)$
+    which is compatible with $i_0,i_1,\sigma$. Dually for any path object $A''$ of $A$, there exists a map $\Path(A)\to A''$ 
+    which is compatible with $p_0,p_1,s$.
+}
+
+\defn{
+    Suppose $\catC$ is a model category, $f,g:A\to X$ are morphisms in $\catC$. A \term{left homotopy} from $f$ to $g$ is a map $H:A'\to X$,
+    where $A'$ is some cylinder object of $A$ and $H(i_0+i_1)=f+g$. If such $H$ exists for some cylinder object $A'$ we say $f$ 
+    is \term{left homotopic} to $g$, denoted $f\siml g$. Dually a \term{right homotopy} from $f$ to $g$ is a map $K:A\to X'$, 
+    where $X'$ is some path object of $X$ and $(p_0,p_1)K=(f,g)$. If such $K$ exists for some path object $K'$ we say $f$ 
+    is \term{right homotopic} to $g$, denoted $f\simr g$. Finally we say $f$ is \term{homotopic} to $g$, denoted $f\simeq g$,
+    if $f\siml g$ and $f\simr g$. Moreover we call $f$ a \term{homotopy equivalence} if there exists $h:X\to A$ such that $fh\simeq\1_X,hf\simeq\1_B$.
+}
+
+\prop{
+    Suppose $\catC$ is a model category, $f,g:B\to X,h:A\to B,k:X\to Y$ are morphisms in $\catC$.
+    If $f\siml g$ then $kf\siml kg$, and if in addition $X$ is fibrant then $fh\siml gh$.
+    Dually if $f\simr g$ then $fh\simr gh$, and if in addition $B$ is cofibrant then $kf\simr kg$.
+}
+
+\prop{
+    Suppose $\catC$ is a model category, $A,X\in\catC$. If $A$ is cofibrant then $\siml$ is a equivalence relation on $\Hom_\catC(A,X)$.
+    Dually if $X$ is fibrant then $\simr$ is a equivalence relation on $\Hom_\catC(A,X)$.
+}
+
+\prop{
+    Suppose $\catC$ is a model category, $h:A\to B,k:X\to Y$ are morphisms in $\catC$.
+    If $B$ is cofibrant and $k$ is a trivial fibration or a weak equivalence between fibrant objects, then 
+    $k_*:\Hom_\catC(B,X)/\siml\to\Hom_\catC(B,Y)/\siml$ is a bijection. Dually if $X$ is fibrant and $h$ is a trivial cofibration
+    or a weak equivalence between cofibrant objects, then $h^*:\Hom_\catC(B,$ $X)/\simr\to\Hom_\catC(A,X)/\simr$ is a bijection.
+}
+
+\prop{
+    Suppose $\catC$ is a model category, $f,g:A\to X$ are morphisms in $\catC$.
+    If $A$ is cofibrant and $f\siml g$ then $f\simr g$, and the right homotopy may pass any path object of $X$.
+    Dually if $X$ is fibrant and $f\simr g$ then $f\siml g$, and the left homotopy may pass any cylinder object of $A$.
+}
+
+\cor{
+    If $\catC$ is a model category, then $\simeq$ is an equivalence relation on morphisms of $\catC_{cf}$ and is compatible with composition.
+}
+
+\prop{[Whitehead]
+    If $\catC$ is a model category, then a map in $\catC_{cf}$ is a weak equivalence if and only if it is a homotopy equivalence.
+}
+
+\defn{
+    Suppose $\catC$ is a category with a class of morphisms $\W$ such that $\W$ is closed under composition. For any $X,Y\in\catC$,
+    define $[X,Y]$ to be the class $F(X,Y)/\sim$, where $F(X,Y)$ is the class of all strings $(f_1,\cdots,f_n)$ of morphisms in $\catC$
+    or reversals of morphisms in $\W$ of finite length, such that $df_1=X,cf_n=Y,df_i=cf_{i-1}$ for any $1<i\le n$; $\sim$
+    is the equivalence relation generated from $()\sim(\1)$, $(f,g)\sim(g\circ f)$, $(w^{-1},v^{-1})\sim((w\circ v)^{-1})$, 
+    $()\sim(w,w^{-1})$, $()\sim(w^{-1},w)$ for any $f,g$ morphisms in $\catC$ and $w\in\W$, and $(W_1,W_2,W_4)\sim(W_1,W_3,W_4)$ 
+    whenever $W_1,W_2,W_3,W_4$ are strings and $W_2\sim W_3$. If for any $X,Y\in\catC$, $[X,Y]$ is a set,
+    define the \term{homotopy category} $\Ho\catC$ to be the category with objects being objects in $\catC$ and $\Hom_{\Ho\catC}(X,Y)=[X,Y]$.
+    We denote the obvious functor $\catC\to\Ho\catC$ by $\gamma$.
+}
+
+\lem{
+    Suppose $\catC$ is a category with a class of morphisms $\W$ such that $\W$ is closed under composition. If $\Ho\catC$ exists 
+    and $F:\catC\to\catD$ is a functor which sends morphisms in $\W$ to isomorphisms, then there exists a unique functor 
+    $\Ho F:\Ho\catC\to\catD$ such that $(\Ho F)\gamma=F$. Conversely if $\alpha:\catC\to\catE$ is a functor which sends morphisms 
+    in $\W$ to isomorphisms and satisfies the above universal property, then $\Ho\catC$ exists and there exists a unique isomorphism 
+    $\delta:\Ho\catC\to\catE$ such that $\delta\gamma=\alpha$.
+}
+
+\lem{
+    Suppose $\catC$ is a category with a class of morphisms $\W$ such that $\W$ is closed under composition, and $\Ho\catC$ exists.
+    If $\tau:F\to G$ is a natural transformation between functors which sends morphisms in $\W$ to isomorphisms,
+    then $\Ho\tau:\Ho F\to\Ho G$ with $\Ho\tau_X=\tau_X$ is a natural transformation.
+}
+
+\prop{
+    Suppose $\catC$ is a model category, then $\Ho\catC_{cf}$ exists and there exists a unique isomorphism $\Ho\catC_{cf}\to\catC_{cf}/\!\simeq$,
+    such that the isomorphism is identity on objects.
+}
+
+\prop{
+    Suppose $\catC$ is a model category. Then the inclusions induces isomorphisms $[X,Y]_{\catC_{cf}}\cong[X,Y]_{\catC_{c}}\cong[X,Y]_{\catC}$
+    and $[X,Y]_{\catC_{cf}}\cong[X,Y]_{\catC_{f}}\cong[X,Y]_{\catC}$ for any $X,Y\in\catC_{cf}$.
+}
+
+\thm{
+    Suppose $\catC$ is a model category. Then:
+    \begin{enumerate}[i)]
+    \item $\Ho\catC$ exists, and we have equivalences between categories $\Ho\catC_{cf}\to\Ho\catC_{c}\to\Ho\catC$
+    and $\Ho\catC_{cf}\to\Ho\catC_{f}\to\Ho\catC$ induced by inclusions;
+    \item We have for any $X,Y\in\catC$, $$\begin{aligned}
+    {[X,Y]} &\cong(\Hom_\catC(QRX,QRY)/\simeq)\\&\cong(\Hom_{\catC}(RQX,RQY)/\simeq)\\&\cong(\Hom_\catC(QX,RY)/\simeq),
+    \end{aligned}$$
+    and if moreover $X$ is cofibrant and $Y$ is fibrant, then $[X,Y]=\Hom_\catC(X,Y)/\simeq$;
+    \item $\gamma:\catC\to\Ho\catC$ identifies maps that are left homotopic or right homotopic;
+    \item If $f$ is a morphism in $\catC$ such that $\gamma f$ is an isomorphism, then $f$ is a weak equivalence.
+    \end{enumerate}
+}

@@ -1,0 +1,64 @@
+\defn{
+    A ring $R$ is called a \term{Frobenius ring} if the projective and injective $R$-modules coincide.
+}
+
+\defn{
+    Suppose $R$ is a ring. Two maps $f,g:M\to N$ of $R$-modules are called \term{stably equivalent}, denote $f\simeq g$,
+    if $f-g$ factors through a projective module.
+}
+
+\lem{
+    Stable equivalence between maps is an equivalence relation that is compatible with composition.
+}
+
+\defn{
+    Two $R$-modules $M,N$ are called \term{stably equivalent} if there exists maps $f:M\to N$, $g:N\to M$ such that $fg\simeq\1_N$, $gf\simeq\1_M$.
+    Such $f,g$ are called \term{stable equivalences}.
+}
+
+\defn{
+    Suppose $R$ is a ring. Define the set $I=\{A\to R|A$ is an ideal of $R\}$, and the set $J=\{0\to R\}$. Define $\Cof=\Cof(I)$, $\Fib=\RLP(J)$, and $\W$
+    to be all stable equivalences.
+}
+
+\lem{
+    A map $p\in\cat{Mod}_R$ is a fibration if and only if it is surjective.
+}
+
+\lem{
+    Suppose $R$ is a Frobenius ring. Then a map $p\in\cat{Mod}_R$ is a trivial fibration if and only it is surjective with injective kernel.
+}
+
+\prop{
+    A map $p\in\cat{Mod}_R$ is in $\RLP(I)$ if and only it is surjective with injective kernel. In particular, if $R$ is a Frobenius ring, 
+    then $\W\cap\Fib=\RLP(I)$.
+}
+
+\lem{
+    A map $i\in\cat{Mod}_R$ is a cofibration if and only if it is injective.
+}
+
+\prop{
+    A map $i\in\cat{Mod}_R$ is in $\Cof(J)$ if and only it is injective with projective cokernel. In particular, $\Cof(J)\subseteq\W\cap\Cof$.
+}
+
+\thm{
+    If $R$ is a Frobenius ring, then $\cat{Mod}_R$ is a cofibrantly generated model category with $I$ being its generating cofibrations, 
+    $J$ being its generating trivial cofibrations and weak equivalences being stable equivalences. If $R$ is Noetherian 
+    then $\cat{Mod}_R$ is finitely generated.
+}
+
+\rmk{
+    If $\cat{Mod}_R$ is a cofibrantly generated model category with $I$ being its generating cofibrations and $J$ being its 
+    generating trivial cofibrations, then $R$ must be a Frobenius ring and weak equivalences must be stable equivalences.
+}
+
+\cor{
+    If $R$ is a Frobenius ring, every object in $\cat{Mod}_R$ is cofibrant and fibrant, and two maps are left or right homotopic 
+    if and only if they are stably equivalent.
+}
+
+\prop{
+    For any ring homomorphism $R\to S$ between Frobenius rings, the adjunction $(\operatorname{Ind},\operatorname{Res}):\cat{Mod}_R\to\cat{Mod}_S$ 
+    is a Quillen adjunction if and only if $S$ is a flat $R$-module, it is a Quillen equivalence if and only if the homomorphism is an isomorphism.
+}

@@ -1,0 +1,254 @@
+\prop{
+    Suppose $\catC$ is a model category, and $g:K\to L$ is a cofibration in $\cat{SSet}$. If $f:A^\bullet\to B^\bullet$ is a cofibration in $\catC^\d$,
+    then $f\squ g:A^\bullet\ox L\amalg_{A^\bullet\ox K}B^\bullet\ox K\to B^\bullet\ox L$ is a cofibration that is trivial if $f$ is. 
+    Dually if $p:X_\bullet\to Y_\bullet$ is a fibration in $\catC^{\d^\op}$, then $p_{\squ}^g:X_\bullet^L\to Y_\bullet^L\times_{Y_\bullet^K}X_\bullet^K$ 
+    is a fibration that is trivial if $p$ is.
+}
+
+\cor{
+    Suppose $\catC$ is a model category, and $K$ is a simplicial set. Then the functor $-\ox K:\catC^\d\to\catC$ preserves cofibrations 
+    and trivial cofibrations, and the functor $-^K:\catC^{\d^\op}\to\catC$ preserves fibrations and trivial fibrations.
+}
+
+\prop{
+    Suppose $\catC$ is a model category, and $g:K\to L$ is a trivial cofibration in $\cat{SSet}$. If $f:A^*\to B^*$ is a cofibration 
+    of cosimplicial frames on cofibrant objects, then $f\squ g:A^*\ox L\amalg_{A^*\ox K}B^*\ox K\to B^*\ox L$ is a trivial cofibration. 
+    Dually if $p:X_*\to Y_*$ is a fibration of simplicial frames on fibrant objects, then $p_{\squ}^g:X_*^L\to Y_*^L\times_{Y_*^K}X_*^K$ 
+    is a trivial fibration.
+}
+
+\cor{
+    Suppose $\catC$ is a model category, $A$ is cofibrant, $Y$ is fibrant. Then for any cosimplicial frame $A^*$ on $A$, the adjunction 
+    $(A^*\ox-,\Hom_\catC(A^*,-)):\cat{SSet}\to\catC$ is a Quillen adjunction. In particular, the adjunction $(A\ox-,\Map(A,-)_l):\cat{SSet}\to\catC$ 
+    is a Quillen adjunction. Dually for any simplicial frame $Y_*$ on $Y$, the adjunction $(Y_*^-,\Hom_\catC(-,Y_*)):\cat{SSet}\to\catC^\op$ 
+    is a Quillen adjunction. In particular, the adjunction $(Y^-,\Map(-,Y)_r):\cat{SSet}\to\catC^\op$ is a Quillen adjunction.
+}
+
+\cor{
+    Suppose $\catC$ is a model category, and $K$ is a simplicial set. If $A^*\to B^*$ is a map of cosimplicial frames on cofibrant objects 
+    that is a weak equivalence in degree 0, then the map $A^*\ox K\to B^*\ox K$ is a weak equivalence. Dually if $X_*\to Y_*$ is a map of 
+    simplicial frames on fibrant objects that is a weak equivalence in degree 0, then the map $X_*^K\to Y_*^K$ is a weak equivalence.
+}
+
+\cor{
+    Suppose $\catC$ is a model category, and $K$ is a simplicial set. Then the functor $-\ox K:\catC\to\catC$ preserves weak equivalences 
+    between cofibrant objects, and the functor $-^K:\catC\to\catC$ preserves weak equivalences between fibrant objects.
+}
+
+\defn{
+    We call elements in the category $\cat{SSet}^{\d^\op}$ \term{bisimplicial sets}. There is a functor $\cat{SSet}^{\d^\op}\to\cat{SSet}$ 
+    induced by the diagonal functor $\d\to\d\times\d$. We call this functor $\diag$.
+}
+
+\lem{
+    $\diag$ preserves colimits. Furthermore every bisimplicial set is cofibrant with respect to the Reedy model structure.
+}
+
+\prop{
+    Suppose $\catC$ is a category with all small colimits and limits. Define the functor $F_n:\catC\to\catC^{\d^\op}$ with $(F_nK)_m=\amalg_{\d[n]_m}K$ 
+    and the simplicial structure given by the simplicial structure of $\d[n]$ for any $K\in\catC$. Then $F_n$ is left adjoint to $-[n]$. 
+    Furthermore for any $X\in\catC^{\d^\op}$, $X$ is the coequalizer of the following diagram:
+    $$\xymatrix @C=200pt{\displaystyle\coprod_{[k]\to[n]}F_kX_n\ar@/^/[r]^{F_kX_n\to F_nX_n\text{, induced by the map }\d[k]\to\d[n]}
+    \ar@/_/[r]_{F_kX_n\to F_kX_k\text{, induced by the map }X_n\to X_k}&\displaystyle\coprod_{k}F_kX_k}.$$
+}
+
+\prop{
+    For any simplicial set $K$, we have $\diag F_nK=K\ox\d[n]$. Therefore $\diag$ is left adjoint to the functor 
+    $\cat{SSet}\to\cat{SSet}^{\d^\op},K\mapsto K^{\d[-]}$.
+}
+
+\lem{
+    The functor $K\mapsto K^{\d[-]}$ preserves fibrations and trivial fibrations, hence the adjunction $\9\diag,K\mapsto K^{\d[-]}\0$ 
+    is a Quillen adjunction.
+}
+
+\prop{
+    Suppose $X$ is a bisimplicial set such that for any map $[k]\to[n]$ in $\d$ the induced map $X[n]\to X[k]$ is a weak equivalence. 
+    Then the map $X[0]\to\diag X$ is a weak equivalence.
+}
+
+\prop{
+    Suppose $\catC$ is a model category, $A^*$ is a cosimplicial frame on a cofibrant object, $Y_*$ is a simplicial frame on a fibrant object. 
+    Then there exists weak equivalences $$\Hom_\catC(A^*,Y)\to\diag\Hom_\catC(A^*,Y_*)\leftarrow\Hom_\catC(A,Y_*).$$
+}
+
+\cor{
+    Suppose $\catC$ is a model category, $A$ is cofibrant, $Y$ is fibrant. Then $\Map(-,Y)_l$ preserves weak equivalences between cofibrant objects, 
+    and $\Map(A,-)_r$ preserves weak equivalences between fibrant objects.
+}
+
+\thm{
+    Suppose $\catC$ is a model category. Then the left derived functors of $-\ox-:\catC\times\cat{SSet}\to\catC$ and 
+    $-^-:\catC^\op\times\cat{SSet}\to\catC^\op$ exist, which will be denoted $-\ox^L-$ and $-_R^-$. The right derived functors of 
+    $\Map(-,-)_l,\Map(-,-)_r:\catC^\op\times\catC\to\cat{SSet}$ exist, which will be denoted $R\Map(-,-)_l,R\Map(-,-)_r$,
+    and are naturally isomorphic. There exist natural isomorphisms $$[X\ox^LK,Y]\cong[K,R\Map(X,Y)_l]\cong[K,R\Map(X,Y)_r]\cong[Y^K_R,X],$$ 
+    constructing an adjunction of 2 variables $\Ho\catC\times\Ho\cat{SSet}\to\Ho\catC$. Finally $-\ox^L\d[0]$ is naturally isomorphic to the identity.
+}
+
+\lem{
+    Suppose $\catC$ is a model category, $f:A\to B$ is a morphism in $\catC$. Then for any cosimplicial frame $A^*$ on $A$, there exists a map 
+    $A^*\to B^\circ$ of cosimplicial frames over $f$. Dually for any simplicial frame $B_*$ on $B$, there exists a map $A_\circ\to B_*$ 
+    of simplicial frames over $f$.
+}
+
+\lem{
+    Suppose $\catC$ is a model category, $A^*,B^*$ are cosimplicial frames on cofibrant objects $A,B$, respectively. Suppose $f,g:A^*\to B^*$ 
+    are two maps of cosimplicial frames that agree on degree 0. Then the natural transformation $A^*\ox^L-\to B^*\ox^L-$ induced by $f$ and $g$ are equal.
+}
+
+\thm{
+    Suppose $\catC$ is a model category. Then for any $A\in\catC$ and $K\in\cat{SSet}$, $A\ox(K\times\d[-])$ is a cosimplicial frame on $A\ox K$ 
+    whenever $A$ is cofibrant, which induces a weak equivalence $$A\ox(K\times L)\cong (A\ox(K\times\d[-]))\ox L\to(A\ox K)\ox L$$ that is natural 
+    on $L$. Define $a_{AKL}$ to be the isomorphism in $\Ho\catC$:
+    $$\begin{aligned}&(A\ox^LK)\ox^LL=Q(QA\ox QK)\ox QL\xrightarrow{q_{QA\ox QK}\ox QL}(QA\ox QK)\ox QL\\
+    &\hspace{0.8em}\to QA\ox(QK\times QL)\xrightarrow{QA\ox q_{QK\times QL}^{-1}}QA\ox Q(QK\times QL)=A\ox^L(K\times^LL),\end{aligned}$$
+    then $a$ is natural in $A,K,L$, and $$\9\Ho\catC,-\ox^L-,R\Map(-,-),-_R^-,a,r:-\ox^L\d[0]\cong\1\0$$ gives $\Ho\catC$ 
+    a closed $\Ho\cat{SSet}$-module structure.
+}
+
+\lem{
+    Suppose $\catC,\catD$ are model categories, $(F,G):\catC\to\catD$ is a Quillen adjunction, $A^*$ is a cosimplicial frame 
+    on a cofibrant object $A$ in $\catC$, $Y_*$ is a simplicial frame on a fibrant object $Y$ in $\catD$. Then $FA^*$ is a cosimplicial frame 
+    on $FA$ and $GY_*$ is a simplicial frame on $GY$.
+}
+
+\thm{
+    Suppose $\catC,\catD$ are model categories, $(F,G,\vp):\catC\to\catD$ is a Quillen adjunction. Then for any $A\in\catC$, there is a weak equivalence
+    $$F(A\ox K)\cong F(A^\circ)\ox K\to FA\ox K$$ whenever $A$ is cofibrant and is natural on $K$. Define $\mu_{AK}$ to be the the isomorphism 
+    in $\Ho\catC$: $$\begin{aligned}&(LFA)\ox^LK=QFQA\ox QK\xrightarrow{q_{FQA}^{-1}\ox QK}FQA\ox QK\\
+    &\hspace{0.8em}\to F(QA\ox QK)\xrightarrow{Fq_{QA\ox QK}}FQ(QA\ox QK)=(LF)(A\ox^LK),\end{aligned}$$
+    then $\mu$ is natural in $A,K$, and $$\9LF,RG,\Ho\vp,\mu\0$$ gives $LF$ a closed $\Ho\cat{SSet}$-module functor structure.
+}
+
+\thm{
+    The pseudo-2-functor $\Ho:\catt{Model}\to\catt{Cat}_{ad}$ lifts to a pseudo-2-functor $$\Ho:\catt{Model}\to\catt{CloMod}_{\Ho\cat{SSet}}$$ 
+    which is given by $$\begin{aligned}\catC&\mapsto\9\Ho\catC,-\ox^L-,R\Map(-,-),-_R^-,a,r\0,\\
+    (F,G,\vp)&\mapsto\9LF,RG,\Ho\vp,\mu\0,\\
+    \tau&\mapsto L\tau.\end{aligned}$$
+    Moreover $\Ho\circ\9-^\op\0=\9-^\op\0\circ\Ho:\catt{Model}\to\catt{CloMod}_{\Ho\cat{SSet}}$, and the identity functor gives a 
+    2-natural isomorphism between the pseudo-2-functors $$\catt{Model}_{\cat{SSet}}\xrightarrow{\Ho}\catt{CloMod}_{\Ho\cat{SSet}}$$ 
+    and $$\catt{Model}_{\cat{SSet}}\to\catt{Model}\xrightarrow{\Ho}\catt{CloMod}_{\Ho\cat{SSet}}.$$
+}
+
+\prop{
+    Suppose $\catC$ is a model category. Then for any $X\in\catC$, $X\ox^L-:\Ho\cat{SSet}\to\Ho\catC$ is a closed $\Ho\cat{SSet}$-module functor,
+    where the structure map $\mu_{KL}$ is given by $a_{XKL}$. On the other hand, for any $K\in\cat{SSet}$, define $\mu_{XL}$ to be the natural isomorphism 
+    $$(X\ox^LK)\ox^LL\to X\ox^L(K\times^LL)\to X\ox^L(L\times^LK)\to (X\ox^LL)\ox^LK,$$ then $-\ox^LK$ together with the structure map given above 
+    is a closed $\Ho\cat{SSet}$-module functor.
+}
+
+\prop{
+    Suppose $\catC$ is a simplicial model category. Then for any $K\in\cat{SSet}$, the closed $\Ho\cat{SSet}$-module functors $-\ox^LK$
+    and $-^\circ\ox^LK$ share the same structure map $\mu$.
+}
+
+\prop{
+    Suppose $\catC$ is a model category. Then for any $X\in\catC$, $K,L\in\cat{SSet}$, the associativity isomorphism is a $\Ho\cat{SSet}$-module 
+    natural transformation in the following cases: $$\begin{aligned}
+    (X\ox^LK)\ox^L-&\to X\ox^L(K\times^L-),\\
+    (X\ox^L-)\ox^LL&\to X\ox^L(-\times^LL),\\
+    (-\ox^LK)\ox^LL&\to -\ox^L(K\times^LL).
+    \end{aligned} $$
+} 
+
+\prop{
+    Suppose $\catC$ is a monoidal model category. Then for any $X,Y,Z\in\catC$, $X\ox^L-,-\ox^LY:\Ho\catC\to\Ho\catC$ are 
+    closed $\Ho\cat{SSet}$-module functors, constructing following natural isomorphisms for $K\in\cat{SSet}$: 
+    $$m^l_{XYK}:(X\ox^LY)\ox^LK\to X\ox^L(Y\ox^LK)$$ and $$m^r_{XYK}:(X\ox^LY)\ox^LK\to (X\ox^LK)\ox^LY.$$ Furthermore
+    $$\begin{aligned}
+    l:S\ox^L-&\to\1,\\
+    r:-\ox^LS&\to\1,\\
+    a_{XY-}:(X\ox^LY)\ox^L-&\to X\ox^L(Y\ox^L-),\\
+    a_{X-Z}:(X\ox^L-)\ox^LZ&\to X\ox^L(-\ox^LZ),\\
+    a_{-YZ}:(-\ox^LY)\ox^LZ&\to -\ox^L(Y\ox^LZ)
+    \end{aligned} $$
+    are $\Ho\cat{SSet}$-module natural transformations.
+}
+
+\thm{\label{tagf}
+    The pseudo-2-functor $\Ho:\catt{MonModel}\to\catt{CloMon}$ lifts to a pseudo-2-functor $$\Ho:\catt{MonModel}\to\catt{CloAlg}_{\Ho\cat{SSet}},$$ 
+    where a monoidal model category $(\catC,\ox)$ is mapped to $\9\Ho\catC,\ox^L,(i,\mu,\alpha)\0$, where $i:\Ho\cat{SSet}\to\Ho\catC$ is given by 
+    $K\mapsto S\ox^LK$, $\mu$ is given by 
+    $$\begin{aligned}&iK\ox^LiL=(S\ox^LK)\ox^L(S\ox^LL)\xrightarrow{\9m^l_{(S\ox^LK)SL}\0^{-1}}((S\ox^LK)\ox^LS)\ox^LL\\
+    &\hspace{0.8em}\xrightarrow{r_{S\ox^LK}\ox^LL}(S\ox^LK)\ox^LL\xrightarrow{a_{SKL}}S\ox^L(K\times^LL)=i(K\times^LL),\end{aligned}$$
+    and $\alpha$ is given by $$i(\d[0])=S\ox^L\d[0]\xrightarrow{r_{S}}S;$$ a monoidal Quillen adjunction $(F,G):\catC\to\catD$ is mapped to
+    $(LF,RG,\rho)$, where $\rho$ is given by
+    $$(LF)i_\catC K=(LF)(S\ox^LK)\xrightarrow{\mu_{SK}^{-1}}(LFS)\ox^LK\xrightarrow{\alpha_S\ox^LK}S\ox^LK=i_\catD K;$$ 
+    a monoidal natural transformation $\tau$ is mapped to $L\tau$. Furthermore, the identity functor gives a 2-natural isomorphism 
+    between the pseudo-2-functors $$\catt{MonModel}_{\cat{SSet}}\xrightarrow{\Ho}\catt{CloAlg}_{\Ho\cat{SSet}}$$ and
+    $$\catt{MonModel}_{\cat{SSet}}\to\catt{MonModel}\xrightarrow{\Ho}\catt{CloAlg}_{\Ho\cat{SSet}}.$$
+}
+
+\thm{
+    Suppose $\catC$ is a monoidal model category. Then for any $K\in\cat{SSet}$, the natural isomorphism
+    $$X\ox^L(S\ox^LK)\xrightarrow{\9m^l_{XSK}\0^{-1}}(X\ox^LS)\ox^LK\xrightarrow{r_X\ox^LK}X\ox^LK$$ is a $\Ho\cat{SSet}$-module natural transformation 
+    between $\Ho\cat{SSet}$-module functors $-\ox^L(S\ox^LK)$ and $-\ox^LK$.
+    \footnote{This theorem remains unproofed in class. Its proof is in Corollaire 6.7 of \textit{Propri\'et\'es universelles et extensions 
+    de Kan d\'eriv\'ees''.}}
+}
+
+\thm{
+    The pseudo-2-functor $$\Ho:\catt{SymMonModel}\to\catt{CloSymMon}$$ lifts to a pseudo-2-functor 
+    $$\Ho:\catt{SymMonModel}\to\catt{CloSymAlg}_{\Ho\cat{SSet}},$$ where the structures are given in Theorem \ref{tagf}. 
+    The identity functor gives a 2-natural isomorphism between the pseudo-2-functors 
+    $$\catt{SymMonModel}_{\cat{SSet}}\xrightarrow{\Ho}\catt{CloSymAlg}_{\Ho\cat{SSet}}$$ and
+    $$\catt{SymMonModel}_{\cat{SSet}}\to\catt{SymMonModel}\xrightarrow{\Ho}\catt{CloSymAlg}_{\Ho\cat{SSet}}.$$
+}
+
+\defn{
+    Suppose $\catC$ is a pointed model category. By Proposition \ref{tagg}, $-^\circ$ induces functors 
+    $\catC\times\cat{SSet}_*\to\catC,(A,K)\mapsto A^\circ\ov K$, and $\catC^\op\times\catC\to\cat{SSet}_*,(A,Y)\mapsto\Hom_{\catC*}(A^\circ,Y)$. 
+    We denote $A^\circ\ov K$ by $A\ov K$ (if there is no confusion), $\Hom_{\catC*}\catC(A^\circ,Y)$ by $\Map_*(A,Y)_l$. 
+    Dually $-_\circ$ induces functors $\catC\times\cat{SSet}_*^\op\to\catC,(A,K)\mapsto A_{\circ*}^K$,
+    and $\catC^\op\times\catC\to\cat{SSet}_*,(A,Y)\mapsto\Hom_{\catC*}(A,Y_\circ)$. We denote $A_{\circ*}^K$ by $A_*^K$, 
+    $\Hom_{\catC*}(A,Y_\circ)$ by $\Map_*(A,Y)_r$.
+}
+
+\prop{
+    Suppose $\catC$ is a pointed model category, and $g:K\to L$ is a cofibration in $\cat{SSet}_*$. If $f:A^\bullet\to B^\bullet$ is a cofibration 
+    in $\catC^\d$, then $f\squ_*g:A^\bullet\ov L\amalg_{A^\bullet\ov K}B^\bullet\ov K\to B^\bullet\ov L$ is a cofibration that is trivial if $f$ is. 
+    Dually if $p:X_\bullet\to Y_\bullet$ is a fibration in $\catC^{\d^\op}$, then $p_{\squ*}^g:X_{\bullet*}^L\to 
+    Y_{\bullet*}^L\times_{Y_{\bullet*}^K}X_{\bullet*}^K$ is a fibration that is trivial if $p$ is.
+}
+
+\prop{
+    Suppose $\catC$ is a pointed model category, and $g:K\to L$ is a trivial cofibration in $\cat{SSet}_*$. If $f:A^*\to B^*$ is a cofibration 
+    of cosimplicial frames on cofibrant objects, then $f\squ_* g:A^*\ov L\amalg_{A^*\ov K}B^*\ov K\to B^*\ov L$ is a trivial cofibration. 
+    Dually if $p:X_*\to Y_*$ is a fibration of simplicial frames on fibrant objects, then $p_{\squ*}^g:X_{**}^L\to Y_{**}^L\times_{Y_{**}^K}X_{**}^K$ 
+    is a trivial fibration.
+}
+
+\prop{
+    Suppose $\catC$ is a pointed model category, $A^*$ is a cosimplicial frame on a cofibrant object, $Y_*$ is a simplicial frame on a fibrant object. 
+    Then there exists weak equivalences $$\Hom_{\catC*}(A^*,Y)\to\diag\Hom_{\catC*}(A^*,Y_*)\leftarrow\Hom_{\catC*}(A,Y_*).$$
+}
+
+\thm{
+    The pseudo-2-functor $\Ho:\catt{Model}_*\to\catt{Cat}_{ad*}$ lifts to a pseudo-2-functor $$\Ho:\catt{Model}_*\to\catt{CloMod}_{\Ho\cat{SSet}_*},$$ 
+    where the structures are similar to that given above. Moreover $\Ho\circ\9-^\op\0=\9-^\op\0\circ\Ho:\catt{Model}_*\to\catt{CloMod}_{\Ho\cat{SSet}_*}$, 
+    and the identity functor gives a 2-natural isomorphism between the pseudo-2-functors
+    $$\catt{Model}_{\cat{SSet}_*}\xrightarrow{\Ho}\catt{CloMod}_{\Ho\cat{SSet}_*}$$ and 
+    $$\catt{Model}_{\cat{SSet}_*}\to\catt{Model}_*\xrightarrow{\Ho}\catt{CloMod}_{\Ho\cat{SSet}_*}.$$
+}
+
+\thm{
+    The pseudo-2-functor $\Ho:\catt{MonModel}_*\to\catt{CloMon}_*$ lifts to a pseudo-2-functor $$\Ho:\catt{MonModel}_*\to\catt{CloAlg}_{\Ho\cat{SSet}_*},$$
+    where the structures are similar to that given above. Furthermore, the identity functor gives a 2-natural isomorphism between the pseudo-2-functors
+    $$\catt{MonModel}_{\cat{SSet}_*}\xrightarrow{\Ho}\catt{CloAlg}_{\Ho\cat{SSet}_*}$$ and
+    $$\catt{MonModel}_{\cat{SSet}_*}\to\catt{MonModel}_*\xrightarrow{\Ho}\catt{CloAlg}_{\Ho\cat{SSet}_*}.$$
+}
+
+\thm{
+    Suppose $\catC$ is a pointed monoidal model category. Then for any $K\in\cat{SSet}_*$, the natural isomorphism
+    $$X\ov^L(S\ov^LK)\xrightarrow{\9m^l_{XSK}\0^{-1}}(X\ov^LS)\ov^LK\xrightarrow{r_X\ov^LK}X\ov^LK$$ is a $\Ho\cat{SSet}_*$-module 
+    natural transformation between $\Ho\cat{SSet}_*$-module functors $-\ov^L(S\ov^LK)$ and $-\ov^LK$.\footnote{This theorem remains unproofed 
+    in class as well.}
+}
+
+\thm{
+    The pseudo-2-functor $$\Ho:\catt{SymMonModel}_*\to\catt{CloSymMon}_*$$ lifts to a pseudo-2-functor 
+    $$\Ho:\catt{SymMonModel}_*\to\catt{CloSymAlg}_{\Ho\cat{SSet}_*},$$ where the structures are similar to that given above. 
+    The identity functor gives a 2-natural isomorphism between the pseudo-2-functors 
+    $$\catt{SymMonModel}_{\cat{SSet}_*}\xrightarrow{\Ho}\catt{CloSymAlg}_{\Ho\cat{SSet}_*}$$ and
+    $$\catt{SymMonModel}_{\cat{SSet}_*}\to\catt{SymMonModel}_*\xrightarrow{\Ho}\catt{CloSymAlg}_{\Ho\cat{SSet}_*}.$$
+}

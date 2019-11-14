@@ -1,0 +1,145 @@
+\defn{
+    Suppose $\catC$ and $\catD$ are categories, $(F,G,\vp):\catC\to\catD$ is an adjunction. Define its \term{unit} to be the natural transformation
+    $\eta:\1\to GF,\eta_X=\vp(FX\to FX)$, and its \term{counit} to be the natural transformation $\ve:FG\to\1,\ve_Y=\vp^{-1}(GY\to GY)$.
+}
+
+\defn{
+    Suppose $\catC$ and $\catD$ are model categories.
+    A functor $F:\catC\to\catD$ is called a \term{left Quillen functor} if it is a left adjoint and preserves cofibrations and trivial cofibrations.
+    Dually a functor $G:\catD\to\catC$ is called a \term{right Quillen functor} if it is a right adjoint and preserves fibrations and trivial fibrations.
+    An adjunction $(F,G,\vp):\catC\to\catD$ is called a \term{Quillen adjunction} if $F$ is left Quillen.
+}
+
+\eg{
+    Suppose $\catC$ is a model category and $I$ is a set, then the coproduct functor and the diagonal functor form a Quillen adjunction $\catC^I\to\catC$,
+    and the diagonal functor and the product functor form a Quillen adjunction $\catC\to\catC^I$.
+}
+
+\eg{
+    Suppose $\catC$ is a model category, then $(-_+,U,\vp):\catC\to\catC_*$ is a Quillen adjunction.
+}
+
+\lem{
+    If $\catC$ and $\catD$ are model categories, then an adjunction $(F,G,\vp):\catC\to\catD$ is a Quillen adjunction if and only if $G$ is right Quillen.
+}
+
+\lem{
+    Quillen adjunctions are closed under compositions.
+}
+
+\lem{
+    If $\catC$ and $\catD$ are model categories and $(F,G,\vp):\catC\to\catD$ is a Quillen adjunction, then $(G,F,\vp^{-1}):\catD^\op\to\catC^\op$ 
+    is a Quillen adjunction.
+}
+
+\prop{
+    If $\catC$ and $\catD$ are model categories and $(F,G,\vp):\catC\to\catD$ is a Quillen adjunction, then $(F_*,G_*,\vp_*):\catC_*\to\catD_*$ 
+    is a Quillen adjunction.
+}
+
+\defn{
+    Suppose $\catC$ and $\catD$ are model categories. The \term{left derived functor} of a left Quillen functor $F:\catC\to\catD$, denoted $LF$,
+    is the composite $\Ho\catC\xrightarrow{\Ho Q}\Ho\catC_{c}\xrightarrow{\Ho F}\Ho\catD$. The \term{derived natural transformation}
+    of a natural transformation $\tau:F\to F'$ between left Quillen functors, denoted $L\tau$, is the composite $\Ho\tau\circ\Ho Q$.
+    Dually, the \term{right derived functor} of a right Quillen functor $G:\catD\to\catC$, denoted $RG$, is the composite
+    $\Ho\catD\xrightarrow{\Ho R}\Ho\catD_{f}\xrightarrow{\Ho G}\Ho\catC$. The \term{derived natural transformation} of a natural transformation
+     $\tau:G\to G'$ between right Quillen functors, denoted $R\tau$, is the composite $\Ho\tau\circ\Ho R$.
+}
+
+\lem{
+    If $\tau$ is a natural transformation between left Quillen functors, then $L\tau_X=\tau_{QX}$.
+    Dually if $\tau$ is a natural transformation between right Quillen functors, then $R\tau_X=\tau_{RX}$.
+}
+
+\lem{
+    If $\tau:F\to F'$, $\tau':F'\to F''$ are natural transformations between left Quillen functors, then $L(\tau'\circ\tau)=(L\tau')\circ(L\tau)$,
+     and $L(\1_F)=\1_{LF}$. Dually if $\tau:G\to G'$, $\tau':G'\to G''$ are natural transformations between right Quillen functors, 
+     then $R(\tau'\circ\tau)=(R\tau')\circ(R\tau)$, and $R(\1_G)=\1_{RG}$.
+}
+
+\thm{
+    For any model categories $\catC,\catD,\catE,\catF$ and left Quillen functors $F:\catC\to\catD,F':\catD\to\catE,F'':\catE\to\catF$,
+    there exists natural isomorphisms $\alpha_\catC:L(\1_\catC)\to\1_{\Ho\catC}$ and $\mu_{F'F}:LF'\circ LF\to L(F'\circ F)$,
+    given by $(\alpha_\catC)_X:QX\xrightarrow{q}X$ and $(\mu_{F'F})_X:F'QFQX\xrightarrow{F'q_{FQX}}F'FQX$,
+    such that the following three diagrams commute:
+    $$\xymatrix @C=50pt{
+    (LF''\circ LF')\circ LF\ar@{=}[d]\ar[r]^{\mu_{F''F'}\circ LF}&L(F''\circ F')\circ LF\ar[r]^{\mu_{(F''\circ F')F}}&L((F''\circ F')\circ F)\ar@{=}[d]\\
+    LF''\circ (LF'\circ LF)\ar[r]^{LF''\circ \mu_{F'F}}&LF''\circ L(F'\circ F)\ar[r]^{\mu_{F''(F'\circ F)}}&L(F''\circ(F'\circ F))
+    }$$
+    $$\xymatrix @C=40pt{
+    L(\1_\catD)\circ LF\ar[d]_{\alpha\circ LF}\ar[r]^{\mu_{\1_\catD F}}&L(\1_\catD\circ F)\ar@{=}[d]\\
+    \1_{\Ho\catD}\circ LF\ar@{=}[r]&LF
+    }\xymatrix @C=40pt{
+    LF\circ L(\1_\catC)\ar[d]_{LF\circ\alpha}\ar[r]^{\mu_{F\1_\catC}}&L(F\circ\1_\catC)\ar@{=}[d]\\
+    LF\circ\1_{\Ho\catC}\ar@{=}[r]&LF
+    }$$
+    Dually there is a statement for right derived functors.
+}
+
+\prop{
+    Suppose $\sigma:F\to G$ is a natural transformation between two left Quillen functors $\catC\to\catD$,
+    $\tau:F'\to G'$ is a natural transformation between two left Quillen functors $\catD\to\catE$,
+    then the following diagram is commtative:
+    $$\xymatrix @C=40pt{
+    LF'\circ LF\ar[d]_{L\tau*L\sigma}\ar[r]^{\mu_{F'F}}&L(F'\circ F)\ar[d]^{L(\tau*\sigma)}\\
+    LG'\circ LG\ar[r]^{\mu_{G'G}}&L(G'\circ G)
+    }$$
+    Dually there is a statement for right derived functors.
+}
+
+\prop{
+    If $\catC$ and $\catD$ are model categories and $(F,G,\vp):\catC\to\catD$ is a Quillen adjunction, then $(LF,RG,\Ho\vp):\Ho\catC\to\Ho\catD$
+    is an adjunction. We denote $\Ho(F,G,\vp)=(LF,RG,\Ho\vp)$ and call it the \term{derived adjunction}.
+}
+
+\eg{
+    If $\catC$ is a model category, then the right derived functor of the product functor on $\catC$ is a product functor on $\Ho\catC$.
+    Dually the left derived functor of the coproduct functor on $\catC$ is a coproduct functor on $\Ho\catC$.
+}
+
+\defn{
+    Suppose $\catC$ and $\catD$ are model categories. A Quillen adjunction is called a \term{Quillen equivalence},
+    if for any $X$ cofibrant in $\catC$ and $Y$ fibrant in $\catD$, a map $f:FX\to Y$ is a weak equivalence if and only if $\vp(f):X\to GY$ 
+    is a weak equivalence.
+}
+
+\prop{
+    Suppose $\catC$ and $\catD$ are model categories and $(F,G,\vp):\catC\to\catD$ is a Quillen adjunction. Then the following statements are equivalent:
+    \begin{enumerate}[i)]
+    \item $(F,G,\vp)$ is a Quillen equivalence.
+    \item For any $X$ cofibrant in $\catC$ the map $X\xrightarrow{\eta}GFX\xrightarrow{Gr_{FX}}GRFX$ is a weak equivalence,
+    for any $Y$ fibrant in $\catD$ the map $FQGY\xrightarrow{Fq_{GY}}FGY\xrightarrow{\ve}Y$ is a weak equivalence.
+    \item $\Ho(F,G,\vp)$ is an adjoint equivalence of categories.
+    \end{enumerate}
+}
+
+\cor{
+    Suppose $(F,G),(F',G),(F,G')$ are Quillen adjunctions between model categories $\catC$ and $\catD$. If one of the three adjunctions 
+    is a Quillen equivalence, so are the other two.
+}
+
+\cor{
+    Suppose $F:\catC\to\catD,G:\catD\to\catE$ are left (resp. right) Quillen functors. If two of the functors $F,G,GF$ are Quillen equivalences, 
+    so is the third.
+}
+
+\cor{
+    Suppose $\catC$ and $\catD$ are model categories and $(F,G,\vp):\catC\to\catD$ is a Quillen adjunction. Then the following statements are equivalent:
+    \begin{enumerate}[i)]
+    \item $(F,G,\vp)$ is a Quillen equivalence.
+    \item For any morphism $f$ between cofibrant objects in $\catC$ with $Ff$ a weak equivalence, $f$ is a weak equivalence;
+    for any $Y$ fibrant in $\catD$ the map $FQGY\xrightarrow{Fq_{GY}}FGY\xrightarrow{\ve}Y$ is a weak equivalence. 
+    \item For any morphism $g$ between fibrant objects in $\catD$ with $Gg$ a weak equivalence, $g$ is a weak equivalence;
+    for any $X$ cofibrant in $\catC$ the map $X\xrightarrow{\eta}GFX\xrightarrow{Gr_{FX}}GRFX$ is a weak equivalence.
+    \end{enumerate}
+}
+
+\prop{
+    Suppose $\catC$ and $\catD$ are model categories and $F:\catC\to\catD$ is a Quillen equivalence. If the terminal object $*$ of $\catC$ is cofibrant, 
+    and $F$ preserves terminal object, then $F_*:\catC_*\to\catD_*$ is a Quillen equivalence.
+}
+
+\prop{
+    Suppose $\tau:F\to G$ is a natural transformation between left (resp. right) Quillen functors. Then $L\tau$ (resp. $R\tau$) is a natural equivalence
+    if and only if for any cofibrant (resp. fibrant) $X$, $\tau_X$ is a weak equivalence.
+}

@@ -1,0 +1,32 @@
+\contentsline {chapter}{\numberline {1}Model Categories (Semester 1)}{3}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Basic Concepts}{3}{section.1.1}% 
+\contentsline {subsection}{\numberline {1.1.1}Model Categories and Homotopy Categories}{3}{subsection.1.1.1}% 
+\contentsline {subsection}{\numberline {1.1.2}Quillen Adjunctions and Derived Functors}{7}{subsection.1.1.2}% 
+\contentsline {subsection}{\numberline {1.1.3}2-Categories}{9}{subsection.1.1.3}% 
+\contentsline {section}{\numberline {1.2}Examples of Model Categories}{12}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}Cofibrantly Generated Model Categories}{12}{subsection.1.2.1}% 
+\contentsline {subsection}{\numberline {1.2.2}The Category of Modules over a Frobenius Ring}{14}{subsection.1.2.2}% 
+\contentsline {subsection}{\numberline {1.2.3}The Category of Chain Complexes of Modules over a Ring}{15}{subsection.1.2.3}% 
+\contentsline {subsection}{\numberline {1.2.4}The Category of Topological Spaces}{16}{subsection.1.2.4}% 
+\contentsline {section}{\numberline {1.3}Simplicial Sets}{18}{section.1.3}% 
+\contentsline {subsection}{\numberline {1.3.1}The Definition of Simplicial Sets}{18}{subsection.1.3.1}% 
+\contentsline {subsection}{\numberline {1.3.2}The Standard Model Structure on Simplicial Sets}{20}{subsection.1.3.2}% 
+\contentsline {section}{\numberline {1.4}Monoidal Model Categories}{24}{section.1.4}% 
+\contentsline {subsection}{\numberline {1.4.1}Monoidal Categories}{24}{subsection.1.4.1}% 
+\contentsline {subsection}{\numberline {1.4.2}Monoidal Model Categories}{28}{subsection.1.4.2}% 
+\contentsline {section}{\numberline {1.5}Framings}{33}{section.1.5}% 
+\contentsline {subsection}{\numberline {1.5.1}Diagrams over Reedy Categories}{33}{subsection.1.5.1}% 
+\contentsline {subsection}{\numberline {1.5.2}Homotopy Categories as $\operatorname {Ho}\mathsf {\underline {SSet}}$-Modules}{36}{subsection.1.5.2}% 
+\contentsline {section}{\numberline {1.6}Pointed Model Categories}{42}{section.1.6}% 
+\contentsline {subsection}{\numberline {1.6.1}The Suspension and Loop Functors}{42}{subsection.1.6.1}% 
+\contentsline {subsection}{\numberline {1.6.2}Cofiber and Fiber Sequences}{45}{subsection.1.6.2}% 
+\contentsline {subsection}{\numberline {1.6.3}Pre-Triangulated Categories}{49}{subsection.1.6.3}% 
+\contentsline {section}{\numberline {1.7}Triangulated Categories and Stable Homotopy Categories}{53}{section.1.7}% 
+\contentsline {subsection}{\numberline {1.7.1}Triangulated Categories}{53}{subsection.1.7.1}% 
+\contentsline {subsection}{\numberline {1.7.2}Stable Homotopy Categories}{55}{subsection.1.7.2}% 
+\contentsline {chapter}{\numberline {2}Infinity Categories (Semesters 2 \& 3)}{56}{chapter.2}% 
+\contentsline {section}{\numberline {2.0}Preliminaries}{56}{section.2.0}% 
+\contentsline {subsection}{\numberline {2.0.1}Preliminaries for Ordinary Categories}{56}{subsection.2.0.1}% 
+\contentsline {subsection}{\numberline {2.0.2}Preliminaries for Model Categories}{56}{subsection.2.0.2}% 
+\contentsline {section}{\numberline {2.1}Introduction to Infinity Categories}{56}{section.2.1}% 
+\contentsline {subsection}{\numberline {2.1.1}Foundations of Infinity Categories}{56}{subsection.2.1.1}% 

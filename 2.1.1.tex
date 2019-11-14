@@ -1,0 +1,67 @@
+We use some simple examples to give the motivation of $\infty$-categories.
+
+\eg{\label{tagk}
+    Suppose $X$ is a topological space. The \term{fundamental groupoid} of $X$, denoted $\Pi_{\le 1}(X)$, is the category with:
+    \begin{itemize}
+        \item objects being all points in $X$; and
+        \item $\Hom_{\Pi_{\le 1}(X)}(a,b)$ being the homotopy classes of all paths from $a$ to $b$.
+    \end{itemize}
+    This is some definition that we shall already have seen in algebraic topology. This gives rise to a functor $\Pi_{\le 1}:\cat{Top}\to\cat{Gpd}$.
+    Moreover, for any map $f:X\to Y$ of topological spaces, $\Pi_{\le 1}(f)$ is an equivalence of categories, if and only if 
+    it is fully faithful and essentially surjective, where the first assertion indicates that $\pi_1(f)$ is a bijection, and the second assertion
+    indicates that $\pi_0(f)$ is a bijection. 
+
+    However, a topological space, contains far more information than its 0th and 1st homotopy groups. There also not only exist
+    homotopies between paths, there also exist homotopies between homotopies, and homotopies between the homotopies between homotopies, etc.
+    How shall we encode such higher structures? We may think of a ``category'', with not only morphisms between objects, but also morphisms
+    between morphisms, and morphisms between the morphisms between morphisms, etc. Specifically, we would like to define $\Pi(X)$ as follows:
+    \begin{itemize}
+        \item Objects being all points $a,b,\cdots$ in $X$; 
+        \item $\Hom_{\Pi(X)}(a,b)$ being all paths $\gamma,\delta,\cdots$ from $a$ to $b$;
+        \item $\Hom_{\Pi(X)}(\gamma,\delta)$ being all homotopies $H,K,\cdots$ from $\gamma$ to $\delta$;
+        \item $\cdots$
+    \end{itemize}
+    And we would like to obtain the property that for any map $f:X\to Y$ of topological spaces, $\Pi(f)$ is an ``equivalence'' of
+    ``categories'', if and only if $f$ induces isomorphisms on all homotopy groups; that is, $f$ is a weak homotopy equivalence.
+    The theory of $\infty$-categories are introduced to make this thought precise and to study their properties.
+}
+
+\eg{
+    We recall homotopies between maps in model categories: Given a model category $\catC$ and cofibrant-fibrant objects $A,B$,
+    maps $f,g:A\to B$, a homotopy from $f$ to $g$ is equivalent to a map $h:A\ox\d[1]\to B$, such that $h|_{A\ox0}=f,h|_{A\ox1}=g$.
+    However, cosimplicial frames not only allow us to construct the cylinder object of $A$, but also higher structures.
+    For example, a map $A\ox\d[2]\to B$ may be viewed as a homotopy between the three homotopies given by its restriction on
+    $A\ox\p\d[2]$, a map $A\ox\d[3]\to B$ may be viewed as a homotopy between the four homotopies between homotopies
+    given by its restriction on $A\ox\p\d[3]$. The theory of $\infty$-categories gives us a tool on how to 
+    formalize this kind of higher structures, and to study their properties.
+}
+
+Notice, that in these two examples, higher morphisms are ``invertible'' (homotopies are invertible, at least up to higher homotopies).
+This also coincides with most usages of $\infty$-categories, as in most applications we may see. Therefore, we only talk about
+$\infty$-categories, whose ``$k$-morphisms'' are invertible whenever $k\ge 2$. \footnote{In higher category theory, we use 
+the term $(\infty,n)$-category to indicate an $\infty$-category whose $k$-morphisms are invertioble whenever $k\ge n+1$. In other words,
+what we are focusing about is $(\infty,1)$-categories.}
+
+So how shall we define them? The most na\"ive approch is to define them as what we did in Section 1.1.3. However, notice one thing: 
+in both examples, associativity and unit axioms fails to be strict, but only hold up to homotopy, i.e. higher morphisms. To fix this issue,
+one must add certain extra diagrams to give the correct notion of higher categories, rather than the ones given in Section 1.1.3.
+(The reason we introduce them in the first chapter is to make the languages concise. However, pseudo-2-functors, DO give an approch to
+functors between $\infty$-categories, as they keep the homotopy-coherent ideas. From now on, we will call that kind of 2-category
+introduced in Section 1.1.3 \term{strict 2-categories}.) On the other hand, even the explicit definition of a 3-category 
+is EXTREMELY complicated, and things are just getting worse when we pass to 4-categories and beyond.
+
+Fortunately, we have alternative approaches to the theory of $\infty$-categories. We shall now explain them.
+
+\subsubsection*{i. Via Homotopy Types}
+
+From our na\"ive thought, if we take the ``Hom-thing'' between two object in an $\infty$-category, it will result in an $(\infty,0)$-category.
+In other words, $\infty$-categories are categories enriched over $(\infty,0)$-categories. Consequencely, we only have to make a model for
+$(\infty,0)$-categories.
+
+Notice that in Example \ref{tagk}, all morphisms, including 1-morphisms, are invertible. This means that $\Pi(X)$ ``should be
+an $(\infty,0)$-category''. On the other hand, there is a general axiom accepted by higher categorists, which is roughly stated as follows:
+
+\begin{itemize}
+    \item Every $(\infty,0)$-category has the form $\Pi(X)$ for some topological space $X$. Moreover two $(\infty,0)$-categories 
+    are equivalent, if and only if their corresponding topological spaces are weakly equivalent.
+\end{itemize}
