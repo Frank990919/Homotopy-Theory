@@ -1,3 +1,5 @@
+\subsubsection*{Motivations}
+
 We use some simple examples to give the motivation of $\infty$-categories.
 
 \eg{\label{tagk}
@@ -50,18 +52,32 @@ functors between $\infty$-categories, as they keep the homotopy-coherent ideas. 
 introduced in Section 1.1.3 \term{strict 2-categories}.) On the other hand, even the explicit definition of a 3-category 
 is EXTREMELY complicated, and things are just getting worse when we pass to 4-categories and beyond.
 
-Fortunately, we have alternative approaches to the theory of $\infty$-categories. We shall now explain them.
-
-\subsubsection*{i. Via Homotopy Types}
+Fortunately, we have an alternative approach to the theory of $\infty$-categories.
 
 From our na\"ive thought, if we take the ``Hom-thing'' between two object in an $\infty$-category, it will result in an $(\infty,0)$-category.
 In other words, $\infty$-categories are categories enriched over $(\infty,0)$-categories. Consequencely, we only have to make a model for
 $(\infty,0)$-categories.
 
 Notice that in Example \ref{tagk}, all morphisms, including 1-morphisms, are invertible. This means that $\Pi(X)$ ``should be
-an $(\infty,0)$-category''. On the other hand, there is a general axiom accepted by higher categorists, which is roughly stated as follows:
+an $(\infty,0)$-category''. On the other hand, there is a general axiom, known as the \term{homotopy hypothesis},
+accepted by higher categorists, which is roughly stated as follows:
 
 \begin{itemize}
     \item Every $(\infty,0)$-category has the form $\Pi(X)$ for some topological space $X$. Moreover two $(\infty,0)$-categories 
     are equivalent, if and only if their corresponding topological spaces are weakly equivalent.
 \end{itemize}
+
+This axiom ensures that we have a one-to-one correspondence between $(\infty,0)$-categories and equivalences classes of topological spaces,
+where two spaces are equivalent if and only if they are weakly equivalent. That is, we use objects 
+in $\Ho\cat{Top}\simeq\Ho\cat{K}\simeq\Ho\cat{SSet}$ to describe $(\infty,0)$-categories. Because of such mportant role they play in
+higher category theory, we give them a special name: \term{homotopy types}. We write $\cat{H}$ for the category of homotopy types.
+
+Now we have a schematic view of $(\infty,1)$-categories: they are just $\cat{H}$-enriched categories. But this view is really, really difficult
+for us to discover properties enjoyed by $\infty$-categories. We need to give models that are easy to compute. We shall now give three 
+different models for us to work with.
+
+\subsubsection*{Topological Categories}
+
+\defn{
+    A \term{topological category} is a category enriched over $\cat K$, the category of all $k$-spaces.
+}
