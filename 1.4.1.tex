@@ -1,0 +1,234 @@
+\defn{
+    Suppose $\catC$ is a category. A \term{monoidal structure} on $\catC$ consists of a quintuple $(\ox,S,a,l,r)$, where $\ox:\catC\times\catC\to\catC$ 
+    is a functor, $S$ is an object in $\catC$, $a_{XYZ}:(X\ox Y)\ox Z\to X\ox(Y\ox Z)$, $l_X:S\ox X\to X$, $r_X:X\ox S\to X$ are natural isomorphisms,
+    such that the following diagrams are commutative for any objects $X,Y,Z,W$:
+    $$\xymatrix @C=50pt{
+    ((X\ox Y)\ox Z)\ox W\ar[d]_{a_{(X\ox Y)ZW}}\ar[r]^{a_{XYZ}\ox\1_W}&(X\ox(Y\ox Z))\ox W\ar[dd]^{a_{X(Y\ox Z)W}}\\
+    (X\ox Y)\ox(Z\ox W)\ar[d]_{a_{XY(Z\ox W)}}\\
+    X\ox(Y\ox(Z\ox W))&X\ox((Y\ox Z)\ox W)\ar[l]_{\1_X\ox a_{YZW}}
+    }$$ 
+    $$\xymatrix @C=0pt{
+    (X\ox S)\ox Y\ar[dr]_{r_X\ox\1_Y}\ar[rr]^{a_{XSY}}&&X\ox(S\ox Y)\ar[dl]^{\1_X\ox l_Y}\\
+    &X\ox Y
+    }\qquad\xymatrix{
+    S\ox S\ar@/^/[d]^{l_S}\ar@/_/[d]_{r_S}\\S
+    }$$ 
+    A category together with a monoidal structure is called a \term{monoidal category}.
+}
+
+\defn{
+    Suppose $\catC,\catD$ are monoidal categories. A \term{monoidal functor} between $\catC$ and $\catD$ is a triple $(F,\mu,\alpha)$, 
+    where $F:\catC\to\catD$ is a functor, $\mu_{XY}:FX\ox FY\to F(X\ox Y)$ is a natural isomorphism, $\alpha:FS\to S$ is a isomorphism, 
+    such that the following diagrams are commutative for any objects $X,Y,Z$:
+    $$\xymatrix @C=60pt{
+    (FX\ox FY)\ox FZ\ar[d]_{\mu_{XY}\ox\1_{FZ}}\ar[r]^{a_{(FX)(FY)(FZ)}}&FX\ox(FY\ox FZ)\ar[d]^{\1_{FX}\ox\mu_{YZ}}\\
+    F(X\ox Y)\ox FZ\ar[d]_{\mu_{(X\ox Y)Z}}&FX\ox F(Y\ox Z)\ar[d]^{\mu_{X(Y\ox Z)}}\\
+    F((X\ox Y)\ox Z)\ar[r]^{F(a_{XYZ})}&F(X\ox(Y\ox Z))
+    }$$ 
+    $$\xymatrix @C=40pt{
+    FS\ox FX\ar[d]_{\mu_{SX}}\ar[r]^{\alpha\ox\1_{FX}}&S\ox FX\ar[d]^{l_{FX}}\\
+    F(S\ox X)\ar[r]^{F(l_X)}&FX
+    }\xymatrix @C=40pt{
+    FX\ox FS\ar[d]_{\mu_{XS}}\ar[r]^{\1_{FX}\ox\alpha}&FX\ox S\ar[d]^{r_{FX}}\\
+    F(X\ox S)\ar[r]^{F(r_X)}&FX
+    }$$ 
+}
+
+\defn{
+    Suppose $\catC,\catD$ are monoidal categories and $F,F'$ are monoidal functors between $\catC$ and $\catD$. A \term{monoidal natural transformation}
+    between $F$ and $F'$ is a natural transformation $\tau:F\to F'$ such that the following diagrams are commutative for any objects $X,Y$:
+    $$\xymatrix @C=30pt{
+    FX\ox FY\ar[r]^{\mu_{XY}}\ar[d]_{\tau_X\ox\tau_Y}&F(X\ox Y)\ar[d]^{\tau_{X\ox Y}}\\
+    F'X\ox F'Y\ar[r]^{\mu'_{XY}}&F'(X\ox Y)
+    }\qquad\xymatrix @C=0pt{
+    FS\ar[dr]_{\tau_S}\ar[rr]^{\alpha_S}&&S\\
+    &F'S\ar[ur]_{\alpha'_S}
+    }$$ 
+}
+
+\lem{
+    Monoidal categories, monoidal functors and monoidal natural transformations form a 2-category, which we denote $\catt{Mon}$.
+}
+
+\defn{
+    Suppose $\catC$ is a category. A \term{symmetric monoidal structure} on $\catC$ is a monoidal structure $\ox$ together with a natural isomorphism 
+    $T_{XY}:X\ox Y\to Y\ox X$, such that the following diagrams are commutative for any objects $X,Y,Z$:
+    $$\xymatrix @C=40pt{
+    (X\ox Y)\ox Z\ar[r]^{T_{XY}\ox\1_Z}\ar[d]_{a_{XYZ}}&(Y\ox X)\ox Z\ar[r]^{a_{YXZ}}&Y\ox(X\ox Z)\ar[d]^{\1_Y\ox T_{XZ}}\\
+    X\ox(Y\ox Z)\ar[r]^{T_{X(Y\ox Z)}}&(Y\ox Z)\ox X\ar[r]^{a_{YZX}}&Y\ox(Z\ox X)
+    }$$ 
+    $$\xymatrix{
+    X\ox Y\ar@/^/[d]^{T_{XY}}\\
+    Y\ox X\ar@/^/[u]^{T_{YX}}
+    }\qquad\xymatrix{
+    S\ox S\ar@/^/[d]^{T_{SS}}\ar@/_/_{\1}[d]\\S\ox S
+    }\qquad\xymatrix @C=5pt{
+    X\ox S\ar[rr]^{r_X}\ar[dr]_{T_{XS}}&&X\\
+    &S\ox X\ar[ur]_{T_{SX}}
+    }$$ 
+    A category together with a symmetric monoidal structure is called a \term{symmetric monoidal category}.
+}
+
+\defn{
+    Suppose $\catC,\catD$ are symmetric monoidal categories. A \term{symmetric monoidal functor} between $\catC$ and $\catD$ is a monoidal functor
+    $F:\catC\to\catD$, such that the following diagram is commutative for any objects $X,Y$:
+    $$\xymatrix @C=30pt{
+    FX\ox FY\ar[d]_{T_{(FX)(FY)}}\ar[r]^{\mu_{XY}}&F(X\ox Y)\ar[d]^{FT_{XY}}\\
+    FY\ox FX\ar[r]^{\mu_{YX}}&F(Y\ox X)
+    }$$ 
+}
+
+\lem{
+    Symmetric monoidal categories, symmetric monoidal functors and monoidal natural transformations form a 2-category, which we denote $\catt{SymMon}$.
+    There is a forgetful 2-functor from $\catt{SymMon}$ to $\catt{Mon}$.
+}
+
+\defn{
+    Suppose $\catC$ is a monoidal category. A \term{(right) $\catC$-module structure} on a category $\catD$ is a triple $(\ox,a,r)$, 
+    where $\ox:\catD\times\catC\to\catD$ is a functor, $a_{XKL}:(X\ox K)\ox L\to X\ox(K\ox L)$, $r_X:X\ox S\to X$ are natural isomorphisms, 
+    such that the following diagrams are commutative for any $X\in\catD,K,L,M\in\catC$:
+    $$\xymatrix @C=60pt{
+    ((X\ox K)\ox L)\ox M\ar[d]_{a_{(X\ox K)LM}}\ar[r]^{a_{XKL}\ox\1_M}&(X\ox(K\ox L))\ox M\ar[dd]^{a_{X(K\ox L)M}}\\
+    (X\ox K)\ox(L\ox M)\ar[d]_{a_{XK(L\ox M)}}\\
+    X\ox(K\ox(L\ox M))&X\ox((K\ox L)\ox M)\ar[l]_{\1_X\ox a_{KLM}}
+    }$$
+    $$\xymatrix @C=5pt{
+    (X\ox S)\ox K\ar[dr]_{r_X\ox\1_K}\ar[rr]^{a_{XSK}}&&X\ox(S\ox K)\ar[dl]^{\1_X\ox l_K}\\
+    &X\ox K
+    }$$
+    $$\xymatrix @C=5pt{
+    (X\ox K)\ox S\ar[dr]_{r_{X\ox K}}\ar[rr]^{a_{XKS}}&&X\ox(K\ox S)\ar[dl]^{\1_X\ox r_K}\\
+    &X\ox K
+    }$$
+    A category together with a $\catC$-module structure is called a \term{(right) $\catC$-module}.
+}
+
+\defn{
+    Suppose $\catD,\catE$ are $\catC$-modules. A \term{(right) $\catC$-module functor} between $\catD$ and $\catE$ is a pair $(F,\mu)$, 
+    where $F:\catD\to\catE$ is a functor, $\mu_{XK}:FX\ox K\to F(X\ox K)$ is a natural isomorphism, such that the following diagrams 
+    are commutative for any objects $X\in\catD,K,L\in\catC$:
+    $$\xymatrix @C=50pt{
+    (FX\ox K)\ox L\ar[d]_{a_{(FX)KL}}\ar[r]^{\mu_{XK}\ox\1_L}&F(X\ox K)\ox L\ar[dd]^{\mu_{(X\ox K)L}}\\
+    FX\ox(K\ox L)\ar[d]_{\mu_{X(K\ox L)}}\\
+    F(X\ox(K\ox L))&F((X\ox K)\ox L)\ar[l]_{F(a_{XKL})}
+    }$$
+    $$\xymatrix @C=5pt{
+    FX\ox S\ar[dr]_{r_{FX}}\ar[rr]^{\mu_{XS}}&&F(X\ox S)\ar[dl]^{Fr_X}\\
+    &X\ox S
+    }$$
+}
+
+\defn{
+    Suppose $\catD,\catE$ are $\catC$-modules and $F,F'$ are $\catC$-module functors between $\catD$ and $\catE$. A \term{(right) $\catC$-module 
+    natural transformation} between $F$ and $F'$ is a natural transformation $\tau:F\to F'$ such that the following diagram is commutative 
+    for any objects $X\in\catD,K\in\catC$:
+    $$\xymatrix @C=30pt{
+    FX\ox K\ar[d]_{\tau_X\ox\1_K}\ar[r]^{\mu_{XK}}&F(X\ox K)\ar[d]^{\tau_{X\ox K}}\\
+    F'X\ox K\ar[r]^{\mu'_{XK}}&F'(X\ox K)
+    }$$ 
+}
+
+\lem{
+    $\catC$-modules, $\catC$-module functors and $\catC$-module natural transformations form a 2-category, which we denote $\catt{Mod}_\catC$. 
+    A monoidal functor between two monoidal categories $\catC$ and $\catD$ induces a forgetful 2-functor from $\catt{Mod}_\catD$ to $\catt{Mod}_\catC$.
+}
+
+\defn{
+    Suppose $\catC$ is a monoidal category. A \term{$\catC$-algebra structure} on a category $\catD$ is a monoidal structure on $\catD$ 
+    together with a monoidal functor $i:\catC\to\catD$. A category together with a $\catC$-algebra structure is called a \term{$\catC$-algebra}.
+}
+
+\defn{
+    Suppose $\catD,\catE$ are $\catC$-algebras. A \term{$\catC$-algebra functor} between $\catD$ and $\catE$ is a monoidal functor $F:\catD\to\catE$
+    together with a monoidal natural transformation $\rho:F\circ i_\catD\to i_\catE$.
+}
+
+\defn{
+    Suppose $\catD,\catE$ are $\catC$-algebras and $F,F'$ are $\catC$-algebra functors between $\catD$ and $\catE$. A \term{$\catC$-algebra 
+    natural transformation} between $F$ and $F'$ is a monoidal natural transformation $\tau:F\to F'$ such that the following diagram is commutative
+    for any object $K\in\catC$:
+    $$\xymatrix @C=5pt{
+    F(i(K))\ar[dr]_{\rho_K}\ar[rr]^{\tau_{i(K)}}&&F'(i(K))\ar[dl]^{\rho'_K}\\
+    &i(K)
+    }$$ 
+}
+
+\lem{
+    $\catC$-algebras, $\catC$-algebra functors and $\catC$-algebra natural transformations form a 2-category, which we denote $\catt{Alg}_\catC$. 
+    A monoidal functor between two monoidal categories $\catC$ and $\catD$ induces a forgetful 2-functor from $\catt{Alg}_\catD$ to $\catt{Alg}_\catC$.
+}
+
+\prop{
+    For any monoidal category $\catC$, we have a forgetful 2-functor from $\catt{Alg}_\catC$ to $\catt{Module}_\catC$, where the $\ox$-structure 
+    is given by $X\ox K=X\ox iK$ for any object $X$ in some $\catC$-algebra.
+}
+
+\defn{
+    Suppose $\catC$ is a symmetric monoidal category. A \term{summetric $\catC$-algebra structure} on a category $\catD$ 
+    is a symmetric monoidal structure on $\catD$ together with a symmetric monoidal functor $i:\catC\to\catD$. A category 
+    together with a symmetric $\catC$-algebra structure is called a \term{symmetric $\catC$-algebra}.
+}
+
+\defn{
+    Suppose $\catD,\catE$ are symmetric $\catC$-algebras. A \term{symmetric $\catC$-algebra functor} between $\catD$ and $\catE$ 
+    is a $\catC$-algebra functor $F:\catD\to\catE$ that is also a symmetric monoidal functor.
+}
+
+\lem{
+    Symmetric $\catC$-algebras, symmetric $\catC$-algebra functors and $\catC$-algebra natural transformations form a 2-category, 
+    which we denote $\catt{SymAlg}_\catC$. There is a forgetful 2-functor from $\catt{SymAlg}_\catC$ to $\catt{Alg}_\catC$ 
+    for any monoidal category $\catC$. A monoidal functor between two monoidal categories $\catC$ and $\catD$
+    induces a forgetful 2-functor from $\catt{SymAlg}_\catD$ to $\catt{SymAlg}_\catC$.
+}
+
+\defn{
+    Suppose $\catC,\catD,\catE$ are categories. An \term{adjunction of 2 variables} from $\catC\times\catD$ to $\catE$ 
+    is a quintuple $(\ox,\sHom_l,\sHom_r,\vp_l,\vp_r)$, where $$\ox:\catC\times\catD\to\catE,\sHom_l:\catC^\op\times\catE\to\catD,
+    \sHom_r:\catD^\op\times\catE\to\catC$$ are functors, $$\begin{aligned}(\vp_l)_{CDE}&:\Hom_\catE(C\ox D,E)\to\Hom_\catD(D,\sHom_l(C,E))
+    \\(\vp_r)_{CDE}&:\Hom_\catE(C\ox D,E)\to\Hom_\catC(C,\sHom_r(D,E))\end{aligned}$$ are natural isomorphisms.
+}
+
+\defn{
+    Suppose $\star$ is one of the structures given above. $\star$ is called \term{closed} if all the structure bifunctors are adjunctions of 2 variables,
+    and all the structure functors are left adjoints.
+}
+
+\defn{
+    If $\catC$ is a closed monoidal category and $\catD$ is a closed $\catC$-module, then we denote $X^K$ to be $\sHom_r(K,X)$ for $X\in\catD,K\in\catC$,
+    and $\sHom(X,Y)$ to be $\sHom_l(X,Y)$ for $X,Y\in\catD$.
+}
+
+\lem{
+    For any 2-category given above, all such categories with closed such structures, all such functors with closed such structures 
+    and all such natural transformations with closed such structures form a 2-category. We denote such 2-category by adding a $\catt{Clo}$ 
+    before the original one.
+}
+
+\prop{
+    If $\catC$ is a closed symmetric monoidal category, then there is a duality 2-functor $-^\op$ on $\catt{CloMod}_\catC$, 
+    which maps a closed $\catC$-module $$(\catD,\ox,\sHom_l,\sHom_r,a,r)$$ to $$(\catD^\op,\ox^\op,\sHom_l^\op,\sHom_r^\op,a^\op,r^\op), $$
+    where $X\ox^\op K=\sHom_r(K,X)$, $\sHom_l^\op(X,Y)=\sHom_l(Y,X)$, $\sHom_r^\op(K,X)=X\ox K$, $a^\op$ is defined by the natural isomorphism
+    $$
+    \begin{aligned}
+         &\Hom_\catD(Y,\sHom_r(L,\sHom_r(K,X)))\\
+    \cong&\Hom_\catD(Y\ox L,\sHom_r(K,X))\\
+    \cong&\Hom_\catD((Y\ox L)\ox K,X)\\
+    \cong&\Hom_\catD(Y\ox(L\ox K),X)\\
+    \cong&\Hom_\catD(Y\ox(K\ox L),X)\\
+    \cong&\Hom_\catD(Y,\sHom_r(K\ox L,X)),
+    \end{aligned} 
+    $$
+    $r^\op$ is defined by the natural isomorphism $$\Hom_\catD(Y,\sHom_r(S,X))\cong\Hom_\catD(Y\ox S,X)\cong\Hom_\catD(Y,X);$$ 
+    and maps a closed $\catC$-module functor $(F,G,\mu)$ to $(G,F,\mu^\op)$, where $\mu^\op$ is defined by the natural isomorphism
+    $$
+    \begin{aligned}
+         &\Hom_\catD(X,\sHom_r(K,GY))\\
+    \cong&\Hom_\catD(X\ox K,GY)\\
+    \cong&\Hom_\catE(F(X\ox K),Y)\\
+    \cong&\Hom_\catE(FX\ox K,Y)\\
+    \cong&\Hom_\catE(FX,\sHom_r(K,Y))\\
+    \cong&\Hom_\catD(X,G\sHom_r(K,Y));
+    \end{aligned} 
+    $$
+    and maps a closed $\catC$-module natural transformation $\tau$ to $\tau^\op$. Moreover $(-^\op)^2=\1$.
+}

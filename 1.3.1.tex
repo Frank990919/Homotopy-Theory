@@ -1,0 +1,179 @@
+\defn{
+    Define the \term{simplicial category} $\d$ to be the category with objects $\{[n]:=\{0,1,\dots,n\}\mid n\in\mathbb{N}\}$
+    and $$\Hom_\d([k],[n]):=\{f:[k]\to[n]|\forall 0\le x\le y\le k,f(x)\le f(y)\}.$$
+}
+
+\defn{
+    Define $\d_+$ to be the subcategory of $\d$ with $$\Hom_{\d_+}([k],[n]):=\{f\in\Hom_\d([k],[n])\mid f\text{ injective}\}.$$
+    Define $\d_-$ to be the subcategory of $\d$ with $$\Hom_{\d_-}([k],[n]):=\{f\in\Hom_\d([k],[n])\mid f\text{ surjective}\}.$$
+}
+
+\defn{
+    For any $n\ge 1,0\le i\le n$, define $$d^i:[n-1]\to[n],d^i(j)=\left\{\begin{array}{cc}j&(j<i)\\j+1&(j\ge i)\end{array}\right.;$$
+    For any $n\ge 1,0\le i\le n-1$, define $$s^i:[n]\to[n-1],s^i(j)=\left\{\begin{array}{cc}j&(j\le i)\\j-1&(j>i)\end{array}\right..$$
+}
+
+\lem{
+    We have the \term{cosimplicial identities}:
+    $$
+    \begin{aligned}
+    d^jd^i&=d^id^{j-1}&(i<j),\\
+    s^jd^i&=d^is^{j-1}&(i<j),\\
+          &=        \1&(i=j,j+1),\\
+          &=d^{i-1}s^j&(i>j+1),\\
+    s^js^i&=s^{i-1}s^j&(i>j).
+    \end{aligned}$$
+}
+
+\defn{
+    If $\catC$ is a category, define the category of \term{cosimplicial objects of $\catC$} to be $\catC^\d$, and the category of
+    \term{simplicial objects of $\catC$} to be $\catC^{\d^\op}$.
+}
+
+\defn{
+    Define the category of \term{simplicial sets} to be $\cat{SSet}:=\cat{Set}^{\d^\op}$.
+}
+
+\defn{
+    If $K$ is a simplicial set, denote the set of \term{$n$-simplices} to be $K_n:=K[n]$. For any $n\ge 1,0\le i\le n$, define the \term{face maps}
+    to be $d_i:=K(d^i):K_n\to K_{n-1}$. For any $n\ge 1,0\le i\le n-1$, define the \term{degeneracy maps} to be $s_i:=K(s^i):K_{n-1}\to K_n$.
+}
+
+\lem{
+    For any simplicial set we have the \term{simplicial identities}:
+    $$
+    \begin{aligned}
+    d_id_j&=d_{j-1}d_i&(i<j),\\
+    d_is_j&=s_{j-1}d_i&(i<j),\\
+          &=\1        &(i=j,j+1),\\
+          &=s_jd_{i-1}&(i>j+1),\\
+    s_is_j&=s_js_{i-1}&(i>j);
+    \end{aligned}$$
+    Conversely, any maps satisfying the simplicial identities determine a simplicial set.
+}
+
+\defn{
+    Suppose $x,y$ are simplices in a simplicial set $K$. $y$ is called a \term{face} of $x$ if $y$ is the image of $x$ under a composition
+    of some face maps, $y$ is called a \term{degeneracy} of $x$ if $y$ is the image of $x$ under a composition of some degeneracy maps.
+    $x$ is called \term{nondegenerate} if $x$ is a degeneracy only of $x$.
+    $K$ is called \term{finite} if the number of nondegenerate elements is finite.
+}
+
+\lem{
+    If $K\in\cat{SSet}$, then $\forall x\in K$, $\exists! y\in K$, such that $x$ is a degeneracy of $y$.
+}
+
+\lem{
+    Every simplicial set is small. Every finite simplicial set is finite.
+}
+
+\defn{
+    We may define the functor $\d[-]:\d\to\cat{SSet}$, $[n]\mapsto\Hom_\d(-,[n])$, and we call $\d[n]$
+    the \term{standard $n$-dimensional simplicial set}. We denote $i_n=\1_{[n]}\in\d[n]_n$.
+}
+
+\rmk{
+    The above definition generalizes to the functor $\d[-]:\cat{POSet}\to\cat{SSet}$, $P\mapsto\Hom_{\cat{POSet}}(-,P)$,
+    via the inclusion $\d\to\cat{POSet}$.
+}
+
+\lem{
+    All nondegenerate $k$-simplicies of $\d[n]$ are elements in $\Hom_{\d_+}([k],[n])$. In particular, $i_n$ is the only nondegenerate
+    $n$-simplex of $\d[n]$.
+}
+
+\lem{
+    We have a natural isomorphism between the functors $$\Hom_{\cat{SSet}}(\d[n],-)\cong -_n,f\mapsto f(i_n):\cat{SSet}\to\cat{Set}.$$
+}
+
+\defn{
+    We define the \term{boundary} of $\d[n]$, $\p\d[n]$ to be the simplicial set obtained from $\d[n]$
+    by removing all degeneracies of $i_n$.
+}
+
+\defn{
+    We define the \term{$r$-horn} of $\d[n]$, $\l^r[n]$ to be the simplicial set obtained from $\p\d[n]$
+    by removing all degeneracies of $d^r\in\p\d[n]_{n-1}$.
+}
+
+\defn{
+    There is a functor $\d:\cat{SSet}\to\cat{Cat}$ with
+    $$
+    \begin{aligned}
+    K\mapsto&\9\begin{array}{c}\textrm{Objects: }\{\d[n]\to K\}\\\Hom_{\d K}({(f:\d[k]\to K)},{(g:\d[n]\to K)})\hspace{2em}\\
+    \hspace{2em}=\{h\in\Hom_\d([k],[n])|g\circ \d[-](h)=f\}\end{array}\0,\\
+    (a:K\to L)\mapsto&\9(f:\d[n]\to K)\mapsto a\circ f\0.
+    \end{aligned} 
+    $$ 
+    For any simplicial set $K$, denote $\d K$ the \term{category of simplices} in $K$.
+}
+
+\lem{
+    We have $$\colim\9\begin{array}{c}\d K\to\cat{SSet}\\(f:\d[n]\to K)\mapsto\d[n]\end{array}\0=K.$$
+}
+
+\defn{
+    There is a functor $\d':\cat{SSet}\to\cat{Cat}$ with
+    $$
+    \begin{aligned}
+    K\mapsto&\9\begin{array}{c}\textrm{Objects: }\{f:\d[n]\to K|f(i_n)\textrm{ nondegenerate}\}\\
+    \Hom_{\d' K}({(f:\d[k]\to K)},{(g:\d[n]\to K)})\hspace{2em}\\\hspace{2em}=\{h\in\Hom_{\d_+}([k],[n])|g\circ \d[-](h)=f\}\end{array}\0,\\
+    (a:K\to L)\mapsto&\9(f:\d[n]\to K)\mapsto a\circ f\0.
+    \end{aligned} 
+    $$ 
+    For any simplicial set $K$, denote $\d'K$ the \term{category of nondegenerate simplices} in $K$.
+}
+
+\lem{\label{taga}
+    If $K$ is \term{regular}, which means for any nondegenerate $n$-simplex the map $\d[n]\to K$ induced by the $n$-simplex is injective,
+    then we have $$\colim\9\begin{array}{c}\d'K\to\cat{SSet}\\(f:\d[n]\to K)\mapsto\d[n]\end{array}\0=K.$$
+}
+
+\rmk{
+    If $K$ is not regular then Lemma \ref{taga} may not be true. A counterexample is $\d[2]/\p\d[2]$.
+}
+
+\prop{\label{tagb}
+    If $\catC$ is a category with all small colimits,
+    then the functor $\Adj(\cat{SSet},\catC)\to\catC^\d$ with $(F,G,\vp)\mapsto F\circ\d[-]$ is an equivalence between categories
+    with inverse being $A^\bullet\mapsto\9A^\bullet\otimes-,\Hom_\catC(A^\bullet,-),\vp\0$,
+    where $$A^\bullet\otimes K=\colim\9\begin{array}{c}\d K\to\catC\\(f:\d[n]\to K)\mapsto A^n\end{array}\0$$
+    and $$\Hom_\catC(A^\bullet,Y)_n=\Hom_\catC(A^n,Y).$$
+}
+
+\prop{\label{tage}
+    If $\catC$ is a category with all small limits, then the category $\Adj(\cat{SSet},\catC^\op)^\op$ is naturally equivalent to $\catC^{\d^\op}$.
+    We denote the image of $A_\bullet\in\catC^{\d^\op}$ under the equivalence to be $\9A_\bullet^-,\Hom_\catC(-,A_\bullet),\vp\0$.
+}
+
+\cor{\label{tagg}
+    If $\catC$ is a pointed category with all small colimits, then the category $\Adj(\cat{SSet}_*,\catC)$ is naturally equivalent to $\catC^\d$.
+    We denote the image of $A^\bullet\in\catC^\d$ under the equivalence to be $\9A^\bullet\land-,\Hom_{\catC*}(A^\bullet,-),\vp\0$.
+    Furthermore we have a natural isomorphism $A^\bullet\land(-_+)\cong A^\bullet\otimes-$. Dually the category $\Adj(\cat{SSet}_*,\catC^\op)^\op$
+    is naturally equivalent to $\catC^{\d^\op}$. We denote the image of $A_\bullet\in\catC^{\d^\op}$ under the equivalence to be 
+    $\9A_{\bullet*}^-,\Hom_{\catC*}(-,A_\bullet),\vp\0$. Furthermore we have a natural isomorphism $A_{\bullet*}^{-_+}\cong A_\bullet^-$.
+}
+
+\eg{
+    By Proposition \ref{tagb} the functor $\cat{SSet}\to\cat{SSet}^\d$, $K\mapsto K\times\d[-]$ corresponds to a functor 
+    $\cat{SSet}\to\Adj(\cat{SSet},\cat{SSet})$ which we denote by $K\mapsto\9K\times-,-^K,\vp\0$, where $(L^K)_n=\Hom_{\cat{SSet}}(K\times\d[n],L)$.
+    The left adjoint is exactly the product in $\cat{SSet}$. We call $-^-$ the \term{function complex functor}.
+}
+
+\eg{
+    By Proposition \ref{tagb} the element $$\9[n]\mapsto\{(t_0,\dots,t_n)|t_i\ge 0,t_0+\cdots+t_n=1\}\0\in\cat{Top}^\d(\cat{K}^\d)$$
+    corresponds to an element in $\Adj(\cat{SSet},\cat{Top}(\cat{K}))$. We denote the adjunction by $\9\abs-,\Sing,\vp\0$ 
+    and call $\abs-$ the \term{geometric realization} and $\Sing$ the \term{singular functor}.
+}
+
+\lem{
+    $\abs{\d[n]}=D^n,\abs{\p\d[n]}=S^{n-1},\abs{\l^r[n]}=D^{n-1}$.
+}
+
+\prop{
+    As a functor $\cat{SSet}\to\cat{K}$, $\abs-$ preserves finite products.
+}
+
+\rmk{
+    As a functor $\cat{SSet}\to\cat{Top}$ $\abs-$ need not preserve finite products. This is because the product need not preserve colimits.
+}

@@ -1,0 +1,219 @@
+\defn{
+    Suppose $\catB$ is a small category, and $\lambda$ is an ordinal. A functor $f:\catB\to\lambda$ is called a \term{linear extension} if the image
+    of a nonidentity map is nonidentity. If so define $f(i)$ to be the \term{degree} of $i$ for any object $i\in\catB$. If such linear extension exists
+    we call $\catB$ a \term{direct category}. If $\catB^\op$ is a direct category we call $\catB$ an \term{inverse category}.
+}
+
+\defn{
+    Suppose $\catC$ is a category with all small colimits, $\catB$ is a direct category, $i\in\catB$. Define the \term{latching space functor} 
+    $L_i:\catC^{\catB}\to\catC$ as the composition $$\catC^\catB\to\catC^{\catB_i}\xrightarrow{\colim}\catC,$$ where $\catB_i$ is defined 
+    to be the category of all nonidentity maps in $\catB$ with codomain $i$. Dually, suppose $\catC$ is a category with all small limits, 
+    $\catB$ is an inverse category, $i\in\catB$. Define the \term{matching space functor} $M_i:\catC^{\catB}\to\catC$ as the composition
+    $$\catC^\catB\to\catC^{\catB^i}\xrightarrow{\lim}\catC,$$ where $\catB^i$ is defined to be the category of all nonidentity maps 
+    in $\catB$ with domain $i$.
+}
+
+\lem{
+    If $\catC$ is a category with all small colimits, $\catB$ is a direct category, $i\in\catB$, then there exists a natural transformation 
+    $L_i\to-_i:=-(i)$; Dually if $\catC$ is a category with all small limits, $\catB$ is an inverse category, $i\in\catB$, then there exists 
+    a natural transformation $-_i\to M_i$.
+}
+
+\prop{
+    Suppose $\catC$ is a model category, $\catB$ is a direct category, and we have a commutative diagram in $\catC^\catB$:
+    $$\xymatrix{
+    A\ar[r]\ar[d]_f&X\ar[d]^p\\
+    B\ar[r]&Y
+    }$$
+    such that $p_i:X_i\to Y_i$ is a fibration for any $i\in\catB$, $g_i:A_i\amalg_{L_iA}L_iB\to B_i$ is a cofibration for any $i\in\catB$. 
+    If $f_i$ is a trivial fibration for any $i$ or $g_i$ is a trivial cofibration for any $i$, then the above diagram has a lift.
+}
+
+\cor{
+    Suppose $\catC$ is a model category, $\catB$ is a direct category, $f:A\to B\in\catC^\catB$. If the map $g_i:A_i\amalg_{L_iA}L_iB\to B_i$ 
+    is a (trivial) cofibration for any $i\in\catB$, then $\colim f:\colim A\to\colim B$ is a (trivial) cofibration.
+}
+
+\thm{
+    Suppose $\catC$ is a model category, $\catB$ is a direct category. Then there exists a model structure on $\catC^\catB$ where a map 
+    is a weak equivalence if and only if it is a degreewise weak equivalence; a map is a fibration if and only if it is a degreewise fibration; 
+    a map $f:A\to B$ is a (trivial) cofibration if and only if $g_i:A_i\amalg_{L_iA}L_iB\to B_i$ is a (trivial) cofibration for any $i\in\catB$.
+    Dually suppose $\catC$ is a model category, $\catB$ is an inverse category. Then there exists a model structure on $\catC^\catB$ where a map
+    is a weak equivalence if and only if it is a degreewise weak equivalence; a map is a cofibration if and only if it is a degreewise cofibration;
+    a map $p:X\to Y$ is a (trivial) fibration if and only if $q_i:X_i\to Y_i\times_{M_iY}M_iX$ is a (trivial) fibration for any $i\in\catB$.
+}
+
+\cor{
+    Suppose $\catC$ is a model category, $\catB$ is a direct category. Then the colimit functor $\colim:\catC^\catB\to\catC$ is a left Quillen functor,
+    left adjoint to the constant diagram functor. Dually suppose $\catC$ is a model category, $\catB$ is an inverse category. Then the limit functor
+    $\lim:\catC^\catB\to\catC$ is a right Quillen functor, right adjoint to the constant diagram functor.
+}
+
+\cor{
+    Suppose $\catC$ is a model category, $\catB$ is a direct category. If $f:A\to B$ is a (trivial) cofibration in $\catC^\catB$, 
+    then for any $i\in\catB$, $f_i$ is a (trivial) cofibration. Dually suppose $\catC$ is a model category, $\catB$ is an inverse category. 
+    If $p:X\to Y$ is a (trivial) fibration in $\catC^\catB$, then for any $i\in\catB$, $p_i$ is a (trivial) fibration.
+}
+
+\rmk{
+    Suppose $\catC$ is a cofibrantly generated model category with generating cofibrations $I$ and generating trivial cofibrations $J$, 
+    and $\catB$ is a direct category. Then $\catC^\catB$ is a cofibrantly generated model category with generating cofibrations 
+    $\bigcup_{i\in\catB}F_iI$ and generating trivial cofibrations $\bigcup_{i\in\catB}F_iJ$, where $F_i$ is constructed to be a left adjoint of $-_i$.
+}
+
+\defn{
+    Suppose $\catB$ is a small category. $\catB$ is called a \term{Reedy category} if there exists subcategories $\catB_+,\catB_-$ 
+    and a \term{degree function} $d:\mathrm{Obj}(\catB)\to\lambda$ where $\lambda$ is some ordinal, such that all nonidentity morphisms 
+    in $\catB_+$ raise degrees, all nonidentity morphisms in $\catB_-$ lower degrees, and for every map $f\in\catB$, there exists unique maps
+    $g\in\catB_-,h\in\catB_+$, such that $f=hg$. (In particular, $\catB_+$ is a direct category and $\catB_-$ is an inverse category.)
+}
+
+\eg{
+    $\d,\d^\op$ are Reedy categories. For any simplicial set $K$, $\d K$ is a Reedy category.
+}
+
+\lem{
+    If $\catB$ is a Reedy category, then $\catB^\op$ is a Reedy category, where $(\catB^\op)_+=(\catB_-)^\op$ and $(\catB^\op)_-=(\catB_+)^\op$.
+}
+
+\defn{
+    Suppose $\catC$ is a category with all small colimits and limits, $\catB$ is a Reedy category, $i\in\catB$. Define the \term{latching space functor}
+    $L_i:\catC^{\catB}\to\catC$ as the composition $$\catC^\catB\to\catC^{\catB_+}\xrightarrow{L_i}\catC,$$ and the \term{matching space functor} 
+    $M_i:\catC^{\catB}\to\catC$ as the composition $$\catC^\catB\to\catC^{\catB_-}\xrightarrow{M_i}\catC.$$
+}
+
+\lem{
+    If $\catC$ is a category with all small colimits and limits, $\catB$ is a Reedy category, $i\in\catB$, then there exists natural transformations 
+    $L_i\to-_i,-_i\to M_i$.
+}
+
+\eg{
+    Suppose $\catC$ is a category with all small colimits and limits. Then for any $A\in\catC^\d$, $L_1A=A[0]\amalg A[0]$, $M_1A=A[0]$; 
+    for any $A\in\catC^{\d^\op}$, $L_1A=A[0]$, $M_1A=A[0]\times A[0]$.
+}
+
+\lem{
+    Suppose $\catC$ is a category with all small colimits and limits, $\catB$ is a Reedy category, define $\catB_{\beta}$ to be the full subcategory
+    of $\catB$ of all objects with degree less than $\beta$ for an ordinal $\beta$. Then given a functor $X:\catB_\beta\to\catC$, an extension of $X$ 
+    to $X':\catB_{\beta+1}\to\catC$ is equivalent to a choice of factorizations of maps $L_iX\to M_iX$ for all $i$'s with degree $\beta$; 
+    given a natural transformation $\tau$ between two functors $X,Y:\catB_\beta\to\catC$ and extensions of $X,Y$ to $X',Y':\catB_{\beta+1}\to\catC$, 
+    an extension of $\tau$ to $\tau':X'\to Y'$ is equivalent to a choice of maps $X'_i\to Y'_i$ making the following diagram commutative:
+    $$\xymatrix{
+    L_iX\ar[r]\ar[d]_{L_i\tau}&X'_i\ar[d]\ar[r]&M_iX\ar[d]^{M_i\tau}\\
+    L_iY\ar[r]&Y'_i\ar[r]&M_iY    
+    }$$
+    for all $i$'s with degree $\beta$.
+}
+
+\prop{
+    Suppose $\catC$ is a category with all small colimits and limits. Then there exists functors $l^\bullet,r^\bullet:\catC\to\catC^\d$ 
+    such that $l^\bullet(-)[0]=r^\bullet(-)[0]=\1$, $L_{[n]}l^\bullet=l^\bullet(-)[n]$, $M_{[n]}r^\bullet=r^\bullet(-)[n]$. Moreover we have 
+    $(l^\bullet,-[0])$, $(-[0],r^\bullet)$ are adjoint pairs, and for any $A\in\catC$, $l^\bullet A[n]=\amalg_{n+1}A$, $r^\bullet A[n]=A$. 
+    Furthermore, $(l^\bullet,-[0])$, $(-[0],r^\bullet)$ are Quillen adjunctions. Dually there exists functors $l_\bullet,r_\bullet:\catC\to\catC^{\d^\op}$
+    such that $l_\bullet(-)[0]=r_\bullet(-)[0]=\1$, $L_{[n]}l_\bullet=l_\bullet(-)[n]$, $M_{[n]}r_\bullet=r_\bullet(-)[n]$. Moreover we have 
+    $(l_\bullet,-[0])$, $(-[0],r_\bullet)$ are adjoint pairs, and for any $A\in\catC$, $l^\bullet A[n]=A$, $r^\bullet A[n]=\Pi_{n+1}A$. Furthermore,
+    $(l_\bullet,-[0])$, $(-[0],r_\bullet)$ are Quillen adjunctions.
+}
+
+\thm{
+    Suppose $\catC$ is a model category, $\catB$ is a Reedy category. Then there exists a model structure on $\catC^\catB$ where a map 
+    is a weak equivalence if and only if it is a degreewise weak equivalence; a map $f:A\to B$ is a (trivial) cofibration if and only if 
+    $g_i:A_i\amalg_{L_iA}L_iB\to B_i$ is a (trivial) cofibration for any $i\in\catB$; a map $p:X\to Y$ is a (trivial) fibration if and only if 
+    $q_i:X_i\to Y_i\times_{M_iY}M_iX$ is a (trivial) fibration for any $i\in\catB$. Such model structure is called the \term{Reedy model structure}.
+}
+
+\prop{
+    If $\catC$ is a model category, $\catB$ is a Reedy category, then the Reedy model structure on $\catC^{\catB^\op}$ is the same 
+    as the Reedy model structure on $(\catC^\op)^\catB$. Moreover if $\catB_1,\catB_2$ are Reedy categories, then the Reedy model structure 
+    on $(\catC^{\catB_2})^{\catB_1}$ is the same as the Reedy model structure on $(\catC^{\catB_1})^{\catB_2}$.
+}
+
+\rmk{
+    If $\catC$ is a model category, $\catB$ is a Reedy category, the colimit functor $\catC^\catB\to\catC$ need not be left Quillen, 
+    and the limit functor $\catC^\catB\to\catC$ need not be right Quillen.
+}
+
+\lem{[The Cube Lemma]
+    Suppose $\catC$ is a model category, $P_i,Q_i,R_i$ $(i=0,1)$ are cofibrant objects in $\catC$, $f_i:P_i\to Q_i,g_i:P_i\to R_i$ $(i=0,1)$ 
+    are morphisms in $\catC$, such that $f_0,f_1$ are cofibrations. Define $S_i=Q_i\amalg_{P_i}R_i$ $(i=0,1)$. Suppose more there are morphisms 
+    $p:P_0\to P_1,q:Q_0\to Q_1,r:R_0\to R_1$, which induce a morphism $s:S_0\to S_1$. If $p,q,r$ are weak equivalences, then $s$ is a weak equivalence; 
+    if $p,(f_1,q):P_1\amalg_{P_0}Q_0\to Q_1,r$ are cofibrations, then $s$ is a cofibration.
+} 
+
+\defn{
+    Suppose $\catC$ is a model category, $A,B$ are objects in $\catC$.
+    \begin{enumerate}[i)]
+    \item A \term{cosimplicial frame} on $A$ is a factorization $l^\bullet A\to A^*\to r^\bullet A$ in the category $\catC^\d$, such that 
+    the map $l^\bullet A\to A^*$ is a cofibration, the map $A^*\to r^\bullet A$ is a weak equivalence, and the factorization restricts to identity 
+    on degree 0. Dually, a \term{simplicial frame} on $A$ is a factorization $l_\bullet A\to A_*\to r_\bullet A$ in the category $\catC^{\d^\op}$, 
+    such that the map $l_\bullet A\to A_*$ is a weak equivalence, the map $A_*\to r_\bullet A$ is a fibration, and the factorization 
+    restricts to identity on degree 0.
+    \item Suppose $A^*,B^*$ are cosimplicial frames on $A,B$, respectively. A \term{map of cosimplicial frames} between $A^*,B^*$ 
+    is simply a morphism $A^*\to B^*$ in the category $\catC^\d$. Given a map $f:A\to B$, a \term{map of cosimplicial frames over $f$} 
+    (or $A$, if $f$ is the identity map on $A$) is a morphism $A^*\to B^*$ in the category $\catC^\d$ making the following diagram commutative:
+    $$\xymatrix{
+    l^\bullet A\ar[r]\ar[d]_{l^\bullet f}&A^*\ar[r]\ar[d]&r^\bullet A\ar[d]^{r^\bullet f}\\
+    l^\bullet B\ar[r]&B^*\ar[r]&r^\bullet B
+    }$$
+    Dually, suppose $A_*,B_*$ are simplicial frames on $A,B$, respectively. A \term{map of simplicial frames} between $A_*,B_*$ is simply 
+    a morphism $A_*\to B_*$ in the category $\catC^{\d^\op}$. Given a map $f:A\to B$, a \term{map of simplicial frames over $f$} 
+    (or $A$, if $f$ is the identity map on $A$) is a morphism $A_*\to B_*$ in the category $\catC^{\d^\op}$ making the following diagram commutative:
+    $$\xymatrix{
+    l_\bullet A\ar[r]\ar[d]_{l_\bullet f}&A_*\ar[r]\ar[d]&r_\bullet A\ar[d]^{r_\bullet f}\\
+    l_\bullet B\ar[r]&B_*\ar[r]&r_\bullet B
+    }$$
+    \item A \term{left framing} on $\catC$ is a functor $-^*:\catC\to\catC^\d$, such that $-^*[0]$ is naturally isomorphic to the identity functor 
+    on $\catC$, and $A^*$ is a cosimplicial frame on $A$ whenever $A$ is cofibrant. Dually, a \term{right framing} on $\catC$ is a functor 
+    $-_*:\catC\to\catC^{\d^\op}$, such that $-_*[0]$ is naturally isomorphic to the identity functor on $\catC$, and $A_*$ is a simplicial frame 
+    on $A$ whenever $A$ is fibrant.
+    \item A \term{framing} on $\catC$ is a left framing together with a right framing.
+    \end{enumerate} 
+}
+
+\lem{
+    Suppose $\catC$ is a model category, $A$ is an object in $\catC$. A cosimplicial frame on $A$ is precisely a cosimplicial object $A^*$ 
+    such that $A^*[0]$ is isomorphic to $A$, the induced map $L_nA^*\to A^*[n]$ is a cofibration for any positive $n$, and the induced map 
+    $A^*[n]\to A^*[0]$ is a weak equivalence for any $n$. Dually a simplicial frame on $A$ is precisely a simplicial object $A_*$ 
+    such that $A_*[0]$ is isomorphic to $A$, the induced map $A_*[0]\to A_*[n]$ is a weak equivalence for any $n$, and the induced map
+    $A_*[n]\to M_nA_*$ is a fibration for any positive $n$.
+}
+
+\lem{
+    Any cosimplicial frame of a cofibrant object is cofibrant, and any simplicial frame of a fibrant object is fibrant.
+}
+
+\lem{
+    Any left framing on $\catC$ is a right framing on $\catC^\op$, and any right framing on $\catC$ is a left framing on $\catC^\op$.
+}
+
+\thm{
+    Suppose $\catC$ is a model category. Define $-^\circ:\catC\to\catC^\d$ by induction, with $-^\circ[0]$ being the identity functor,
+    and $-^\circ[n]=c\circ\alpha(L_n-^\circ\to M_n-^\circ)$. Then for any $A\in\catC$, $A^\circ$ is a cosimplicial frame on $A$, 
+    thus $-^\circ$ is a left framing on $\catC$. Dually, define $-_\circ:\catC\to\catC^{\d^\op}$ by induction, with $-_\circ[0]$ 
+    being the identity functor, and $-_\circ[n]=d\circ\delta(L_n-_\circ\to M_n-_\circ)$. Then for any $A\in\catC$, 
+    $A_\circ$ is a simplicial frame on $A$, thus $-_\circ$ is a right framing on $\catC$.
+}
+
+\prop{
+    Suppose $\catC$ is a simplicial model category. Then $-\ox\d[-]:\catC\to\catC^\d$ is a left framing on $\catC$, 
+    and $-^{\d[-]}:\catC\to\catC^{\d^\op}$ is a right framing on $\catC$.
+}
+
+\rmk{
+    Suppose $\catC$ is a simplicial model category. If $A$ is not cofibrant, then $A\ox\d[-]$ may not be a cosimplicial frame on $A$. 
+    Dually if $A$ is not fibrant, then $A^{\d[-]}$ may not be a simplicial frame on $A$. Also, the functors $-\ox\d[-],-^\circ$ are usually not the same,
+    and the functors $-^{\d[-]},-_\circ$ are usually not the same.
+}
+
+\defn{
+    Suppose $\catC$ is a model category. By Proposition \ref{tagb}, $-^\circ$ induces functors $\catC\times\cat{SSet}\to\catC,(A,K)\mapsto A^\circ\ox K$,
+    and $\catC^\op\times\catC\to\cat{SSet},(A,Y)\mapsto\Hom_\catC(A^\circ,Y)$. We denote $A^\circ\ox K$ by $A\ox K$ (if there is no confusion), 
+    $\Hom_\catC(A^\circ,Y)$ by $\Map(A,Y)_l$, and call $(A,Y)\mapsto\Map(A,Y)_l$ the \term{left function complex functor}. 
+    Dually by Proposition \ref{tage}, $-_\circ$ induces functors $\catC\times\cat{SSet}^\op\to\catC,(A,K)\mapsto A_\circ^K$,
+    and $\catC^\op\times\catC\to\cat{SSet},(A,Y)\mapsto\Hom_\catC(A,Y_\circ)$. We denote $A_\circ^K$ by $A^K$, $\Hom_\catC(A,Y_\circ)$ by $\Map(A,Y)_r$,
+    and call $(A,Y)\mapsto\Map(A,Y)_r$ the \term{right function complex functor}.
+}
+
+\rmk{
+    $A\ox-$ is a left adjoint, but $-\ox K$ need not be.
+}

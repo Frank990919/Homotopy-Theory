@@ -1,0 +1,47 @@
+\defn{
+    Suppose $\catS$ is a (pre-)triangulated category, $\mathcal{G}$ is a set of objects. $\mathcal{G}$ is called \term{a set of weak generators} 
+    if $[\Sigma^nG,X]=0$ for any $G\in\mathcal{G}$ and (nonnegative) integers $n$ implies $X\cong *$. (When $n<0$, take $\Sigma^nG=\Omega^{-n}G$)
+}
+
+\defn{
+    Suppose $\catS$ is a pre-triangulated category. An object $X$ is called \term{algebraically finite} if for any set $\{Y_\alpha\}_{\alpha\in K}$ 
+    of objects, the induced map $$\colim\limits_{S\subseteq K,S\text{ finite}}\left[X,\coprod_{\alpha\in S}Y_\alpha\right]\to
+    \left[X,\coprod_{\alpha\in K}Y_\alpha\right]$$ is an isomorphism.
+}
+
+\defn{
+    An \term{algebraic stable homotopy category} is a closed symmetric monoidal triangulated category with a set of 
+    algebraically finite weak generators.
+}
+
+\prop{
+    Suppose $\catC$ is a pointed model category, $\lambda$ is an ordinal, $X$ is a $\lambda$-sequence of cofibrations of cofibrant objects 
+    with colimit $X$, and $Y$ is fibrant. If $[X_\beta,Y]=0$ for any $\beta<\lambda$, then $[X,Y]=0$.
+    \footnote{This proposition remains unproofed in class.}
+}
+
+\thm{
+    Suppose $\catC$ is a cofibrantly generated pointed model category with generating cofibrations $I$. Then the set of cofibers of maps of $I$ 
+    is a set of weak generators for $\Ho\catC$.
+}
+
+\lem{
+    Suppose $\catC$ is a finitely generated model category, $\lambda$ is an ordinal, $X,Y$ are $\lambda$-sequences of cofibrations, 
+    $p:X\to Y$ is a natural transformation such that $p_\alpha$ is a (trivial) fibration for any $\alpha<\lambda$. 
+    Then $\colim p_\alpha$ is a (trivial) fibration.
+}
+
+\cor{
+    Suppose $\catC$ is a finitely generated model category with generating cofibrations $I$, $\catD$ is a subcategory such that domains and codomains 
+    of $I$ are small relative to $\catD$. Then transfinite compositions of weak equivalences in $\catD$ are weak equivalences.
+}
+
+\thm{
+    Suppose $\catC$ is a finitely generated pointed model category. Then any cofibrant object that is finite relative to cofibrations 
+    is algebraically finite in $\Ho\catC$.
+}
+
+\thm{
+    The pseudo-2-functor $\Ho$ lifts to a pseudo-2-functor $\Ho$ from the 2-category of finitely generated stable symmetric monoidal model categories 
+    to the 2-category of algebraic stable homotopy categories.
+}

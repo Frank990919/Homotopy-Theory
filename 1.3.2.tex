@@ -1,0 +1,263 @@
+\defn{
+    Define the set $I=\{i:\p\d[n]\to\d[n]\mid n\ge 0\}$, and the set $J=\{j:\l^r[n]\to\d[n]\mid n>0,0\le r\le n\}$. Define $\Cof=\Cof(I)$, $\Fib=\RLP(J)$, 
+    and $\W=\abs-^{-1}(\W_{\cat{Top}})$. Define a map to be a \term{Kan fibration} if and only it is in $\Fib$. Define a simplicial set 
+    to be a \term{Kan complex} if and only if it is fibrant. Define a map to be an \term{anodyne extension} if and only it is in $\Cof(J)$.
+}
+
+\defn{
+    If $p:X\to Y$ is a fibration, $v:\d[0]\to Y$ is a vertex in $Y$, define $\d[0]\times_YX$ to be the \term{fiber of $p$ over $v$}, denoted $X_v$.
+}
+
+\prop{
+    A map is a cofibration if and only if it is injective. In particular, any simplicial set is cofibrant, and $\Cof(J)\subseteq \Cof(I)$.
+    Moreover, any cofibration is a relative $I$-cell complex.
+}
+
+\prop{
+    We have $\abs{I}$ is the set of generating cofibrations of $\cat{K}$ and $\abs{J}$ is the set of generating trivial cofibrations of $\cat{K}$.
+    Thus all maps in $\abs{\Cof(I)}$ are cofibrations, and all maps in $\abs{\Cof(J)}$ are trivial cofibrations. In particular, all anodyne extensions
+    are trivial cofibrations. Moreover the singular functor takes fibrations between $k$-spaces to Kan fibrations and takes trivial fibrations
+    between $k$-spaces to $\RLP(I)$.
+}
+
+\lem{
+    As a functor $\cat{SSet}\to\cat{K}$, $\abs-$ preserves all finite limits, and in particular, pullbacks.
+}
+
+\lem{
+    For any map $f\in\RLP(I)$, $\abs f$ is a fibration.
+}
+
+\lem{
+    For any map $f\in\RLP(I)$, $f$ is a trivial fibration.
+}
+
+\defn{
+    Suppose $i:K\to L$ and $p:X\to Y$ are maps between simplicial sets. We define $P(i,p):=(K\times Y)\amalg_{K\times X}(L\times X)$, and $i\squ p$
+    being the induced map $P(i,p)\to L\times B$. Moreover we define $p_{\squ}^i$ to be the induced map $X^L\to X^K\times_{Y^K}Y^L$.
+}
+
+\lem{
+    We have that $f\squ g\nearrow h$ if and only if $f\nearrow h_{\squ}^g$ for any maps $f,g,h$.
+}
+
+\lem{
+    Suppose $i:\p\d[n]\to\d[n]$, $f:\l^r[1]\to\d[1]$ are the inclusions, where $r=0,1$. Then the map $i\squ f$ is an anodyne extension.
+}
+
+\prop{
+    Suppose $f:\l^r[1]\to\d[1]$ is the inclusion and $i:K\to L$ is an arbitrary injective map, where $r=0,1$. Then the map $i\squ f$ 
+    is an anodyne extension.
+}
+
+\prop{
+    A map is an anodyne extension if and only if it is in $\Cof(J')$, where $J'=\{i\squ f|i\in I,f:\l^r[1]\to\d[1],r=0,1\}$.
+}
+
+\thm{
+    If $f$ is an anodyne extenstion and $i$ is an arbitrary injective map, then $i\squ f$ is an anodyne extension.
+}
+
+\thm{
+    If $p$ is a fibration and $i$ is an arbitrary injective map, then $p_{\squ}^i$ is a fibration.
+}
+
+\defn{
+    Suppose $X$ is a fibrant simplicial set and $x,y$ are 0-simplices, we define $x$ to be \term{homotopic} to $y$, denoted $x\sim y$,
+    if there exists some 1-simplex $z$ with $d_0z=x,d_1z=y$.
+}
+
+\lem{
+    If $X$ is a fibrant simplicial set, then $\sim$ is an equivalence relation on $X_0$.
+}
+
+\defn{
+    If $X$ is a fibrant simplicial set, define $\pi_0X=X/\sim$ and denote elements in $\pi_0X$ the \term{path components} of $X$.
+    Moreover if $v$ is a 0-simplex of $X$, define $\pi_0(X,v)=(\pi_0X,[v])$.
+}
+
+\lem{
+    $\pi_0:\cat{SSet}_f\to\cat{Set}$ and $\pi_0:(\cat{SSet}_f)_*\to\cat{Set}_*$ are functorial. If $X$ is a fibrant simplicial set, 
+    then $\pi_0X$ and $\pi_0\abs X$ are naturally isomorphic.
+}
+
+\defn{
+    Suppose $v$ is a vertex of a simplicial set $X$, and $Y$ is another simplicial set.
+    We define the \term{constant map at $v$} from $Y$ to $X$ to be the composite $Y\to\d[0]\xrightarrow{v}X$.
+}
+
+\defn{
+    Suppose $X$ is a fibrant simplicial set and $v$ is a vertex. Let $F$ be the fiber of the fibration $X^{\d[n]}\to X^{\p\d[n]}$ over $v$.
+    Define the \term{$n$-th homotopy group} $\pi_n(X,v)$ of $X$ at $v$ to be $\pi_0(F,v)$.
+}
+
+\lem{
+    Given a map $f:(X,v)\to(Y,w)$, $f$ induces a map $f_*:\pi_n(X,v)\to\pi_n(Y,w)$, thus $\pi_n:(\cat{SSet}_f)_*\to\cat{Set}_*$ is functorial.
+}
+
+\defn{
+    Suppose $f,g:K\to X$ are maps of simplicial sets, we denote a map $H:K\times\d[1]\to X$ to be a \term{homotopy} from $f$ to $g$
+    if $H|_{K\times 0}=f$ and $H|_{K\times 1}=g$. If such $H$ exists we denote $f\simeq g$.
+}
+
+\lem{
+    If $X$ is fibrant, then for any simplicial set $K$, $\simeq$ is an equivalence relation on $\Hom_{\cat{SSet}}(K,X)$,
+    and $f\simeq g$ if and only if $f\sim g$ as vertices in $X^K$. Moreover $$\pi_n(X,v)=(\Hom_{\cat{SSet}}(\d[n],X)/\simeq,[v]).$$
+}
+
+\lem{
+    Suppose $X$ is fibrant, $v$ is a vertex of $f$, $a$ is an $n$-simplex such that $d_ia=v$ for all $i$.
+    Then $[a]=[v]\in\pi_n(X,v)$ if and only if there is an $(n+1)$-simplex $x$ such that $d_{n+1}x=a$ and $d_ix=v$ if $i\le n$.
+}
+
+\defn{
+    Suppose $K$ is a subsimplicial set of $L$, $i:K\to L$ is the inclusion. A map $r:L\to K$ is called a \term{retraction} from $L$ to $K$ if $ri=\1$;
+    A map $H:L\times\d[1]\to L$ is called a \term{deformation retraction} from $L$ to $K$ if $H|_{L\times 0}=\1$, $H|_{L\times 1}$ is a retraction,
+    and $H|_{K\times\d[1]}$ is the projection onto $K$.
+}
+
+\eg{
+    The vertex $n$ is a deformation retraction of $\d[n]$, and the deformation retraction restricts to a deformation retraction from $\l^n[n]$ to $n$.
+}
+
+\rmk{
+    If $n>0$ then $n\not\simeq\1_{\d[n]}$, thus $\d[n]$ is not fibrant.
+}
+
+\prop{
+    If $X$ is a nonempty fibrant simplicial set with no nontrivial homotopy groups, then the map $X\to\d[0]$ is in $\RLP(I)$.
+}
+
+\defn{
+    Suppose $p:X\to Y$ is a fibration between fibrant simplicial sets, $v$ is a vertex of $X$, $F$ is the fiber of $p$ over $p(v)$.
+    Define the map $\p:\pi_n(Y,p(v))\mapsto\pi_{n-1}(F,v)$ as follows: for any $[\alpha]\in\pi_n(Y,p(v))$, define $\gamma$ to be a lift of 
+    $$\xymatrix{
+    \l^n[n]\ar[d]\ar[r]^{v}&X\ar[d]^{p}\\
+    \d[n]\ar[r]^{\alpha}\ar@{.>}[ur]^{\gamma}&Y
+    }$$
+    and define $\p[\alpha]=[d_n\gamma]$.
+}
+
+\lem{
+    $\p:\pi_n(Y,p(v))\mapsto\pi_{n-1}(F,v)$ is well-defined and is natural for maps between fibrations.
+}
+
+\prop{
+    Suppose $p:X\to Y$ is a fibration between fibrant simplicial sets, $v$ is a vertex of $X$, $F$ is the fiber of $p$ over $p(v)$.
+    Then we have an exact sequence of pointed sets:
+    $$
+    \begin{aligned}
+    \cdots\xrightarrow{\p}\pi_n(F,v)\xrightarrow{i_*}\pi_n(X,v)&\xrightarrow{p_*}\pi_n(Y,p(v))\\
+    &\xrightarrow{\p}\pi_{n-1}(F,v)\xrightarrow{i_*}\cdots\xrightarrow{i_*}\pi_0(X,v)\xrightarrow{p_*}\pi_0(Y,p(v)),
+    \end{aligned} 
+    $$
+    which is called the \term{long exact sequence}.
+}
+
+\defn{
+    We define a fibration $p:X\to Y$ to be \term{locally trivial} if for any simplex $y:\d[n]\to Y$ there exists some simplicial set $F$,
+    such that the pullback fibration $y^*p:y^*X:=\d[n]\times_YX\to\d[n]$ is isomorphic over $\d[n]$ to the projection $\d[n]\times F\to\d[n]$.
+}
+
+\prop{
+    If $p$ is a locally trivial fibration such that every fiber of $p$ is non-empty and has no nontrivial homotopy groups, then $p\in\RLP(I)$.
+}
+
+\prop{
+    Suppose $p:X\to Y$ is a fibration and $f\simeq g:K\to Y$. Then the pullback fibrations $f^*p$ and $g^*p$ are \term{fiber homotopy equivalent},
+    i.e. there exists maps $r:f^*X\to g^*X$ and $s:g^*X\to f^*X$ such that $f^*p\circ s=g^*p,g^*p\circ r=f^*p$,
+    and there exists homotopies $H:rs\simeq\1_{g^*X}$ and $H':sr\simeq\1_{f^*X}$ with
+    $g^*p\circ H=\pr_1\circ(g^*p\times\1),f^*p\circ H'=\pr_1\circ(f^*p\times\1)$.
+}
+
+\cor{
+    Suppose $p:X\to Y$ is a fibration, and $y$ is an $n$-simplex of $Y$, then the pullback fibration $y^*p$
+    is fiber homotopy equivalent to the projection fibration $\d[n]\times F\to\d[n]$, where $F$ is the fiber of $p$ over $y(n)$.
+}
+
+\defn{
+    Suppose $p:X\to Y$ is a fibration, and $x,y$ are two $n$-simplicies of $X$. We say $x$ and $y$ are \term{$p$-related},
+    written $x\sim_py$, if they represent vertices in the same path component in the same fiber of the map $p_{\squ}^{\p\d[n]\to\d[n]}$.
+    We say $p$ is a \term{minimal fibration} if $x\sim_py$ implies $x=y$.
+}
+
+\lem{
+    Suppose $p:X\to Y$ is a fibration, and $x,y$ are two $n$-simplicies of $X$. Then $\sim_p$ is an equivalence relation, and $x\sim_py$ 
+    if and only if $px=py$, $d_ix=d_iy$ for any $0\le i\le n$, and there exists a homotopy $H:x\simeq y$ such that $H|_{\p\d[n]\times\d[1]}$ 
+    and $pH$ are constant homotopies.
+}
+
+\lem{
+    Suppose $p:X\to Y$, $q:Z\to Y$ are fibrations and $q$ is minimal, $f,g:X\to Z$, $H:f\simeq g$ such that $qH=\pr_1(p\times\1)$. 
+    If $g$ is an isomorphism, so is $f$.
+}
+
+\cor{
+    Any minimal fibration is locally trivial.
+}
+
+\lem{
+    Suppose $p:X\to Y$ is a fibration and $x,y$ are degenerate $n$-simplices in $X$ that are $p$-related. Then $x=y$.
+}
+
+\thm{
+    Any fibration $p$ can be factored into $p'r$, where $r$ is a retraction onto a subsimplicial set of the domain such that $r\in\RLP(I)$, 
+    and $p'$ is a minimal fibration.
+}
+
+\cor{
+    If $p$ is a fibration such that every fiber of $p$ is non-empty and has no nontrivial homotopy groups, then $p\in\RLP(I)$.
+}
+
+\prop{
+    If $p$ is a locally trivial fibration then $|p|$ is a fibration.
+}
+
+\cor{
+    If $p$ is a fibration then $|p|$ is a fibration.
+}
+
+\prop{
+    There exists a natural isomorphism $\pi_n(X,v)\to\pi_n(|X|,|v|)$ for any $(X,v)\in\cat{SSet}_*$.
+}
+
+\rmk{
+    Suppose $X$ is a fibrant simplicial set, $v$ is a vertex of $X$. For any $[\alpha],[\beta]\in\pi_1(X,v)$, take $\gamma$ to be a lift 
+    of the following diagram:
+    $$\xymatrix{
+    \l^1[2]\ar[d]\ar[rr]^{\alpha\text{ on }d_2i_2}_{\beta\text{ on }d_0i_2}&&X\ar[d]\\
+    \d[2]\ar[rr]\ar@{.>}[urr]_{\gamma}&&{*}
+    }$$
+    and define $[\alpha]\cdot[\beta]=[d_1\gamma]$; take $\delta$ to be the lift of a following diagram:
+    $$\xymatrix{
+    \l^0[2]\ar[d]\ar[rr]^{\alpha\text{ on }d_2i_2}_{v\text{ on }d_1i_2}&&X\ar[d]\\
+    \d[2]\ar[rr]\ar@{.>}[urr]_{\delta}&&{*}
+    }$$
+    and define $[\alpha]^{-1}=[d_0\delta]$. Then this gives a natural group structure on $\pi_1(X,v)$ making the map $\pi_1(X,v)\to\pi_1(|X|,|v|)$ 
+    a natural group isomorphism.
+}
+
+\thm{
+    If $p$ is a locally trivial fibration, then $p\in\RLP(I)$.
+}
+
+\thm{
+    $\cat{SSet}$ is a finitely generated model category with $I$ being its generating cofibrations and $J$ being its generating trivial cofibrations.
+    As a corollary, $\cat{SSet}_*$ is a finitely generated model category with $I_+$ being its generating cofibrations and $J_+$ 
+    being its generating trivial cofibrations. This model structure is called the \term{standard model structure} on $\cat{SSet}$.
+}
+
+\thm{
+    $\9\abs-,\Sing,\vp\0$ is a Quillen equivalence between $\cat{SSet}$ and $\cat{K}$. $\9\abs-_*,\Sing_*,\vp_*\0$ is a Quillen equivalence 
+    between $\cat{SSet}_*$ and $\cat{K}_*$.
+}
+
+\prop{
+    Suppose $\catC$ is a model category and $F:\cat{SSet}\to\catC$ is a functor that preserves colimits and cofibrations.
+    Then $F$ preserves trivial cofibrations if and only if $F(\d[n])\to F(\d[0])$ is a weak equivalence for any $n$.
+}
+
+\cor{
+    Suppose $\catC$ is a model category and $F:\cat{SSet}_*\to\catC$ is a functor that preserves colimits and cofibrations.
+    Then $F$ preserves trivial cofibrations if and only if $F(\d[n]_+)\to F(\d[0]_+)$ is a weak equivalence for any $n$.
+}

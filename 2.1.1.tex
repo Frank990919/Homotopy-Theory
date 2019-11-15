@@ -1,0 +1,126 @@
+We use some simple examples to give the motivation of $\infty$-categories.
+
+\eg{\label{tagk}
+    Suppose $X$ is a topological space. The \term{fundamental groupoid} of $X$, denoted $\Pi_{\le 1}(X)$, is the category with:
+    \begin{itemize}
+        \item objects being all points in $X$; and
+        \item $\Hom_{\Pi_{\le 1}(X)}(a,b)$ being the homotopy classes of all paths from $a$ to $b$.
+    \end{itemize}
+    This is some definition that we shall already have seen in algebraic topology. This gives rise to a functor $\Pi_{\le 1}:\cat{Top}\to\cat{Gpd}$.
+    Moreover, for any map $f:X\to Y$ of topological spaces, $\Pi_{\le 1}(f)$ is an equivalence of categories, if and only if 
+    it is fully faithful and essentially surjective, where the first assertion indicates that $\pi_1(f)$ is a bijection, and the second assertion
+    indicates that $\pi_0(f)$ is a bijection. 
+
+    However, a topological space, contains far more information than its 0th and 1st homotopy groups. There also not only exist
+    homotopies between paths, there also exist homotopies between homotopies, and homotopies between the homotopies between homotopies, etc.
+    How shall we encode such higher structures? We may think of a ``category'', with not only morphisms between objects, but also morphisms
+    between morphisms, and morphisms between the morphisms between morphisms, etc. Specifically, we would like to define $\Pi(X)$ as follows:
+    \begin{itemize}
+        \item Objects being all points $a,b,\cdots$ in $X$; 
+        \item $\Hom_{\Pi(X)}(a,b)$ being all paths $\gamma,\delta,\cdots$ from $a$ to $b$;
+        \item $\Hom_{\Pi(X)}(\gamma,\delta)$ being all homotopies $H,K,\cdots$ from $\gamma$ to $\delta$;
+        \item $\cdots$
+    \end{itemize}
+    And we would like to obtain the property that for any map $f:X\to Y$ of topological spaces, $\Pi(f)$ is an ``equivalence'' of
+    ``categories'', if and only if $f$ induces isomorphisms on all homotopy groups; that is, $f$ is a weak homotopy equivalence.
+    The theory of $\infty$-categories are introduced to make this thought precise and to study their properties.
+}
+
+\eg{
+    We recall homotopies between maps in model categories: Given a model category $\catC$ and cofibrant-fibrant objects $A,B$,
+    maps $f,g:A\to B$, a homotopy from $f$ to $g$ is equivalent to a map $h:A\ox\d[1]\to B$, such that $h|_{A\ox0}=f,h|_{A\ox1}=g$.
+    However, cosimplicial frames not only allow us to construct the cylinder object of $A$, but also higher structures.
+    For example, a map $A\ox\d[2]\to B$ may be viewed as a homotopy between the three homotopies given by its restriction on
+    $A\ox\p\d[2]$, a map $A\ox\d[3]\to B$ may be viewed as a homotopy between the four homotopies between homotopies
+    given by its restriction on $A\ox\p\d[3]$. The theory of $\infty$-categories gives us a tool on how to 
+    formalize this kind of higher structures, and to study their properties.
+}
+
+Notice, that in these two examples, higher morphisms are ``invertible'' (homotopies are invertible, at least up to higher homotopies).
+This also coincides with most usages of $\infty$-categories, as in most applications we may see. Therefore, we only talk about
+$\infty$-categories, whose ``$k$-morphisms'' are invertible whenever $k\ge 2$. \footnote{In higher category theory, we use 
+the term $(\infty,n)$-category to indicate an $\infty$-category whose $k$-morphisms are invertible whenever $k\ge n+1$. In other words,
+what we are focusing about is $(\infty,1)$-categories.}
+
+So how shall we define them? The most na\"ive approach is to define them as what we did in Section \ref{seca}. However, notice one thing: 
+in both examples, associativity and unit axioms fails to be strict, but only hold up to homotopy, i.e. higher morphisms. To fix this issue,
+one must add certain extra diagrams to give the correct notion of higher categories, rather than the ones given in Section \ref{seca}.
+(The reason we introduce them in the first chapter is to make the language we use concise. However, pseudo-2-functors, DO give an approach to
+functors between $\infty$-categories, as they keep the homotopy-coherent ideas. From now on, we will call that kind of 2-category
+introduced in Section \ref{seca} \term{strict 2-categories}.) On the other hand, even the explicit definition of a 3-category 
+is EXTREMELY complicated, and things are just getting worse when we pass to 4-categories and beyond.
+
+Fortunately, we have an alternative approach to the theory of $\infty$-categories.
+
+From our na\"ive thought, if we take the ``Hom-thing'' between two object in an $\infty$-category, it will result in an $(\infty,0)$-category.
+In other words, $\infty$-categories are categories enriched over $(\infty,0)$-categories. Consequencely, we only have to make a model for
+$(\infty,0)$-categories.
+
+Notice that in Example \ref{tagk}, all morphisms, including 1-morphisms, are invertible. This means that $\Pi(X)$ ``should be
+an $(\infty,0)$-category''. On the other hand, there is a general axiom, known as the \term{homotopy hypothesis},
+accepted by higher categorists, which is roughly stated as follows:
+
+\begin{itemize}
+    \item Every $(\infty,0)$-category has the form $\Pi(X)$ for some topological space $X$. Moreover two $(\infty,0)$-categories 
+    are equivalent, if and only if their corresponding topological spaces are weakly equivalent.
+\end{itemize}
+
+This axiom ensures that we have a one-to-one correspondence between $(\infty,0)$-categories and equivalences classes of topological spaces,
+where two spaces are equivalent if and only if they are weakly equivalent. That is, we use objects 
+in $\Ho\cat{Top}\simeq\Ho\cat{K}\simeq\Ho\cat{SSet}$ to describe $(\infty,0)$-categories. Because of such important role they play in
+higher category theory, we give them a special name: \term{homotopy types}. We write $\cat{H}$ for the category of homotopy types.
+
+Now we have a schematic view of $(\infty,1)$-categories: they are just $\cat{H}$-enriched categories. But this view is really, really difficult
+for us to discover properties enjoyed by $\infty$-categories. We need to give models that are easy to compute. We shall now give three 
+different models for us to work with.
+
+The first model is topological categories. 
+
+\defn{
+    A \term{topological category} is a category enriched over $\cat K$, the category of all $k$-spaces.
+    \footnote{The reason we use $k$-spaces here, is that $\cat K$ is a closed monoidal category, and the geometric realization plays well 
+    with $k$-spaces. From now on, unless otherwise stated, when we say ``topological spaces'', what we actually mean is ``$k$-spaces.''}
+}
+
+By the definition of a topological category, if we apply the localization functor $\cat K\to\cat H$, a topological category becomes an
+$\cat{H}$-enriched category. We will now specify this localization functor with the symbol $\h$. Therefore, topological categories are indeed
+models for $\infty$-categories. 
+
+\defn{
+    The \term{homotopy category} of a topological category $\catC$ is $\h\catC$. Two topological categories are said to be 
+    \term{(weakly) equivalent} if their homotopy categories are equivalent (viewed as $\cat H$-enriched categories).
+}
+
+Note that an equivalence between topological categories, at least in higher category theory, does not mean it is an equivalence
+between $\cat K$-enriched categories. This is because essentially what we are dealing with are actually $\cat{H}$-enriched categories.
+
+The second model is simplicial categories.
+
+\defn{
+    A \term{simplicial category} is a category enriched over $\cat{SSet}$, the category of all simplicial sets.
+    \footnote{Note that a simplicial category is not equivalent to a simplicial object in the category of the categories.}
+}
+
+By the definition of a simplicial category, if we apply the localization functor $\cat{SSet}\to\cat H$, a simplicial category becomes an
+$\cat{H}$-enriched category. We will, again, specify this localization functor with the symbol $\h$. Therefore, simplicial categories
+are also indeed models for $\infty$-categories. 
+
+\defn{
+    The \term{homotopy category} of a simplicial category $\catC$ is $\h\catC$. Two simplicial categories are said to be 
+    \term{(weakly) equivalent} if their homotopy categories are equivalent (viewed as $\cat H$-enriched categories).
+}
+
+We now consider the relations between these two relations. We already know that there exists an adjunction $(\abs{-},\Sing):\cat{SSet}\to\cat K$,
+that is a closed symmetric monoidal Quillen equivalence. Consequencely, we get an adjunction 
+$(\abs{-},\Sing):\cat{Cat}_{\cat{SSet}}\to\cat{Cat}_{\cat K}$. By Section \ref{secb}, this adjunction is a Quillen equivalence between the
+canonical model structures on both sides. Thus both the left and right adjoints preserve equivalences, and both the unit morphisms 
+and counit morphisms are equivalences. Thus the two models can be regarded as equivalent models for $(\infty,1)$-categories.
+
+However, these two models have disadvantages. As we have said before, in most $(\infty,1)$-categories (that we actually work with), compositions
+of morphisms is associative only up to homotopy. But in a topological category, composition of morphisms are associative up to nose. 
+Therefore we must figure out how to transform a homotopy coherent diagram into a strictly commutative diagram. Although this is always
+possible (See Section {\color{red}\texttt{[ERROR! SECTION NOT FOUND]}}), it is convenient for us to get a more flexible model 
+of $(\infty,1)$-categories.
+
+We note that in some cases, simplicial sets can regarded as categories. We may regard 0-simplices of the simplicial set as objects of the category,
+and 

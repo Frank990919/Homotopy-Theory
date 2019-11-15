@@ -1,0 +1,66 @@
+\defn{
+    A \term{triangulated category} is a pre-triangulated category such that $\Sigma$ is an equivalence of categories. A pointed model category is
+    \term{stable} if its homotopy category is triangulated. A \term{closed (symmetric) monoidal triangulated category} is a closed (symmetric) monoidal 
+    pre-triangulated category that is also a triangulated category. The full sub-2-category of $\catt{PreTr}$ ($\catt{CloMonPreTr}$, 
+    $\catt{CloSymMonPreTr}$) consisting of all triangulated categories will be denoted $\catt{Tr}$ ($\catt{CloMonTr}$, $\catt{CloSymMonTr}$).
+}
+
+\lem{
+    Triangulated categories are additive.
+}
+
+\rmk{
+    Any cofiber sequence $X\xrightarrow{f}Y\xrightarrow{g}Z$ is completely determined by the maps $f,g,\p$, and for any cofiber sequences 
+    $X\xrightarrow{f}Y\xrightarrow{g}Z$ and $X'\xrightarrow{f'}Y'\xrightarrow{g'}Z'$ and maps $a:X\to X',b:Y\to Y',c:Z\to Z'$, 
+    $c$ is $\Sigma a$-equivariant if and only if $\Sigma a\circ\p=\p\circ c$. Dually any fiber sequence $X\xrightarrow{f}Y\xrightarrow{g}Z$ 
+    is completely determined by the maps $f,g,\p$, and for any fiber sequences $X\xrightarrow{f}Y\xrightarrow{g}Z$ and
+    $X'\xrightarrow{f'}Y'\xrightarrow{g'}Z'$ and maps $a:X\to X',b:Y\to Y',c:Z\to Z'$, $a$ is $\Omega c$-equivariant if and only if 
+    $a\circ\p=\p\circ\Omega c$.
+}
+
+\prop{
+    Any triangulated category is a classical triangulated category.
+}
+
+\lem{
+    Suppose $\catS$ is a triangulated category, and $\Sigma X\xrightarrow{\Sigma f}\Sigma Y\xrightarrow{\Sigma g}\Sigma Z\xrightarrow{\Sigma h}\Sigma^2X$
+    is a cofiber sequence. Then so is $X\xrightarrow{-f}Y\xrightarrow{-g}Z\xrightarrow{-h}\Sigma X$.
+}
+
+\prop{
+    Suppose $\catS$ is a triangulated category. Then $X\xrightarrow{f}Y\xrightarrow{g}Z\xrightarrow{h}\Sigma X$ is a cofiber sequence, if and only if
+    $\Omega Z\xrightarrow{-\eta_X^{-1}\circ(\Omega h)}X\xrightarrow{f}Y\xrightarrow{\ve_Z^{-1}\circ g}\Omega\Sigma Z$ is a cofiber sequence.
+}
+
+\lem{
+    Suppose $\catS$ is a triangulated category. Then for any cofiber sequence $X\xrightarrow{f}Y\xrightarrow{g}Z\xrightarrow{h}\Sigma X$ and object $W$,
+    the sequence $$[W,X]\xrightarrow{f_*}[W,Y]\xrightarrow{g_*}[W,Z]\xrightarrow{h_*}[W,\Sigma X]$$ is exact.
+}
+
+\thm{
+    Suppose $\catS$ is a triangulated category. Then $\Omega Z\xrightarrow{f}X\xrightarrow{g}Y\xrightarrow{h}Z$ is a fiber sequence, if and only if
+    $\Omega Z\xrightarrow{f}X\xrightarrow{g}Y\xrightarrow{-\ve_Z^{-1}\circ h}\Omega\Sigma Z$ is a cofiber sequence.
+}
+
+\defn{
+    Suppose $\catC$ is a model category, and we have a commutative square in $\catC$: $$\xymatrix{W\ar[r]^u\ar[d]_v&X\ar[d]^g\\Z\ar[r]^f&Y}$$ 
+    Take the following pullback square: $$\xymatrix @C=40pt{W'\ar[r]\ar[d]&X'\ar[d]^{\delta(r_Y\circ g)}\\Z'\ar[r]^{\delta(r_Y\circ f)}&RY}$$ 
+    The original square is called a \term{homotopy pullback square} if the induced map $W\to W'$ is a weak equivalence. 
+    Dually take the following pushout square: $$\xymatrix@C=40pt{QW\ar[r]^{\alpha(u\circ q_W)}\ar[d]_{\alpha(v\circ q_W)}&X''\ar[d]\\Z''\ar[r]&Y''}$$
+    The original square is called a \term{homotopy pushout square} if the induced map $Y''\to Y$ is a weak equivalence.
+} 
+
+\prop{
+    Suppose $\catC$ is a pointed model category. Then homotopy pullback squares and homotopy pushout square coincide if and only if $\catC$ is stable.
+}
+
+\prop{
+    Suppose $\catS,\catT$ are triangulated categories. An adjunction $(F,G):\catS\to\catT$ is an exact adjunction if and only if $F$ is right exact, 
+    if and only if $G$ is left exact.
+}
+
+\lem{
+    Suppose $\catS$ is a closed symmetric monoidal triangulated category. Then the following diagram is commutative for any integers $m,n$:
+    $$\xymatrix{S^m\ov S^n\ar[r]^\mu\ar[d]_T&S^{m+n}\ar[d]^{(-1)^{mn}\1}\\S^n\ov S^m\ar[r]^\mu&S^{m+n}}$$ where $S^{-k}=\Omega^kS$ for any $k>0$, 
+    $\mu$ is the structure isomorphism of the monoidal functor $i$, combined with the unit or counit isomorphisms, if necessary.
+}

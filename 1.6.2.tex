@@ -1,0 +1,138 @@
+\prop{
+    Suppose $\catC$ is a pointed model category. Then any diagram isomorphic to a cofiber sequence is a cofiber sequence, 
+    and any diagram isomorphic to a fiber sequence is a fiber sequence.
+}
+
+\prop{
+    Suppose $\catC$ is a pointed model category. Then for any $X\in\catC$, the diagram $*\to X\xrightarrow{\1}X$ together with the trivial coaction 
+    of $\Sigma *=*$ on $X$ is a cofiber sequence, and the diagram $X\xrightarrow{\1}X\to*$ together with the trivial action of $\Omega *=*$ on $X$ 
+    is a fiber sequence.
+}
+
+\prop{
+    Suppose $\catC$ is a pointed model category. Then for any $f:X\to Y\in\Ho\catC$, there exists a cofiber sequnce $X\xrightarrow{f}Y\to Z$, 
+    and there exists a fiber sequnce $W\to X\xrightarrow{f}Y$.
+}
+
+\prop{
+    Suppose $\catC$ is a pointed model category. For any cofiber sequence $X\xrightarrow{f}Y\xrightarrow{g}Z$, the sequence 
+    $Y\xrightarrow{g}Z\xrightarrow{\p}\Sigma X$ is a cofiber sequence, where the coaction is given by 
+    $$\Sigma X\xrightarrow{m}\Sigma X\amalg\Sigma X\xrightarrow{\1\amalg\Sigma f}\Sigma X\amalg\Sigma Y\xrightarrow{\1\amalg i}\Sigma X\amalg\Sigma Y,$$
+    where $m$ is the comultiplication and $i$ is the coinverse. Dually for any fiber sequence $X\xrightarrow{f}Y\xrightarrow{g}Z$, the sequence 
+    $\Omega Z\xrightarrow{\p}X\xrightarrow{f}Y$ is a fiber sequence, where the action is given by 
+    $$\Omega Z\times\Omega Y\xrightarrow{\1\times i}\Omega Z\times\Omega Y\xrightarrow{\1\times\Omega g}\Omega Z\times\Omega Z\xrightarrow{m}\Omega Z,$$ 
+    where $m$ is the multiplication and $i$ is the inverse.
+}
+
+\prop{
+    Suppose $\catC$ is a pointed model category. If we have a commutative diagram in $\Ho\catC$ as follows:
+    $$\xymatrix{
+    X\ar[r]^f\ar[d]_\alpha&Y\ar[r]^g\ar[d]_\beta&Z\\
+    X'\ar[r]^{f'}&Y'\ar[r]^{g'}&Z'
+    }$$
+    where the two rows are cofiber sequences, then there exists a map $\gamma:Z\to Z'$ making the following diagram commutative:
+    $$\xymatrix{
+    X\ar[r]^f\ar[d]_\alpha&Y\ar[r]^g\ar[d]_\beta&Z\ar[r]\ar[d]_\gamma&Z\amalg\Sigma X\ar[d]^{\gamma\amalg\Sigma\alpha}\\
+    X'\ar[r]^{f'}&Y'\ar[r]^{g'}&Z'\ar[r]&Z'\amalg\Sigma X'
+    }$$
+    Dually if we have a commutative diagram in $\Ho\catC$ as follows:
+    $$\xymatrix{
+    X\ar[r]^f&Y\ar[r]^g\ar[d]^\beta&Z\ar[d]^\alpha\\
+    X'\ar[r]^{f'}&Y'\ar[r]^{g'}&Z'
+    }$$
+    where the two rows are fiber sequences, then there exists a map $\gamma:X\to X'$ making the following diagram commutative:
+    $$\xymatrix{
+    X\times\Omega Z\ar[r]\ar[d]_{\gamma\times\Omega\alpha}&X\ar[r]^f\ar[d]^\alpha&Y\ar[r]^g\ar[d]^\beta&Z\ar[d]^\alpha\\
+    X'\times\Omega Z'\ar[r]&X'\ar[r]^{f'}&Y'\ar[r]^{g'}&Z'
+    }$$
+}
+
+\prop{
+    Suppose $\catC$ is a pointed model category. If $v:X\to Y,u:Y\to Z$ are maps in $\Ho\catC$, then there exists cofiber sequences
+    $$X\xrightarrow{v}Y\xrightarrow{d}U,\quad X\xrightarrow{uv}Z\xrightarrow{a}V,\quad Y\xrightarrow{u}Z\xrightarrow{f}W,\quad
+     U\xrightarrow{r}V\xrightarrow{s}W,$$
+    such that the following diagram is commutative:
+    $$\xymatrix{
+    X\ar[r]^v\ar[d]_{\1}&Y\ar[r]^d\ar[d]_u&U\ar[r]\ar[d]_r&U\amalg\Sigma X\ar[d]^{r\amalg\1}\\
+    X\ar[r]^{uv}\ar[d]_v&Z\ar[r]^a\ar[d]_{\1}&V\ar[r]\ar[d]_s&V\amalg\Sigma X\ar[d]^{s\amalg\Sigma v}\\
+    Y\ar[r]^u&Z\ar[r]^f&W\ar[r]\ar[d]&W\amalg\Sigma Y\ar[ld]^{\1\amalg\Sigma d}\\
+    &&W\amalg\Sigma U&
+    }$$
+    Dually there is a statement for fiber sequences.
+}
+
+\prop{
+    Suppose $\catC$ is a pointed model category, $X\xrightarrow{f}Y\xrightarrow{g}Z$ is a cofiber sequence, $X'\xrightarrow{i}Y'\xrightarrow{p}Z'$ 
+    is a fiber sequence. If we have a commutative diagram as follows:
+    $$\xymatrix{
+    X\ar[r]^f\ar[d]_\alpha&Y\ar[r]^g\ar[d]_\beta&Z\ar[r]^\p&\Sigma X\ar[d]^{-\vp^{-1}\alpha}\\
+    \Omega Z'\ar[r]^\p&X'\ar[r]^i&Y'\ar[r]^p&Z'
+    }$$
+    where $\vp$ is the natural isomorphism $[\Sigma X,Z]\cong[X,\Omega Z]$ and the negative sign is taken with respect to the group structure of
+    $[\Sigma X,Z]$, then there exists a fill-in map $\gamma:Z\to Y'$ making the diagram commutative. Dually if we have a commutative diagram as follows:
+    $$\xymatrix{
+    X\ar[r]^f\ar[d]_{-\vp\delta}&Y\ar[r]^g&Z\ar[r]^\p\ar[d]^\gamma&\Sigma X\ar[d]^\delta\\
+    \Omega Z'\ar[r]^\p&X'\ar[r]^i&Y'\ar[r]^p&Z'
+    }$$
+    then there exists a fill-in map $\beta:Y\to X'$ making the diagram commutative.
+}
+
+\prop{
+    Suppose $(F,G):\catC\to\catD$ is a Quillen adjunction between pointed model categories. Then $LF:\Ho\catC\to\Ho\catD$ maps any cofiber sequence
+    $X\xrightarrow{f}Y\xrightarrow{g}Z$ to a cofiber sequence $LFX\xrightarrow{LFf}LFY\xrightarrow{LFg}LFZ$, where the coaction is given by
+    $$LFZ\to LF(Z\amalg\Sigma X)\cong LFZ\amalg LF\Sigma X\xrightarrow{\1\amalg\mu^{-1}}LFZ\amalg\Sigma LFX,$$ where $\mu$ is the structure isomorphism 
+    $(LFX)\ov^LS^1\cong LF(X\ov^LS^1)$ of $LF$ as a $\Ho\cat{SSet}_*$-module functor. Dually $RG:\Ho\catD\to\Ho\catC$ maps any fiber sequence 
+    $X\xrightarrow{f}Y\xrightarrow{g}Z$ to a fiber sequence $RGX\xrightarrow{RGf}RGY\xrightarrow{RGg}RGZ$, where the action is given by 
+    $$RGX\times\Omega RGZ\xrightarrow{\1\times\9\mu^\op\0^{-1}}RGX\times RG\Omega Z\cong RG(X\times\Omega Z)\to RGX,$$
+    where $\mu^\op$ is the dual natural transformation of $\mu$.
+}
+
+\prop{
+    Suppose $\catC$ is a pointed model category. Then for any $A\in\Ho\catC$, $A\ov^L-$ maps cofiber sequences in $\Ho\cat{SSet}_*$ 
+    into cofiber sequences in $\Ho\catC$, $A_{*R}^-$ maps cofiber sequences in $\Ho\cat{SSet}_*$ into fiber sequences in $\Ho\catC$, 
+    $R\Map_*(-,A)_l\cong R\Map_*(-,A)_r$ maps fiber sequences in $\Ho\catC$ into fiber sequences in $\Ho\cat{SSet}_*$, 
+    $R\Map_*(A,-)_l\cong R\Map_*(A,-)_r$ maps cofiber sequences in $\Ho\catC$ into fiber sequences in $\Ho\cat{SSet}_*$.
+}
+
+\lem{\label{tagi}
+    Suppose $\catC$ is a pointed model category, $f:A\to B$ is a cofibration of cofibrant objects with cofiber $g:B\to C$. Take a cylinder object
+    $A'$ of $A$, and define $r:A'\to A''$ to be the cofiber of $A\amalg A\xrightarrow{(i_0,i_1)}A'$. Define $\tilde{B}$ to be the pushout of the diagram:
+    $$\xymatrix{A\amalg A\ar[r]^{(i_0,i_1)}\ar[d]_{f\amalg f}&A'\ar[d]\\B\amalg B\ar[r]&\tilde{B}}$$ and factor the map 
+    $(f\sigma,\1\amalg\1):\tilde{B}\to B$ into a cofibration $\tilde{B}\to B'$ and a trivial fibration $\sigma:B'\to B$. 
+    Then $B'$ is a cylinder object of $B$, and it induces a map $f':A'\to B'$ commuting with $i_0,i_1,\sigma$.
+    Let $B_f$ to be the pushout of the diagram: $$\xymatrix{A\ar[r]^{i_0}\ar[d]_f&A'\ar[d]\\B\ar[r]^f&B_f}$$ 
+    Then the following diagram is a pushout square: $$\xymatrix{A\ar[r]^{i_1}\ar[d]_{jf}&A'\ar[d]\\B_f\ar[r]&\tilde{B}}$$ Let $\tilde{C}$ to be 
+    the pushout of the diagram: $$\xymatrix{B_f\ar[r]^{(i_0,f')}\ar[d]_{(g,r)}&B'\ar[d]^k\\Cof\amalg A''\ar[r]^\pi&\tilde{C}}$$ then $\pi$ 
+    is a weak equivalence, and $ki_1f=0:A\to\tilde{C}$, which induces a map $i_1:=(ki_1,0):C\to\tilde{C}$. Take a map $t:A'\to\Cyl A$ 
+    commuting with $i_0,i_1,\sigma$, and call the induced map $A''\to A\ov S^1$ also by $t$. Now if we define $\psi:C\to C\amalg\Sigma A$ 
+    to be the composite in $\Ho\catC$:
+    $$C\xrightarrow{i_1}\tilde{C}\xrightarrow{\pi^{-1}}C\amalg A''\xrightarrow{\1\amalg t}C\amalg(A\ov S^1)\cong C\amalg(QA\ov QS^1)=C\amalg\Sigma A,$$ 
+    then $\psi$ coincides with the right coaction given in Theorem \ref{tagh}. Dually there is a statement for fibration of fibrant objects.
+}
+
+\lem{
+    Suppose $\catC$ is a pointed model category. If $f:A\to B$ is a cofibration of cofibrant objects with cofiber $g:B\to C$, 
+    then there exists cosimplicial frames $B^*,C^*$ for $B,C$ and a cofibration $f^*:A^\circ\to B^*$ in $\catC^\d$ covering $f$ with cofiber 
+    $g^*:B^*\to C^*$ covering $g$. Dually if $p:E\to B$ is a fibration of fibrant objects with fiber $i:F\to E$, then there exists simplicial frames 
+    $F_*,E_*$ for $F,E$ and a fibration $p_*:E_*\to B_\circ$ in $\catC^{\d^\op}$ covering $p$ with fiber $i_*:F_*\to E_*$
+    covering $i$.
+}
+
+\prop{
+    Suppose $\catC,\catD$ are pointed model categories. Then any functor between $\catC$ and $\catD$ preserving cofibrations, weak equivalence 
+    between cofibrant objects and colimits preserves cofiber sequences, where the coaction is simply given by acting the functor on the map 
+    $\psi$ given in Lemma \ref{tagi}, and any functor between $\catC$ and $\catD$ preserving fibrations, weak equivalence between fibrant objects 
+    and limits preserves fiber sequences, where the action is simply given by acting the functor on the map
+    given in the dual statement in Lemma \ref{tagi}.
+}
+
+\prop{
+    Suppose $\catC$ is a pointed model category. Then for any $K\in\cat{SSet}_*$, $-\ov^LK$ maps a cofiber sequence $X\xrightarrow{f}Y\xrightarrow{g}Z$
+    in $\Ho\catC$ into a cofiber sequence $X\ov^LK\xrightarrow{f\ov^L\1}Y\ov^LK\xrightarrow{g\ov^L\1}Z\ov^LK$ in $\Ho\catC$, where the coaction
+    is given by $$\begin{aligned}&Z\ov^LK\to(Z\amalg\Sigma X)\ov^LK\\&\hspace{0.8em}\cong Z\ov^LK\amalg\Sigma X\ov^LK
+    \xrightarrow{\1\amalg\mu^{-1}}Z\ov^LK\amalg\Sigma(X\ov^LK),\end{aligned}$$ where $\mu$ is the structure isomorphism 
+    $(X\ov^LK)\ov^LS^1\cong(X\ov^LS^1)\ov^LK$ of $-\ov^LK$ as a $\Ho\cat{SSet}_*$-module functor. Dually $-_{*R}^K$ maps a fiber sequence
+    $X\xrightarrow{f}Y\xrightarrow{g}Z$ in $\Ho\catC$ into a fiber sequence $X_{*R}^K\xrightarrow{f_{*R}^\1}Y_{*R}^K\xrightarrow{g_{*R}^\1}Z_{*R}^K$ 
+    in $\Ho\catC$, where the action is given by $$Z_{*R}^K\times\Omega X_{*R}^K\xrightarrow{\1\times\9\mu^\op\0^{-1}}Z_{*R}^K\times(\Omega X)_{*R}^K
+    \cong(Z\times\Omega X)_{*R}^K\to Z_{*R}^K,$$ where $\mu^\op$ is the dual natural transformation of $\mu$.
+}

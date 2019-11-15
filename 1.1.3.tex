@@ -1,0 +1,124 @@
+\label{seca}
+
+\defn{
+    A \term{2-category} $\cattC$ consists of three superclasses $\cattC_0,\cattC_1,$ $\cattC_2$, each called the objects, the 1-morphisms (or morphisms)
+    and the 2-morphisms, two maps $d:\cattC_1\to\cattC_0,d:\cattC_2\to\cattC_1$ called the domain maps, two maps 
+    $c:\cattC_1\to\cattC_0,c:\cattC_2\to\cattC_1$ called the codomain maps, two maps $\1:\cattC_0\to\cattC_1,\cattC_1\to\cattC_2$ called the identity maps,
+    and three maps $\circ:\cattC_1\times_{\cattC_0}\cattC_1\to\cattC_1,\circ:\cattC_2\times_{\cattC_1}\cattC_2\to\cattC_2,
+    *:\cattC_2\times_{\cattC_0}\cattC_2\to\cattC_2$, each called the composite, the vertical composite and the horizontal composite,
+    where the pullbacks are taken along the maps $c,d$, the maps $c,d$ and the maps $c^2,d^2$, respectively,
+    satisfying the following conditions:
+    \begin{enumerate}[i)]
+    \item As maps $\cattC_2\to\cattC_0$ we have $dc=dd$, $cd=cc$;
+    \item Either as a map $\cattC_0\to\cattC_0$ or as a map $\cattC_1\to\cattC_1$ we have $d\,\1$ and $c\,\1$ are the identity maps;
+    \item If $f,g$ are 1-morphisms such that $dg=cf$ then $d(g\circ f)=df$ and $c(g\circ f)=cg$;
+    if $\sigma,\tau$ are 2-morphisms such that $d\tau=c\sigma$ then $d(\tau\circ\sigma)=d\sigma$ and $c(\tau\circ\sigma)=c\tau$;
+    if $\sigma,\tau$ are 2-morphisms such that $d^2\tau=c^2\sigma$ then $d(\tau*\sigma)=d\tau\circ d\sigma$ and $c(\tau\circ\sigma)=c\tau\circ c\sigma$;
+    \item For any 1-morphism $f$ we have $\1_{cf}\circ f=f=f\circ\1_{df}$; for any 2-morphism $\sigma$ we have 
+    $\1_{c\sigma}\circ\sigma=\sigma=\sigma\circ\1_{d\sigma}$, and $\1_{\1_{cc\sigma}}*\sigma=\sigma=\sigma*\1_{\1_{dd\sigma}}$;
+    \item If $f,g,h$ are 1-morphisms such that $dg=cf,dh=cg$ then $(h\circ g)\circ f=h\circ(g\circ f)$;
+    if $\rho,\sigma,\tau$ are 2-morphisms such that $d\sigma=c\rho,d\tau=c\sigma$ then $(\tau\circ\sigma)\circ\rho=\tau\circ(\sigma\circ\rho)$;
+    if $\rho,\sigma,\tau$ are 2-morphisms such that $d^2\sigma=c^2\rho,d^2\tau=c^2\sigma$ then $(\tau*\sigma)*\rho=\tau*(\sigma*\rho)$;
+    \item If $\sigma,\tau,\sigma',\tau'$ are 2-morphisms such that $d\tau=c\sigma,d\tau'=c\sigma',d^2\tau=c^2\sigma'$,
+    then $(\tau\circ\sigma)*(\tau'\circ\sigma')=(\tau*\tau')\circ(\sigma*\sigma')$;
+    \item For any objects $A,B$, $\Hom_\cattC(A,B):=\{f\in\cattC_1|df=A,cf=B\}$ is a class; for any 1-morphisms $f,g$, 
+    $\Hom_\cattC(f,g):=\{\tau\in\cattC_2|d\tau=f,c\tau=g\}$ is a class.
+    \end{enumerate}
+    If $f\in\Hom_\cattC(A,B)$ where $A,B$ are objects, we denote $f:A\to B$, and if $\tau\in\Hom_\cattC(f,g)$ where $f,g$ are 1-morphisms, 
+    we denote $\tau:f\to g$.
+}
+
+\eg{
+    All categories, functors, natural transformations form a 2-category which we denote $\catt{Cat}$.
+    All categories, adjunctions, natural transformations between left adjoints form a 2-category which we denote $\catt{Cat}_{\mathit{ad}}$.
+    All model categories, Quillen adjunctions, natural transformations between left Quillen functors form a 2-category which we denote $\catt{Model}$.
+}
+
+\defn{
+    Suppose $\cattC$ and $\cattD$ are 2-categories. A \term{(covariant) 2-functor} $F:\cattC\to\cattD$ consists of three maps
+    $\cattC_0\to\cattD_0,\cattC_1\to\cattD_1,\cattC_2\to\cattD_2$, satisfying the following conditions:
+    \begin{enumerate}[i)]
+    \item Either as maps $\cattC_1\to\cattD_0$ or as maps $\cattC_2\to\cattD_1$ we have $Fd=dF,Fc=cF$;
+    \item For any object $A$ we have $F(\1_A)=\1_{FA}$, for any 1-morphism $f$ we have $F(\1_f)=\1_{Ff}$;
+    \item If $f,g$ are 1-morphisms such that $dg=cf$ then $F(g\circ f)=Fg\circ Ff$;
+    if $\sigma,\tau$ are 2-morphisms such that $d\tau=c\sigma$ then $F(\tau\circ\sigma)=F\tau\circ F\sigma$;
+    if $\sigma,\tau$ are 2-morphisms such that $d^2\tau=c^2\sigma$ then $F(\tau*\sigma)=F\tau*F\sigma$.
+    \end{enumerate}
+    A \term{contravariant 2-functor} $F:\cattC\to\cattD$ consists of three maps $\cattC_0\to\cattD_0,\cattC_1\to\cattD_1,\cattC_2\to\cattD_2$,
+    satisfying the following conditions:
+    \begin{enumerate}[i)]
+    \item Either as maps $\cattC_1\to\cattD_0$ or as maps $\cattC_2\to\cattD_1$ we have $Fd=cF,Fc=dF$;
+    \item For any object $A$ we have $F(\1_A)=\1_{FA}$, For any 1-morphism $f$ we have $F(\1_f)=\1_{Ff}$;
+    \item If $f,g$ are 1-morphisms such that $dg=cf$ then $F(g\circ f)=Ff\circ Fg$;
+    if $\sigma,\tau$ are 2-morphisms such that $d\tau=c\sigma$ then $F(\tau\circ\sigma)=F\sigma\circ F\tau$;
+    if $\sigma,\tau$ are 2-morphisms such that $d^2\tau=c^2\sigma$ then $F(\tau*\sigma)=F\sigma*F\tau$.
+    \end{enumerate}
+}
+
+\eg{
+    $\catt{Cat}_{\mathit{ad}}\to\catt{Cat},\catC\mapsto\catC,(F,G,\vp)\mapsto F,\tau\mapsto\tau$ is a covariant 2-functor. 
+    $\catt{Model}\to\catt{Cat}_{\mathit{ad}},\catC\mapsto\catC,(F,G,\vp)\mapsto(F,G,\vp),\tau\mapsto\tau$ is a covariant 2-functor.
+}
+
+\defn{
+    Given a natural transformation $\tau:F\to F'$ between adjunctions $(F,G)$ and $(F',G')$, we define its \term{dual natural transformation}
+    $\tau^\op:G'\to G$ by the composite $G'X\xrightarrow{\eta_{G'X}}GFG'X\xrightarrow{G\tau_{G'X}}GF'G'X\xrightarrow{G\ve'_{X}}GX.$
+}
+
+\lem{
+    If $\tau:F\to F'$ is a natural transformation between adjunctions $(F,G,\vp)$ and $(F',G',\vp')$, then the following diagram is commutative 
+    for any objects $X\in\catC,Y\in\catD$:
+    $$\xymatrix @C=40pt{
+    \Hom_\catD(F'X,Y)\ar[d]_{\vp'}\ar[r]^{\tau_X^*}& \Hom_\catD(FX,Y)\ar[d]^\vp\\
+    \Hom_\catC(X,G'Y)\ar[r]^{(\tau^\op_Y)_*}& \Hom_\catC(X,GY)
+    }$$ 
+    In particular, $\tau$ is a natural equivalence if and only if $\tau^\op$ is.
+}
+
+\lem{
+    $$-^\op:\left\{\begin{aligned}\catt{Cat}_{\mathit{ad}}&\to\catt{Cat}_{\mathit{ad}},\\\catC&\mapsto\catC^\op,\\(F,G,\vp)&\mapsto(G,F,\vp^{-1}),
+    \\(\tau:(F,G)\to(F',G'))&\mapsto\tau^\op\\\end{aligned}\right.$$ is a contravariant 2-functor,
+    and $(-^\op)^2$ is the identity 2-functor. Similarly $$-^\op:\left\{\begin{aligned}\catt{Model}&\to\catt{Model},\\\catC&\mapsto\catC^\op,
+    \\(F,G,\vp)&\mapsto(G,F,\vp^{-1}),\\(\tau:(F,G)\to(F',G'))&\mapsto\tau^\op\\\end{aligned}\right.$$
+    is a contravariant 2-functor, and $(-^\op)^2$ is the identity 2-functor. They are called the \term{duality 2-functors}.
+}
+
+\defn{
+    Suppose $\cattC$ and $\cattD$ are 2-categories. A \term{pseudo-2-functor} $F:\cattC\to\cattD$ consists of three maps
+    $\cattC_0\to\cattD_0,\cattC_1\to\cattD_1,\cattC_2\to\cattD_2$, and 2-isomorphisms $\alpha_A:F(\1_A)\to\1_{FA}$ for any object $A$, 2-isomorphisms
+    $\mu_{gf}:Fg\circ Ff\to F(g\circ f)$ for any 1-morphisms $f,g$ with $dg=cf$, satisfying the following conditions:
+    \begin{enumerate}[i)]
+    \item Either as maps $\cattC_1\to\cattD_0$ or as maps $\cattC_2\to\cattD_1$ we have $Fd=dF,Fc=cF$;
+    \item For any 1-morphism $f$ we have $F(\1_f)=\1_{Ff}$; if $\sigma,\tau$ are 2-morphisms such that $d\tau=c\sigma$ then 
+    $F(\tau\circ\sigma)=F\tau\circ F\sigma$;
+    \item If $f,g,h$ are 1-morphisms such that $dg=cf,dh=cg$ then the following diagrams are commutative:
+    $$\xymatrix @C=50pt{
+    (Fh\circ Fg)\circ Ff\ar@{=}[d]\ar[r]^{\mu_{hg}\circ Ff}&F(h\circ g)\circ Ff\ar[r]^{\mu_{(h\circ g)f}}&F((h\circ g)\circ f)\ar@{=}[d]\\
+    Fh\circ (Fg\circ Ff)\ar[r]^{Fh\circ \mu_{gf}}&Fh\circ F(g\circ f)\ar[r]^{\mu_{h(g\circ f)}}&F(h\circ(g\circ f))
+    }$$
+    $$\xymatrix @C=40pt{
+    F(\1_{cf})\circ Ff\ar[d]_{\alpha*\1_{Ff}}\ar[r]^{\mu_{\1_{cf}f}}&F(\1_{cf}\circ f)\ar@{=}[d]\\
+    \1_{F(cf)}\circ Ff\ar@{=}[r]&Ff
+    }\xymatrix @C=40pt{
+    Ff\circ F(\1_{df})\ar[d]_{\1_{Ff}*\alpha}\ar[r]^{\mu_{f\1_{df}}}&F(f \circ\1_{df})\ar@{=}[d]\\
+    Ff\circ\1_{F(df)}\ar@{=}[r]&Ff
+    }$$
+    \item if $\sigma:f\to f',\tau:g\to g'$ are 2-morphisms such that $d^2\tau=c^2\sigma$ then the following diagram is commutative:
+    $$\xymatrix @C=40pt{
+    Fg\circ Ff\ar[d]_{F\tau*F\sigma}\ar[r]^{\mu_{gf}}&F(g\circ f)\ar[d]^{F(\tau*\sigma)}\\
+    Fg'\circ Ff'\ar[r]^{\mu_{g'f'}}&F(g'\circ f')
+    }$$
+    \end{enumerate}
+}
+
+\eg{
+    We have $$\Ho:\catt{Model}\to\catt{Cat}_{\mathit{ad}},\catC\mapsto\Ho\catC,(F,G,\vp)\mapsto\Ho(F,G,\vp),\tau\mapsto L\tau$$ is a pseudo-2-functor. 
+    Moreover $\Ho\circ(-^\op)=(-^\op)\circ\Ho$.
+}
+
+\defn{
+    Suppose $\cattC,\cattD$ are 2-categories, $F,G:\cattC\to\cattD$ are pseudo-2-functors. A \term{2-natural transformation} $\tau:F\to G$
+    consists of a map $\tau_X:FX\to GX$ for any $X\in\cattC_0$, such that for any $f\in\cattC_1$, $Gf\circ\tau_{df}=\tau_{cf}\circ Ff$, 
+    and for any $\alpha\in\cattC_2$, $G\alpha*\1_{\tau_{d^2\alpha}}=\1_{\tau_{c^2\alpha}}*F\alpha$. A \term{2-natural isomorphism} 
+    is a 2-natural transformation $\tau$ such that $\tau_X$ is an isomorphism for any $X\in\cattC_0$.
+}
