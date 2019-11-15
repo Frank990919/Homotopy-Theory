@@ -1,4 +1,4 @@
-# Homotopy-Theory
+# Homotopy Theory
  
 This is the lecture note to the course Homotopy Theory. 
 The course started in the autumn semester in 2018, and 46 lectures has been given so far.
