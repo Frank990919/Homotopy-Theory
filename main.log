@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7140 64-bit) (preloaded format=xelatex 2019.10.13)  15 NOV 2019 01:22
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7140 64-bit) (preloaded format=xelatex 2019.10.13)  16 NOV 2019 00:10
 entering extended mode
 **e:/MATH/Homotopy-Theory/main.tex
 (e:/MATH/Homotopy-Theory/main.tex
@@ -545,10 +545,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
  ) 
 Here is how much of TeX's memory you used:
- 12224 strings out of 427669
- 159831 string characters out of 3149214
- 386431 words of memory out of 3000000
- 16050 multiletter control sequences out of 15000+200000
+ 12226 strings out of 427669
+ 159843 string characters out of 3149214
+ 386552 words of memory out of 3000000
+ 16052 multiletter control sequences out of 15000+200000
  21274 words of font info for 110 fonts, out of 3000000 for 9000
  1349 hyphenation exceptions out of 8191
  34i,17n,45p,260b,811s stack positions out of 5000i,500n,10000p,200000b,50000s
