@@ -123,5 +123,67 @@ possible (See Section {\color{red}\texttt{[ERROR! SECTION NOT FOUND]}}), it is c
 of $(\infty,1)$-categories.
 
 We note that in some cases, simplicial sets can regarded as categories. We may regard 0-simplices of the simplicial set as objects of the category,
-and 1-simplices of the simplicial set as morphisms of the category. For example, the simplicial set $\d[n]$ can be regarded as the category, with
-$n+1$ objects $\{0,1,\cdots,n\}$, with one unique arrow from $i$ to $j$ if and only if $i\le j$, and no arrow from $i$ to $j$ if otherwise. 
+and 1-simplices of the simplicial set as morphisms of the category. For example, the simplicial set $\d[n]$ can be regarded as the category, 
+that comes from the partially ordered set with $n+1$ objects $[n]$. This gives rise to the following definition:
+
+\defn{
+    We consider tyhe functor $\d\to\cat{Cat},[n]\mapsto[n]$. This gives a cosimplicial object in the category of all categories. By
+    Proposition \ref{tagb}, this gives rise to an adjunction $\cat{SSet}\to\cat{Cat}$. We call the right adjoint of this adjunction
+    the \term{nerve functor}, denoted $\N$.
+}
+
+Now, for any category $\catC$, all $n$-simplices in $\N\catC$ are simply all composable sequences of maps 
+$$X_0\xrightarrow{f_0}X_1\xrightarrow{f_1}\cdots\xrightarrow{f_{n-1}}X_n.$$
+
+The nerve functor enjoys the following property:
+
+\prop{
+    Suppose $K$ is a simplicial set. The following conditions are equivalent:
+    \begin{enumerate}[i)]
+        \item There exists a category $\catC$ and an isomorphism of simplicial sets $K\cong \N(\catC)$;
+        \item Any map $\l^i[n]\to K$, where $0<i<n$, extends \textnormal{uniquely} to a map $\d[i]\to K$.
+    \end{enumerate}
+}
+
+Let us take a pause here to see what does this proposition means. What is a map $\d[2]\to \N(\catC)$? it means taking three morphisms
+$f:X\to Y,g:Y\to Z$ and $h:X\to Z$ in $\catC$, such that $h=gf$. Similarly, a map $\l^1[2]\to \N(\catC)$ means taking two morphisms 
+$f:X\to Y,g:Y\to Z$. Now the meaning for the statement ``any map $\l^1[2]\to \N(\catC)$, extends uniquely to a map $\d[2]\to \N(\catC)$'' means: 
+it simply means that every two morphisms that are tip-to-tail are uniquely composable. Similarly, the statement ``any map $\l^i[3]\to \N(\catC)$,
+where $i=1,2$, extends uniquely to a map $\d[3]\to \N(\catC)$'' means that composition is strictly associative. Note that we do not
+include the cases $i=0$ and $i=n$. This is because ``any map $\l^0[2]\to \N(\catC)$, extends uniquely to a map $\d[2]\to \N(\catC)$''
+will indicate that every map has a left inverse, which is only possible whenever $\catC$ is a groupoid.
+
+We have seen that certain simplicial sets can be used to model ordinary categories. We may want to show that certain simplicial sets can 
+be used to model $(\infty,1)$-categories. 
+
+Now, suppose $K$ is a simplicial set, that is considered to be an $(\infty,1)$-category. 
+What kind of properties would we like $K$ to have? We would like to consider 0-simplices as objects, 1-simplices as morphisms, as usual.
+We would also like every two morphisms that are tip-to-tail are composable. This means that any map $\l^1[2]\to K$, extends to a map $\d[2]\to K$.
+However, if we still require the composition to be unique, we are on our way back to ordinary categories. In fact, it is unreasonable,
+and unnatural, to require composition of two morphisms to be unique. For example, there exists multiple ways to join two paths 
+to obtain a longer path in any topological space $X$, meaning that there exists multiple choices of compositions in $\Pi(X)$. Nevertheless,
+these choices are homotopic. The condition that different compositions are homotopic, can be recovered by the statement
+``any map $\l^i[3]\to K$, where $i=1,2$, extends to a map $\d[3]\to K$''. Similarly, higher homotopy relations can be recovered by the statement
+``any map $\l^i[n]\to K$, where $0<i<n$, extends to a map $\d[i]\to K$''. Again, we do not include the cases $i=0$ and $i=n$,
+since they are only satisfied when every morphism in $K$ is ``invertible''. 
+
+We now make our discussion precise:
+
+\defn{
+    A \term{quasi-category}, is a simplicial set $K$, such that $$(K\to *)\in\RLP(\{\l^i[n]\to\d[n]\mid 0<i<n\}).$$
+}
+
+Since this is the mainly used model for $(\infty,1)$-categories, from now on, when we say an $\infty$-category, we refer to a quasi-category,
+unless stated otherwise.
+
+\eg{
+    The nerve of an ordinary category is an $\infty$-category.
+}
+
+\eg{
+    Kan complexes are $\infty$-categories. Moreover, they enjoy right lifting property with respect to $\l^i[n]\to\d[n]$ even if $i=0$ or $i=n$,
+    meaning that every morphism in a Kan complex is ``invertible''. For this reason, we simply define \term{$\infty$-groupoids} or
+    \term{$(\infty,0)$-categories} to be Kan complexes, and say that two $\infty$-groupoids are \term{equivalent} if they are weak equivalent.
+    This give a nice realization of the homotopy hypothesis, and the construction $\Pi$ taking a topological space to an $\infty$-groupoid
+    can be simply realized by $\Sing$.
+}

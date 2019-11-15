@@ -27,6 +27,9 @@
 
 \def\footnote#1{\par\textsize{14}{#1}}
 
+\def\textnormal{\textit}
+\def\texttt{\textit}
+
 \def\0{\right)}
 \def\9{\left(}
 \def\1{\mathbb1}
@@ -46,6 +49,8 @@
 \def\W{\mathrm{W}}
 
 \def\op{\mathrm{op}}
+\def\h{\mathrm{h}}
+\def\N{\mathrm{N}}
 \def\pr{\operatorname{pr}}
 \def\inn{\operatorname{in}}
 \def\Cyl{\operatorname{Cyl}}
