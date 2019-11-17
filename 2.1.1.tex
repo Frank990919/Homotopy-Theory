@@ -204,18 +204,87 @@ to ``thicken the morphism space'' to give rise to the homotopy-coherent idea of 
 the following definition:
 
 \defn{
-    We define the functor $\C:\cat{TOSet}\to\cat{Cat}_{\cat{SSet}}$ as follows. For any partially ordered set $J$, define $\C[J]$ to be the
+    We define the functor $\C:\cat{TOSet}\to\cat{Cat}_{\cat{SSet}}$ as follows. For any totally ordered set $J$, define $\C[J]$ to be the
     simplicial category with:
     \begin{itemize}
         \item Objects being all objects of $J$;
         \item For any $i,j\in J$, $\Hom_{\C[J]}(i,j)=\emptyset$ if $i>j$, and $\Hom_{\C[J]}(i,j)=\N(P_{i,j})$ if $i\le j$, where
         $P_{i,j}$ is the partially ordered set $\{I\subseteq J\mid i,j\in I;\forall k\in I,i\le k\le j\}$;
         \item For $i\le j\le k$, the composition law $\Hom_{\C[J]}(i,j)\times\Hom_{\C[J]}(j,k)\to\Hom_{\C[J]}(i,k)$ is induced by the map
-        of partially ordered sets $P_{i,j}\times P_{j,k}\to P_{i,k},(I,I')\mapsto I\cup I'$.
+        of partially ordered sets $P_{i,j}\times P_{j,k}\to P_{i,k},(I,I')\mapsto I\cup I'$;
+    \end{itemize}
+    and for any maps $f:J\to J'$ between totally ordered sets, define $\C[f]$ to be the functor with:
+    \begin{itemize}
+        \item $\C[f](i)=f(i)$ for any object $i\in J$;
+        \item For any $i,j\in J$, the map $\Hom_{\C[J]}(i,j)\to \Hom_{\C[J']}(f(i),f(j))$ is induced by the map 
+        $P_{i,j}\to P_{f(i),f(j)},I\mapsto f(I)$.
     \end{itemize}
     This functor induces a cosimplicial object in the category of simplicial categories, which further induces an adjunction
-    $\cat{SSet}\to\cat{Cat}_{\cat{SSet}}$. We denote this adjunction by $(\C,\N)$, and call the right adjoint the \term{homotopy-coherent nerve}
+    $\cat{SSet}\to\cat{Cat}_{\cat{SSet}}$. We denote this adjunction by $(\C,\N)$, and call the right adjoint the \term{simplicial nerve}
     functor.
 }
 
-This is really a complicated definition, so we shall pause again to figure out this definition. Take $\C[\Delta[3]]$ as example. We have
+This is really a complicated definition, so we shall pause again to figure out this definition. Take $\C[\d[3]]$ as example. We have
+$$\Hom_{\C[\Delta[3]]}=\9\vcenter{\xymatrix{03\ar[r]\ar[d]\ar[rd]&013\ar[d]\\023\ar[r]&0123}}\0.$$
+(Notice that it also contains two nondegenerate $2$-simplices that are not shown.) We notice that each vertex of this 
+Hom-space represents a way from $0$ to $3$. In particular, there is a way from $0$ to $3$ that does not pass through any other vertices,
+which is the $03$ vertex. We denote the morphism $0\to 3$ represented by the vertex $03$ as $p_{03}$. Now we notice that
+$p_{03}\ne p_{13}p_{01}$. However, the $1$-simplex from $03$ to $013$ indicates that these two morphisms are homotopic to each other.
+Moreover, the fact that the morphism space is weakly contractible, means that all possible compositions are canonically homotopic.
+This corresponds to the point that $\C[n]$ is the ``thicken version'' of $[n]$ that we have dropped the strict associative condition
+and replace it by the idea that compositions are commutative only up to coherent homotopy. Take another example, $\C[\p\d[3]]$.
+We have $$\Hom_{\C[\p\d[3]]}=\9\vcenter{\xymatrix{03\ar[r]\ar[d]&013\ar[d]\\023\ar[r]&0123}}\0.$$ We may see that the path of maps
+$03\to 013\to 0123\leftarrow 023\leftarrow 03$ is not homotopic to the constant path, which corresponds well with the fact that
+$\p\d[3]$ is not weakly contractible.
+
+As an exercise, the reader can show that if $0\le i\le j\le n$, then the map $\Hom_{\C[\p\d[n]]}(i,j)\to\Hom_{\C[\d[n]]}(i,j)$
+is identity unless $i=0,j=n$, in which case it is a cofibration; then the map $\Hom_{\C[\l[n]]}(i,j)\to\Hom_{\C[\d[n]]}(i,j)$
+is identity unless $i=0,j=n$, in which case it is an anodyne extension.
+
+\defn{
+    The \term{topological nerve} of a topological category $\catC$ is defined to be $\N\Sing\catC$.
+}
+
+\prop{
+    Suppose $\catC$ is a fibrant simplicial category (in the canonical model structure of the category of simplicial categories)
+    (which is equivalent to all of its Hom-spaces are Kan complexes). Then $\N\catC$ is an $\infty$-category.
+}
+
+\cor{
+    The topological nerve of any topological category is an $\infty$-category.
+}
+
+We now give the definition to equivalences between $\infty$-categories.
+
+\defn{
+    Suppose $S$ is a simplicial set. The \term{homotopy category} of $S$ is $\h S:=\h\C[S]$. A map $f:S\to T$ between simplicial sets
+    is called a \term{categorical equiavlence} if $\h f$ is an equivalence of $\cat{H}$-enriched categories.
+}
+
+We now state the following theorem, which will be proved in Section {\color{red}\texttt{[ERROR! SECTION NOT FOUND]}}.
+
+\thm{
+    There exists a model structure on $\cat{SSet}$, called the \term{Joyal model structure}, where weak equivalences are 
+    all the categorical equivalences and fibrant objects are the quasi-categories, such that the adjunction
+    $$\xymatrix{(\cat{SSet},\text{Joyal})\ar@(ru,lu)[r]^{\C}\ar@{}[r]|{\bot}&(\cat{Cat}_{\cat{SSet}},\text{std})\ar@(ld,rd)[l]^{\N}}$$
+    is a Quillen equivalence.
+}
+
+This means that the theory of quasi-categories and the theory of simplicial categories are equivalent models of $\infty$-categories.
+
+Finally we give the following definition:
+
+\defn{
+    Suppose $\catC$ is a simplicial category, or a topological category, or a simplicial set. We define $\Ho\catC:=\pi_0\h\catC$.
+}
+
+To get a better view of what we have done in this section, it would be better if you have this graph in mind. Here all the arrows
+above the categories are left adjoints, where all the arrows below the categories are right adjoints, equivalences
+means Quillen equivalences.
+$$\xymatrix @C=40pt{
+    (\cat{SSet},\text{Joyal})\ar@(ru,lu)[r]^{\C}\ar@{}[r]|{\simeq}
+    &(\cat{Cat}_{\cat{SSet}},\text{std})\ar@(ld,rd)[l]^{\N}\ar@(ru,lu)[r]^{\abs-}\ar@{}[r]|{\simeq}
+    &(\cat{Cat}_{\cat{K}},\text{std})\ar@(ld,rd)[l]^{\Sing}\ar[r]^{\h}\ar@(ru,lu)[rr]^{\Ho}
+    &\cat{Cat}_{\cat H}\ar[r]^{\pi_0}
+    &\cat{Cat}\ar@(ld,rd)[ll]
+}$$
