@@ -74,6 +74,13 @@ Now we have a schematic view of $(\infty,1)$-categories: they are just $\cat{H}$
 for us to discover properties enjoyed by $\infty$-categories. We need to give models that are easy to compute. We shall now give three 
 different models for us to work with.
 
+\rmk{
+    Although we are giving different models, they are actually representing the same thing: $(\infty,1)$-categories. Therefore it is important 
+    to show that these models are equivalent, at least up to equivalence between categories. We will devolope how equivalences between categories
+    are defined in these different models, and how one model can be translated into another, and show that under equivalences between categories,
+    all these models are equivalent.
+}
+
 The first model is topological categories. 
 
 \defn{
@@ -127,7 +134,7 @@ and 1-simplices of the simplicial set as morphisms of the category. For example,
 that comes from the partially ordered set with $n+1$ objects $[n]$. This gives rise to the following definition:
 
 \defn{
-    We consider tyhe functor $\d\to\cat{Cat},[n]\mapsto[n]$. This gives a cosimplicial object in the category of all categories. By
+    We consider the functor $\d\to\cat{Cat},[n]\mapsto[n]$. This gives a cosimplicial object in the category of all categories. By
     Proposition \ref{tagb}, this gives rise to an adjunction $\cat{SSet}\to\cat{Cat}$. We call the right adjoint of this adjunction
     the \term{nerve functor}, denoted $\N$.
 }
@@ -187,3 +194,28 @@ unless stated otherwise.
     This give a nice realization of the homotopy hypothesis, and the construction $\Pi$ taking a topological space to an $\infty$-groupoid
     can be simply realized by $\Sing$.
 }
+
+We now discuss the relations between $\infty$-categories and simplicial categories. In order to show that these two models are equivalent
+(in an appropriate sense), we must from a pair of functors $\cat{SSet}\to\cat{Cat}_{\cat{SSet}}$ and $\cat{Cat}_{\cat{SSet}}\to\cat{SSet}$.
+As shown in Proposition \ref{tagb}, a cosimplicial simplicial category will give rise to an adjunction $\cat{SSet}\to\cat{Cat}_{\cat{SSet}}$.
+In the case of ordinary categories, we gave the cosimplicial category $\d\to\cat{Cat},[n]\mapsto[n]$. This makes the composition of morphisms
+in a simplicial set strictly associative, which is what in the case of an ordinary category we want. Consequencely, we would like
+to ``thicken the morphism space'' to give rise to the homotopy-coherent idea of composing the morphisms. This gives rise to
+the following definition:
+
+\defn{
+    We define the functor $\C:\cat{TOSet}\to\cat{Cat}_{\cat{SSet}}$ as follows. For any partially ordered set $J$, define $\C[J]$ to be the
+    simplicial category with:
+    \begin{itemize}
+        \item Objects being all objects of $J$;
+        \item For any $i,j\in J$, $\Hom_{\C[J]}(i,j)=\emptyset$ if $i>j$, and $\Hom_{\C[J]}(i,j)=\N(P_{i,j})$ if $i\le j$, where
+        $P_{i,j}$ is the partially ordered set $\{I\subseteq J\mid i,j\in I;\forall k\in I,i\le k\le j\}$;
+        \item For $i\le j\le k$, the composition law $\Hom_{\C[J]}(i,j)\times\Hom_{\C[J]}(j,k)\to\Hom_{\C[J]}(i,k)$ is induced by the map
+        of partially ordered sets $P_{i,j}\times P_{j,k}\to P_{i,k},(I,I')\mapsto I\cup I'$.
+    \end{itemize}
+    This functor induces a cosimplicial object in the category of simplicial categories, which further induces an adjunction
+    $\cat{SSet}\to\cat{Cat}_{\cat{SSet}}$. We denote this adjunction by $(\C,\N)$, and call the right adjoint the \term{homotopy-coherent nerve}
+    functor.
+}
+
+This is really a complicated definition, so we shall pause again to figure out this definition. Take $\C[\Delta[3]]$ as example. We have
