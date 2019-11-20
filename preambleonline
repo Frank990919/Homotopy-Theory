@@ -28,7 +28,7 @@
 \def\footnote#1{\par\textsize{14}{#1}}
 
 \def\textnormal{\textit}
-\def\texttt{\textit}
+\def\texttt{\textbf}
 
 \def\0{\right)}
 \def\9{\left(}

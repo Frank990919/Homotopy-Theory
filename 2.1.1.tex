@@ -70,9 +70,11 @@ where two spaces are equivalent if and only if they are weakly equivalent. That 
 in $\Ho\cat{Top}\simeq\Ho\cat{K}\simeq\Ho\cat{SSet}$ to describe $(\infty,0)$-categories. Because of such important role they play in
 higher category theory, we give them a special name: \term{homotopy types}. We write $\cat{H}$ for the category of homotopy types.
 
-Now we have a schematic view of $(\infty,1)$-categories: they are just $\cat{H}$-enriched categories. But this view is really, really difficult
-for us to discover properties enjoyed by $\infty$-categories. We need to give models that are easy to compute. We shall now give three 
-different models for us to work with.
+Now we have a schematic view of $(\infty,1)$-categories: loosely speaking, they are just $\cat{H}$-enriched categories.
+However, doing computations in $\cat{H}$-enriched categories are really difficult. Moreover, not all $\cat{H}$-enriched categories
+are $(\infty,1)$-categories. This is because of the difference between homotopy-commutative diagrams and homotopy-coherent diagrams,
+as we will discuss in the next section. Therefore, we need to give correct models for $(\infty,1)$-categories. 
+Moreover, we require these models to be easy to compute on. We shall now give three different models for us to work with.
 
 \rmk{
     Although we are giving different models, they are actually representing the same thing: $(\infty,1)$-categories. Therefore it is important 
@@ -99,7 +101,8 @@ models for $\infty$-categories.
 }
 
 Note that an equivalence between topological categories, at least in higher category theory, does not mean it is an equivalence
-between $\cat K$-enriched categories. This is because essentially what we are dealing with are actually $\cat{H}$-enriched categories.
+between $\cat K$-enriched categories. This is because essentially the morphisms spaces we are dealing with are actually homotopy types,
+not real spaces.
 
 The second model is simplicial categories.
 
@@ -117,7 +120,7 @@ are also indeed models for $\infty$-categories.
     \term{(weakly) equivalent} if their homotopy categories are equivalent (viewed as $\cat H$-enriched categories).
 }
 
-We now consider the relations between these two relations. We already know that there exists an adjunction $(\abs{-},\Sing):\cat{SSet}\to\cat K$,
+We now consider the relations between these two definitions. We already know that there exists an adjunction $(\abs{-},\Sing):\cat{SSet}\to\cat K$,
 that is a closed symmetric monoidal Quillen equivalence. Consequencely, we get an adjunction 
 $(\abs{-},\Sing):\cat{Cat}_{\cat{SSet}}\to\cat{Cat}_{\cat K}$. By Section \ref{secb}, this adjunction is a Quillen equivalence between the
 canonical model structures on both sides. Thus both the left and right adjoints preserve equivalences, and both the unit morphisms 
@@ -126,7 +129,7 @@ and counit morphisms are equivalences. Thus the two models can be regarded as eq
 However, these two models have disadvantages. As we have said before, in most $(\infty,1)$-categories (that we actually work with), compositions
 of morphisms is associative only up to homotopy. But in a topological category, composition of morphisms are associative up to nose. 
 Therefore we must figure out how to transform a homotopy coherent diagram into a strictly commutative diagram. Although this is always
-possible (See Section {\color{red}\texttt{[ERROR! SECTION NOT FOUND]}}), it is convenient for us to get a more flexible model 
+possible (See Section \texttt{\color{ff0000}[ERROR! SECTION NOT FOUND]}), it is convenient for us to get a more flexible model 
 of $(\infty,1)$-categories.
 
 We note that in some cases, simplicial sets can regarded as categories. We may regard 0-simplices of the simplicial set as objects of the category,
@@ -261,7 +264,7 @@ We now give the definition to equivalences between $\infty$-categories.
     is called a \term{categorical equiavlence} if $\h f$ is an equivalence of $\cat{H}$-enriched categories.
 }
 
-We now state the following theorem, which will be proved in Section {\color{red}\texttt{[ERROR! SECTION NOT FOUND]}}.
+We now state the following theorem, which will be proved in Section \texttt{\color{ff0000}[ERROR! SECTION NOT FOUND]}.
 
 \thm{
     There exists a model structure on $\cat{SSet}$, called the \term{Joyal model structure}, where weak equivalences are 

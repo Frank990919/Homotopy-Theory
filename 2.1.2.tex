@@ -1,0 +1,130 @@
+We now describe how most aspects of ordinary categories extends to infinity categories. 
+
+\rmk{
+    As we have stated above, since the three models are equivalent models for $(\infty,1)$-categories, what wen have defined for 
+    $\infty$-categories (that are invariant under categorical equivalences) should extends naturally to topological categories
+    and simplicial categories. The readers may feel free to use the results we have stated for $\infty$-categories on topological categories
+    and simplicial categories, if they prefer.
+}
+
+\defn{
+    Suppose $\catC$ is an $\infty$-category. An \term{object} in $\catC$ is a vertex in $\catC$. A \term{morphism} in $\catC$ is a $1$-simplex
+    in $\catC$. The \term{domain} and \term{codomain} of a morphism $\phi:\d[1]\to\catC$ are $\phi(0)$ and $\phi(1)$, respectively.
+    If a morphism $\phi$ has domain $x$ and codomain $y$, we write $\phi:x\to y$. The \term{identity morphism} of an object $x$ is
+    $\1_x:=s_0(x):x\to y$.
+}
+
+\defn{
+    Suppose $S$ is a simplicial set. We define the \term{opposite} of $S$ to be the simplicial set $S^\op$, with $S^\op_n=S_n$ but
+    $$(d_i:S^\op_n\to S^\op_{n-1})=(d_{n-i}:S_n\to S_{n-1}),(s_i:S^\op_n\to S^\op_{n+1})=(s_{n-i}:S_n\to S_{n+1}).$$
+    If $\catC$ is an $\infty$-category, we call $\catC^\op$ the \term{opposite category} of $\catC$.
+}
+
+We next consider equivalences between morphisms.
+
+\defn{
+    Suppose $\catC$ is an $\infty$-category. Two morphisms $f,g:x\to y$ in $\catC$ are said to be \term{homotopic}, 
+    written as $f\simeq g$, if one of the following equivalence relations hold:
+    \begin{enumerate}[i)]
+        \item There exists a $2$-simplex $\vcenter{\xymatrix @R=5pt{x\ar[rd]^f\ar[dd]_{\1_x}&\\&y\\x\ar[ru]_g&}}$ in $\catC$;
+        \item There exists a $2$-simplex $\vcenter{\xymatrix @R=5pt{x\ar[rd]^g\ar[dd]_{\1_x}&\\&y\\x\ar[ru]_f&}}$ in $\catC$;
+        \item There exists a $2$-simplex $\vcenter{\xymatrix @R=5pt{&y\ar[dd]^{\1_y}\\x\ar[ru]^f\ar[rd]_g&\\&y}}$ in $\catC$;
+        \item There exists a $2$-simplex $\vcenter{\xymatrix @R=5pt{&y\ar[dd]^{\1_y}\\x\ar[ru]^g\ar[rd]_f&\\&y}}$ in $\catC$.
+    \end{enumerate}
+}
+
+\prop{
+    The homotopic relation is an equivalence relation.
+}
+
+\defn{
+    Suppose $\catC$ is an $\infty$-category. We define a category $\pi(\catC)$ as follows:
+    \begin{enumerate}[i)]
+    \item Its objects are vertices of $\catC$;
+    \item For any $x,y\in\catC_0$, define
+    $\Hom_{\pi(\catC)}(x,y)=\{f:x\to y\in\catC_1\}/\simeq$;
+    \item For any $x\in\catC_0$, define $\1_x=[s_0x]$;
+    \item For any morphisms $[f]:x\to y,[g]:y\to z$ in $\pi(\catC)$, take a lift
+    of the following diagram:
+    $$\xymatrix @C=40pt{
+    \l^1[2]\ar[rr]^{f\text{ on }\d\{0,1\}}_{g\text{ on }\d\{1,2\}}\ar[d]&&\catC\\
+    \d[2]\ar@{.>}[rru]_{h}&&
+    }$$
+    and define $[g]\circ[f]=[d_1h]$.
+    \end{enumerate}
+}
+
+\prop{
+    The category $\pi(\catC)$ is isomorphic to the category $\Ho(\catC)$, meaning that two morphisms $f\simeq g$ if and only if thet are equal in 
+    $\Ho\catC$.
+}
+
+Next we discuss the mapping spaces between objects.
+
+\defn{
+    Suppose $S$ is a simplicial set, $x,y$ are vertices in $S$. We define the \term{mapping space} from $x$ to $y$ to be 
+    $\Map_S(x,y):=\Hom_{\h S}(x,y)\in\cat H$.
+}
+
+So how shall we compute this mapping space? By definition, $\Map_S(x,y)$ is the homotopy type of $\Hom_{\C[S]}(x,y)$.
+The advantage of this definition is that it has a natural composition law, and it works for all simplicial sets, not just $\infty$-categories.
+However, this construction is quite complicated, and it is usually not a Kan complex, which makes it difficult to verify its properties.
+
+We shall now introduce another simplicial set that represents the homotopy type $\Map_S(x,y)$, at least when $S$ is an $\infty$-category.
+
+\defn{
+    Suppose $S$ is a simplicial set, $x,y$ are vertices in $S$. We define $$\Hom^R_S(x,y)=\{\sigma\in S_{n+1}
+    \mid\sigma|_{\d\{0,\cdots,n\}}=x,\sigma(n+1)=y\},$$ and $$\Hom^L_S(x,y)=\{\sigma\in S_{n+1}\mid\sigma(0)=x,\sigma|_{\d\{1,\cdots,n+1\}}=y\}.$$
+    Moreover we define $$\Hom_S(x,y)=\{\sigma:\d[n]\times\d[1]\to S\mid \sigma|_{\d[n]\times\{0\}}=x,\sigma|_{\d[n]\times\{1\}}=y\}.$$
+}
+
+The following proposition will be proved in Section \texttt{\color{ff0000}[ERROR! SECTION NOT FOUND]}
+and \texttt{\color{ff0000}[ERROR! SECTION NOT FOUND]}.
+
+\prop{
+    If $S$ is an $\infty$-category, then for any objects $x,y$, the simplicial sets $\Hom^R_S(x,y),\Hom^L_S(x,y),\Hom_S(x,y)$ are Kan complexes. 
+    There exists a canonical isomorphism $$\Hom^R_S(x,y)\xrightarrow{\simeq}\Hom_{\C[S]}(x,y)$$ in the category $\cat H$. The natural inclusions
+    $$\Hom^R_S(x,y)\hookrightarrow\Hom_S(x,y)\hookleftarrow\Hom^L_S(x,y)$$ are weak homotopy equivalences.
+}
+
+We next discuss when can we say a morphism is an equivalence.
+
+\defn{
+    Suppose $\catC$ is a topological category, of a simplicial category, or an $\infty$-category. A morphism $f$ in $\catC$ is called an
+    \term{equivalence}, if it is an isomorphism in $\h\catC$.
+}
+
+The following criterion is useful while we want to determine whether a morphism is an equivalence or not.
+
+\prop{
+    Suppose $\catC$ is a topological category, $f:X\to Y$ is a morphism in $\catC$. The following conditions are equivalent:
+    \begin{enumerate}[i)]
+        \item $f$ is an equivalence;
+        \item $f$ has a homotopy inverse; that is, there exists a morphism $g:Y\to X$ such that $fg\simeq \1_Y$ and $gf\simeq\1_X$;
+        \item For any $Z\in\catC$, composition with $f$ induces a homotopy equivalence $\Hom_\catC(Z,X)\to\Hom_\catC(Z,Y)$;
+        \item For any $Z\in\catC$, composition with $f$ induces a weak homotopy equivalence $\Hom_\catC(Z,X)\to\Hom_\catC(Z,Y)$;
+        \item For any $Z\in\catC$, composition with $f$ induces a homotopy equivalence $\Hom_\catC(Y,Z)\to\Hom_\catC(X,Z)$;
+        \item For any $Z\in\catC$, composition with $f$ induces a weak homotopy equivalence $\Hom_\catC(Y,Z)\to\Hom_\catC(X,Z)$.
+    \end{enumerate}
+}
+
+The following proposition will be proved in Section \texttt{\color{ff0000}[ERROR! SECTION NOT FOUND]}.
+
+\prop{
+    Suppose $\catC$ is an $\infty$-category, $\phi$ is a morphism in $\catC$. $\phi$ is an equivalence, if and only if for every
+    map $f:\l^0[n]\to\catC$ such that $f|_{\d\{0,1\}}=\phi$, $f$ extends to a map $\d[n]\to\catC$.
+}
+
+Using this proposition we obtain the following result:
+
+\prop{
+    Suppose $\catC$ is a simplicial set. The following conditions are equivalent:
+    \begin{enumerate}
+        \item $\catC$ is an $\infty$-groupoid;
+        \item $\catC$ is an $\infty$-category and $\Ho\catC$ is a groupoid;
+        \item $\catC$ is an $\infty$-category and $\catC$ has extension property with respect to all inclusions $\l^0[n]\to\d[n]$;
+        \item $\catC$ is an $\infty$-category and $\catC$ has extension property with respect to all inclusions $\l^n[n]\to\d[n]$.
+    \end{enumerate}
+}
+
+Next we talk about the ``underlying $\infty$-groupoid of an $\infty$-category''.
