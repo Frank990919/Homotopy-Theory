@@ -136,8 +136,18 @@ Next we talk about the ``underlying $\infty$-groupoid of an $\infty$-category''.
     Kan complex} contained in $\catC$. If $f:\catC\to\catD$ is a categorical equivalence between $\infty$-categories, then the induced map
     $f':\catC'\to\catD'$ between the largest Kan complexes is a homotopy equivalence.
     \footnote{The lecturer cannot figure out a proof to the last assertion while not using the Joyal model structure of simplicial sets,
-    although Lurie said that it can be proved directly.}
+    although the book said that it can be proved directly.}
 }
 
 We next consider diagrams on $\infty$-categories. This gives rises to the difference between homotopy-commutative diagrams
-and homotopy-coherent diagrams, as it has been promised that we will discuss in this section.
+and homotopy-coherent diagrams, as it has been promised that we will discuss it in this section. 
+
+The issue is as follows. Suppose $\catC$ is an $\infty$-category (or a topological category, simplicial category). To a first approximation,
+it is very similar to work on $\catC$ and $\h\catC$, since they have the same objects and morphisms. However, in $\catC$, we should ask
+whether or not two morphisms are equivalent or homotopic, but not equal. In this case, the homotopy between the morphisms need to
+be taken in consider, since they may as well affect the higher-dimensional homotopies. However, a commutative diagram in $\h\catC$,
+does not contain the information on the homotopies between the morphisms. Consequencely, commutative diagrams on $\h\catC$, which corresponds
+to the notion of \term{homotopy commuative diagrams} on $\catC$, is quite unnatural and need to be refined by the notion of
+\term{homotopy coherent diagrams} on $\catC$.
+
+Let us give two examples.
