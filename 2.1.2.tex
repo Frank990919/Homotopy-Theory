@@ -91,7 +91,7 @@ We next discuss when can we say a morphism is an equivalence.
 
 \defn{
     Suppose $\catC$ is a topological category, of a simplicial category, or an $\infty$-category. A morphism $f$ in $\catC$ is called an
-    \term{equivalence}, if it is an isomorphism in $\h\catC$.
+    \term{equivalence}, or \term{invertible}, if it is an isomorphism in $\h\catC$.
 }
 
 The following criterion is useful while we want to determine whether a morphism is an equivalence or not.
@@ -128,3 +128,16 @@ Using this proposition we obtain the following result:
 }
 
 Next we talk about the ``underlying $\infty$-groupoid of an $\infty$-category''.
+
+\prop{
+    Suppose that $\catC$ is an $\infty$-category. Let $\catC'\subseteq\catC$ be the lergest simplicial subset of $\catC$
+    such that all edges of $\catC'$ are invertible in $\catC$. Then $\catC$ is a Kan complex. Moreover for any Kan complex $K$,
+    the induced map $\Hom_{\cat{SSet}}(K,\catC')\to\Hom_{\cat{SSet}}(K,\catC)$ is an isomorphism. We call $\catC'$ the \term{largest
+    Kan complex} contained in $\catC$. If $f:\catC\to\catD$ is a categorical equivalence between $\infty$-categories, then the induced map
+    $f':\catC'\to\catD'$ between the largest Kan complexes is a homotopy equivalence.
+    \footnote{The lecturer cannot figure out a proof to the last assertion while not using the Joyal model structure of simplicial sets,
+    although Lurie said that it can be proved directly.}
+}
+
+We next consider diagrams on $\infty$-categories. This gives rises to the difference between homotopy-commutative diagrams
+and homotopy-coherent diagrams, as it has been promised that we will discuss in this section.
