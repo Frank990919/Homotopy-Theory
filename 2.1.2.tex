@@ -151,3 +151,27 @@ to the notion of \term{homotopy commuative diagrams} on $\catC$, is quite unnatu
 \term{homotopy coherent diagrams} on $\catC$.
 
 Let us give two examples.
+
+\eg{
+    Consider a monoid object $G$ in $\cat H$, and consider the $\cat H$-enriched category $\cat BG$. 
+    Then a $\cat BG$-valued diagram in a topological category is a homotopy commutative diagram. On the other hand, the mutiplication on $G$
+    is homotopy commutative, i.e. the maps $(xy)z,x(yz):G\times G\times G\to G$ are homotopic, which means that $G$ is an $A_3$-algebra.
+    However, in practice we would like to require that $G$ is not just an $A_3$-algebra, but also satisfies higher 
+    homotopy-coherent properties. For example, we would like the following diagram of homotopies between morphisms $G\times G\times G\times G\to G$
+    to be commutative up to a homotopy:
+    $$\xymatrix @C=-5pt @R=30pt{&(x(yz))w\ar@{-}[rr]\ar@{-}[ld]&&x((yz)w)\ar@{-}[rd]&\\
+    ((xy)z)w\ar@{-}[rrd]&&&&x(y(zw))\ar@{-}[lld]\\&&(xy)(zw);&&}$$
+    and also the following diagram of homotopies between homotopies between maps $G\times G\times G\times G\times G\to G$
+    to be commutative up to a homotopy:
+    $$\xymatrix @!0 @C=44pt{&&&&&(((ab)c)d)e\ar@{-}[rrrr]\ar@{-}[llld]\ar@{-}'[dd]'[ddddd][dddddd]&&&&((ab)(cd))e\ar@{-}[lldd]\ar@{-}[ddddd]\\
+    &&((a(bc))d)e\ar@{-}[ld]\ar@{-}'[d]'[dddd][dddddd]&&&&&&&\\
+    &(a((bc)d))e\ar@{-}[rrrrrr]\ar@{-}[dddl]&&&&&&(a(b(cd)))e\ar@{-}[dddl]&&\\
+    &&&&&&&&&\\
+    &&&&&&&&&\\
+    a(((bc)d)e)\ar@{-}[rrrrrr]\ar@{-}[dddd]&&&&&&a((b(cd))e)\ar@{-}[ddd]&&&(ab)((cd)e)\ar@{-}[lld]\ar@{-}[lllddd]\\
+    &&&&&((ab)c)(de)\ar@{-}[llld]\ar@{-}'[r][rr]&&(ab)(c(de))\ar@{-}'[ld][lllddd]&&\\
+    &&(a(bc))(de)\ar@{-}[lldd]&&&&&&&\\
+    &&&&&&a(b((cd)e))\ar@{-}[lld]&&&\\
+    a((bc)(de))\ar@{-}[rrrr]&&&&a(b(c(de)))&&&&&}$$
+    This requirement is equivalent to assuming that $G$ is an 
+}
