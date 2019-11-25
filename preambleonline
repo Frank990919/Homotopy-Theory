@@ -67,6 +67,7 @@
 \def\Map{\operatorname{Map}}
 %\def\Mapsq{\Map_\square}
 \def\Hom{\operatorname{Hom}}
+\def\Fun{\operatorname{Fun}}
 \def\sHom{\mathscr{H}\mkern-3mu\mathit{om}}
 
 \def\catB{\mathcal{B}}
@@ -74,6 +75,7 @@
 \def\catD{\mathcal{D}}
 \def\catE{\mathcal{E}}
 \def\catF{\mathcal{F}}
+\def\catI{\mathcal{I}}
 \def\catS{\mathcal{S}}
 \def\catT{\mathcal{T}}
 \def\cattC{\mathbb{C}}

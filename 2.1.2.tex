@@ -147,14 +147,14 @@ it is very similar to work on $\catC$ and $\h\catC$, since they have the same ob
 whether or not two morphisms are equivalent or homotopic, but not equal. In this case, the homotopy between the morphisms need to
 be taken in consider, since they may as well affect the higher-dimensional homotopies. However, a commutative diagram in $\h\catC$,
 does not contain the information on the homotopies between the morphisms. Consequencely, commutative diagrams on $\h\catC$, which corresponds
-to the notion of \term{homotopy commuative diagrams} on $\catC$, is quite unnatural and need to be refined by the notion of
-\term{homotopy coherent diagrams} on $\catC$.
+to the notion of \term{homotopy-commuative diagrams} on $\catC$, is quite unnatural and need to be refined by the notion of
+\term{homotopy-coherent diagrams} on $\catC$.
 
-Let us give two examples.
+Let us give two examples to show their differences.
 
 \eg{
     Consider a monoid object $G$ in $\cat H$, and consider the $\cat H$-enriched category $\cat BG$. 
-    Then a $\cat BG$-valued diagram in a topological category is a homotopy commutative diagram. On the other hand, the mutiplication on $G$
+    Then a $\cat BG$-valued diagram in a topological category is a homotopy-commutative diagram. On the other hand, the mutiplication on $G$
     is homotopy commutative, i.e. the maps $(xy)z,x(yz):G\times G\times G\to G$ are homotopic, which means that $G$ is an $A_3$-algebra.
     However, in practice we would like to require that $G$ is not just an $A_3$-algebra, but also satisfies higher 
     homotopy-coherent properties. For example, we would like the following diagram of homotopies between morphisms $G\times G\times G\times G\to G$
@@ -173,5 +173,54 @@ Let us give two examples.
     &&(a(bc))(de)\ar@{-}[lldd]&&&&&&&\\
     &&&&&&a(b((cd)e))\ar@{-}[lld]&&&\\
     a((bc)(de))\ar@{-}[rrrr]&&&&a(b(c(de)))&&&&&}$$
-    This requirement is equivalent to assuming that $G$ is an 
+    This requirement is equivalent to assuming that $G$ is an $A_\infty$-algebra. But there exists $A_3$ algebras that are not $A_\infty$-algebras.
+    For such $G$, $\cat BG$-valued diagrams are ``bad'' since they cannot recover all the homotopy relations that we want. Also, 
+    because of the lack of higher homotopies, the $\cat H$-enriched category $\cat BG$ should not be viewed as an $\infty$-category,
+    which corresponds to the fact that not all $\cat{H}$-enriched categories are $(\infty,1)$-categories, as it has been mentioned
+    in the previous section.
+}
+
+\eg{
+    Now suppose that we have an $[n]$-valued diagram in the simplicial category $\cat{SSet}$, that we wish to be homotopy-coherent.
+    We denote this diagram by $F$. For simplicity, we suppose that $F(i)=*$ for every $0\le i<n$.
+    (The reader should also think of what will happen if $F(i)$ are arbitrary simplicial sets, as we will come back to this 
+    in several sections.) We define $e_i$ to be the image of $F(i)$ in $F(n)$. Then, for every $0\le i\le j<n$,
+    since the maps $i\to j\to n$ and $i\to n$ are equal, we would like to assume that there exists a $1$-simplex $e_{ij}$
+    from $e_i$ to $e_j$ in $F(n)$. Also, for every $0\le i\le j\le k<n$, since the diagram 
+    $$\xymatrix{&j\ar[r]\ar[rrd]&k\ar[rd]\\i\ar[ru]\ar[rru]\ar[rrr]&&&n}$$ is commutative, we would like to assume that 
+    there exists a $2$-simplex $e_{ijk}$ in $F(n)$ filling the homotopies $e_{ij},e_{ik},e_{jk}$; and for every $0\le i\le j\le k\le l<n$,
+    we would like to assume that there exists a $3$-simplex $e_{ijkl}$ in $F(n)$ filling the homotopies $e_{ijk},e_{ijl},e_{ikl},e_{jkl}$;
+    and homotopies of higher degrees as well. Such a diagram contains much more information than a homotopy-commutative diagram,
+    where the latter only contains the information of $e_{ij}$'s, and losing the informations of higher homotopies.
+}
+
+So how shall we define a homotopy-coherent diagram? We could define this by working degree by degree 
+in topological categories or simplicial categories. However, this is a great amount of data and is really difficult to actually work with.
+But in $\infty$-categories, things are really easy to formulate: Suppose $\catI$ is an ordinary category and $\catC$ is an $\infty$-category,
+we may simply define an $\catI$-valued (homotopy-coherent) diagram in $\catC$ to be a map $\N(\catI)\to\catC$ of simplicial sets. (This is,
+in fact, one of the reasons that quasi-categories are one of the most widely-used model for $(\infty,1)$-categories.)
+
+The notion of homotopy-coherent diagrams in higher categories is a special case of functors between higher categories. Again, this is 
+very easy to define in the settings of $\infty$-categories:
+
+\defn{
+    Suppose $\catC,\catD$ are $\infty$-categories. A \term{functor} from $\catC$ to $\catD$ is simply a map $F:\catC\to\catD$ of simplicial sets.
+    We define $\Fun(K,\catD):=\catD^K$, for every simplicial set $K$. (In this notation, $K$ will often, but not always, be a simplicial set.)
+}
+
+The following proposition will be proved in Section \texttt{\color{ff0000}[ERROR! SECTION NOT FOUND]}.
+
+\prop{
+    Suppose $K,K'$ are simplicial sets, $\catC,\catD$ are $\infty$-categories. Then:
+    \begin{enumerate}[i)]
+        \item $\Fun(K,\catC)$ is an $\infty$-category;
+        \item If $F:\catC\to\catD$ is a categorical equivalence, then the induced map $\Fun(K,\catC)\to\Fun(K,\catD)$ is a categorical equivalence;
+        \item If $f:K\to K'$ is a categorical equivalence, then the induced map $\Fun(K',\catC)\to\Fun(K,\catC)$ is a categorical equivalence.
+    \end{enumerate}
+}
+
+\defn{
+    Suppose $\catC,\catD$ are $\infty$-categories. We define the \term{$\infty$-category of functors} from $\catC$ to $\catD$ to be 
+    $\Fun(\catC,\catD)$. We define \term{natural transformations} betwwen functors from $\catC$ to $\catD$ to be morphisms in $\Fun(\catC,\catD)$,
+    and call a natural transformation a \term{natural equivalence} if it is invertible in $\Fun(\catC,\catD)$.
 }
