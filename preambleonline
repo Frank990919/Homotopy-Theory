@@ -43,6 +43,8 @@
 \def\vp{\varphi}
 \def\ve{\varepsilon}
 \def\squ{\mathop{\operatorname{\square}}}
+\def\tril{\triangleleft}
+\def\trir{\triangleright}
 
 \def\Cof{\mathrm{Cof}}
 \def\Fib{\mathrm{Fib}}

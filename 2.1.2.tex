@@ -147,7 +147,7 @@ it is very similar to work on $\catC$ and $\h\catC$, since they have the same ob
 whether or not two morphisms are equivalent or homotopic, but not equal. In this case, the homotopy between the morphisms need to
 be taken in consider, since they may as well affect the higher-dimensional homotopies. However, a commutative diagram in $\h\catC$,
 does not contain the information on the homotopies between the morphisms. Consequencely, commutative diagrams on $\h\catC$, which corresponds
-to the notion of \term{homotopy-commuative diagrams} on $\catC$, is quite unnatural and need to be refined by the notion of
+to the notion of \term{homotopy-commutative diagrams} on $\catC$, is quite unnatural and need to be refined by the notion of
 \term{homotopy-coherent diagrams} on $\catC$.
 
 Let us give two examples to show their differences.
@@ -221,6 +221,95 @@ The following proposition will be proved in Section \texttt{\color{ff0000}[ERROR
 
 \defn{
     Suppose $\catC,\catD$ are $\infty$-categories. We define the \term{$\infty$-category of functors} from $\catC$ to $\catD$ to be 
-    $\Fun(\catC,\catD)$. We define \term{natural transformations} betwwen functors from $\catC$ to $\catD$ to be morphisms in $\Fun(\catC,\catD)$,
+    $\Fun(\catC,\catD)$. We define \term{natural transformations} between functors from $\catC$ to $\catD$ to be morphisms in $\Fun(\catC,\catD)$,
     and call a natural transformation a \term{natural equivalence} if it is invertible in $\Fun(\catC,\catD)$.
 }
+
+Next we discuss slice categories. It is shown in Section \ref{secc} that in the case of ordinary categories, if $p:\catC\to\catD$
+is a diagram in $\catD$, then for any $\catC'$, we have isomorphism
+$$\Fun(\catC',\catD_{/p})\cong\Fun(\catC'\star\catC,\catD)\times_{\Fun(\catC,\catD)}\{p\},$$ that is natural in $\catC'$. 
+This gives rise to the following definitions:
+
+\defn{
+    Suppose $S,S'$ are simplicial sets. We define the \term{join} of $S$ and $S'$, denoted $S\star S'$, to be the simplicial set
+    with $$\Hom_{\cat{SSet}}(\d[n],S\star S')=\left\{(f,\sigma,\sigma')\mathrel{\Bigg|}
+    \begin{aligned}&f:[n]\to[1],\\&\sigma:\d(f^{-1}(0))\to S,\\&\sigma':\d(f^{-1}(1))\to S'\end{aligned}\right\}.$$
+}
+
+If the reader has trouble understanding the definition, it is suggested to take $S=\d[2],S'=\d[1]$ as an example to get a better understanding.
+
+We also give the following definition:
+
+\defn{
+    Suppose $K$ is a simplicial set. We define the \term{left cone} of $K$ to be $K^\tril:=*\star K$, and the \term{right cone} of $K$ to be
+    $K^\trir:=K\star *$. The distinguished vertex in either cone will be called the \term{cone point}, and will be written as
+    $-\infty$ in the left cone or $\infty$ in the right cone.
+}
+
+With this definition, one can verify that $(\cat{SSet},\star)$ is a closed monoidal category, and the following proposition holds:
+
+\prop{
+    If $S,S'$ are $\infty$-categories, then $S\star S'$ is an $\infty$-category.
+}
+
+Moreover, we have the following proposition:
+
+\prop{
+    For any simplicial category $\catC,\catC'$ we have a canonical isomorphism $\N(\catC\star\catC')\cong\N(\catC)\star\N(\catC')$.
+}
+
+On the other hand, $\star$ does not commute with the functor $\C$. Nevertheless, we have the following proposition 
+which will be proved in Section \texttt{\color{ff0000}[ERROR! SECTION NOT FOUND]}:
+
+\prop{
+    For any simplicial sets $S,S'$ there exists a canonical map $\C[S\star S']\to\C[S]\star\C[S']$, which is an equivalence
+    between simplicial categories.
+}
+
+Now we can define what a slice category is:
+
+\prop{
+    Suppose $p:K\to S$ is a map of simplicial sets. The functor $$\cat{SSet}\to\cat{SSet},
+    X\mapsto\Fun(X\star K,S)\times_{\Fun(K,S)}\{p\}$$ is representable. We define $S_{/p}$ to be the representation of this functor,
+    and call it the \term{$\infty$-category of objects of $S$ over $p$} whenever $S$ is an $\infty$-category.
+    Dually, we have the definition of the \term{$\infty$-category of objects of $S$ under $p$}, which will be denoted $S_{p/}$.
+}
+
+To be more specifically, $$(S_{/p})_n=\{\sigma:\d[n]\star K\to S\mid \sigma|_{K}=p\}.$$ Similarly we may directly characterize
+$S_{p/}$.
+
+This definition is indeed a generalization of the slice category of ordinary categories:
+
+\prop{
+    If $p:\catC\to\catD$ is a diagram in an ordinary category $\catD$, then $\N(\catD)_{/\N(p)}\cong\N(\catD_{/p})$. The case for undercategories
+    is similar.
+}
+
+The following proposition will be proved in Section \texttt{\color{ff0000}[ERROR! SECTION NOT FOUND]}
+and Section \texttt{\color{ff0000}[ERROR! SECTION NOT FOUND]}.
+
+\prop{
+    Suppose $\catC$ is an $\infty$-category, $p:K\to\catC$ is a \term{diagram} in $\catC$ (which simply means that 
+    $p$ is a map of simplicial sets). Then $\catC_{/p}$ is an $\infty$-category. Moreover, if $q:\catC\to\catD$ 
+    is a categorical equivalence between $\infty$-categories, then the induced map $\catC_{/p}\to\catD_{/qp}$ is also a categorical equivalence.
+}
+
+We next talk about fully faithful and essentially surjective functors, together with subcategories.
+
+\defn{
+    Suppose $f:\catC\to\catD$ is a map of simplicial sets (or other models for $\infty$-categories). $f$ is called \term{essentially surjective}
+    if $\h f$ is esseentially surjective. $f$ is called \term{fully faithful} if $\h f$ is fully faithful.
+}
+
+By definition, $f$ is a categorical equivalence if and only if it is fully faithful and essentially surjective.
+
+\defn{
+    Suppose $\catD$ is a subcategory of $\Ho\catC$, where $\catC$ is an $\infty$-category. We define $\catC\times_{\N\Ho\catC}\N\catD$
+    to be the \term{subcategory of $\catC$ spanned by $\catD$}. We say that a simplicial subset $K\subseteq\catC$ is a \term{subcategory}
+    of $\catC$ if it is isomorphic to $\catC\times_{\N\Ho\catC}\N\catD$ for some subcategory $\catD$ of $\Ho\catC$. If $\catD$
+    is a full subcategory of $\Ho\catC$, we also call $\catC\times_{\N\Ho\catC}\N\catD$ the \term{full subcategory of $\catC$ spanned by $S$},
+    where $S$ is the set of objects in $\catD$.
+}
+
+By definition, if $\catC'$ is a full subcategory of $\catC$, then the inclusion $\catC'\hookrightarrow\catC$ is fully faithful.
+
