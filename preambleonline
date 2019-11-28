@@ -87,6 +87,7 @@
 \def\simr{\stackrel{r}{\sim}}
 
 \def\cat#1{\underline{\smash{\mathsf{#1}}}}
+\def\hatcat#1{\underline{\widehat{\mathsf{#1}}}}
 \def\catt#1{\underline{\underline{\smash{\mathsf{#1}}}}}
 
 \def\abs#1{\left|#1\right|}

@@ -11,7 +11,7 @@
 \usepackage{mathrsfs}
 
 \definecolor{lightblue}{HTML}{2088d0}
-\definecolor{pruple}{HTML}{8030dd}
+\definecolor{pruple}{HTML}{ee0099}
 \definecolor{ff0000}{HTML}{ff0000}
 \geometry{inner=1.91cm,outer=1.91cm,top=1.91cm,bottom=1.91cm,paperwidth=210mm,paperheight=297mm}
 \usepackage[colorlinks,linkcolor=purple,anchorcolor=blue,citecolor=green]{hyperref}
@@ -28,9 +28,9 @@
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem*{notation}{Notation}
 
-\newcommand\refbib[1]{\hyperref[#1]{\color{lightblue}\texttt{[#1]}}}
-\newcommand\term[1]{\textbf{#1}}
-\renewcommand\mathbb[1]{\mathds{#1}}
+\def\refbib#1{\hyperref[#1]{\color{lightblue}\texttt{[#1]}}}
+\def\term#1{\textbf{#1}}
+\def\mathbb#1{\mathds{#1}}
 
 \long\def\defn#1{\begin{definition}#1\end{definition}}
 \long\def\prop#1{\begin{proposition}#1\end{proposition}}
@@ -45,63 +45,64 @@
 
 \hyphenation{mon-oid-al}
 
-\newcommand\0{\right)}
-\newcommand\9{\left(}
-\renewcommand\1{\mathbb1}
+\def\0{\right)}
+\def\9{\left(}
+\def\1{\mathbb1}
 
-\renewcommand\d{\Delta}
-\renewcommand\l{\Lambda}
-\newcommand\p{\partial}
+\def\d{\Delta}
+\def\l{\Lambda}
+\def\p{\partial}
 
-\newcommand\ox{\otimes}
-\newcommand\ov{\wedge}
-\newcommand\vp{\varphi}
-\newcommand\ve{\varepsilon}
-\newcommand\squ{\mathop{\operatorname{\square}}}
-\newcommand\tril{\triangleleft}
-\newcommand\trir{\triangleright}
+\def\ox{\otimes}
+\def\ov{\wedge}
+\def\vp{\varphi}
+\def\ve{\varepsilon}
+\def\squ{\mathop{\operatorname{\square}}}
+\def\tril{\triangleleft}
+\def\trir{\triangleright}
 
-\newcommand\Cof{\mathrm{Cof}}
-\newcommand\Fib{\mathrm{Fib}}
-\newcommand\W{\mathrm{W}}
+\def\Cof{\mathrm{Cof}}
+\def\Fib{\mathrm{Fib}}
+\def\W{\mathrm{W}}
 
-\newcommand\op{\mathrm{op}}
-\newcommand\h{\mathrm{h}}
-\newcommand\N{\mathrm{N}}
-\renewcommand\C{\mathfrak{C}}
-\newcommand\pr{\operatorname{pr}}
-\newcommand\inn{\operatorname{in}}
-\newcommand\Cyl{\operatorname{Cyl}}
-\newcommand\Path{\operatorname{Path}}
-\newcommand\colim{\mathop{\operatorname{colim}}}
-\newcommand\Ho{\operatorname{Ho}}
-\newcommand\diag{\operatorname{diag}}
-\newcommand\Sing{\operatorname{Sing}}
-\newcommand\Adj{\operatorname{Adj}}
-\newcommand\Cell{\operatorname{Cell}}
-\newcommand\RLP{\operatorname{RLP}}
-\newcommand\LLP{\operatorname{LLP}}
-\newcommand\Map{\operatorname{Map}}
-%\newcommand\Mapsq{\Map_\square}
-\newcommand\Hom{\operatorname{Hom}}
-\newcommand\Fun{\operatorname{Fun}}
-\newcommand\sHom{\operatorname{\mathscr{H}\mkern-3mu\mathit{om}}}
+\def\op{\mathrm{op}}
+\def\h{\mathrm{h}}
+\def\N{\mathrm{N}}
+\def\C{\mathfrak{C}}
+\def\pr{\operatorname{pr}}
+\def\inn{\operatorname{in}}
+\def\Cyl{\operatorname{Cyl}}
+\def\Path{\operatorname{Path}}
+\def\colim{\mathop{\operatorname{colim}}}
+\def\Ho{\operatorname{Ho}}
+\def\diag{\operatorname{diag}}
+\def\Sing{\operatorname{Sing}}
+\def\Adj{\operatorname{Adj}}
+\def\Cell{\operatorname{Cell}}
+\def\RLP{\operatorname{RLP}}
+\def\LLP{\operatorname{LLP}}
+\def\Map{\operatorname{Map}}
+%\def\Mapsq{\Map_\square}
+\def\Hom{\operatorname{Hom}}
+\def\Fun{\operatorname{Fun}}
+\def\sHom{\operatorname{\mathscr{H}\mkern-3mu\mathit{om}}}
 
-\newcommand\catB{\mathcal{B}}
-\newcommand\catC{\mathcal{C}}
-\newcommand\catD{\mathcal{D}}
-\newcommand\catE{\mathcal{E}}
-\newcommand\catF{\mathcal{F}}
-\newcommand\catI{\mathcal{I}}
-\newcommand\catS{\mathcal{S}}
-\newcommand\catT{\mathcal{T}}
-\newcommand\cattC{\mathbb{C}}
-\newcommand\cattD{\mathbb{D}}
+\def\catB{\mathcal{B}}
+\def\catC{\mathcal{C}}
+\def\catD{\mathcal{D}}
+\def\catE{\mathcal{E}}
+\def\catF{\mathcal{F}}
+\def\catI{\mathcal{I}}
+\def\catS{\mathcal{S}}
+\def\catT{\mathcal{T}}
+\def\cattC{\mathbb{C}}
+\def\cattD{\mathbb{D}}
 
-\newcommand\siml{\stackrel{l}{\sim}}
-\newcommand\simr{\stackrel{r}{\sim}}
+\def\siml{\stackrel{l}{\sim}}
+\def\simr{\stackrel{r}{\sim}}
 
-\newcommand\cat[1]{\underline{\smash{\mathsf{#1}}}}
-\newcommand\catt[1]{\underline{\underline{\smash{\mathsf{#1}}}}}
+\def\cat#1{\underline{\smash{\mathsf{#1}}}}
+\def\hatcat#1{\underline{\widehat{\mathsf{#1}}}}
+\def\catt#1{\underline{\underline{\smash{\mathsf{#1}}}}}
 
-\newcommand\abs[1]{\left|#1\right|}
+\def\abs#1{\left|#1\right|}

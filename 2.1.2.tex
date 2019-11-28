@@ -292,6 +292,7 @@ and Section \texttt{\color{ff0000}[ERROR! SECTION NOT FOUND]}.
     Suppose $\catC$ is an $\infty$-category, $p:K\to\catC$ is a \term{diagram} in $\catC$ (which simply means that 
     $p$ is a map of simplicial sets). Then $\catC_{/p}$ is an $\infty$-category. Moreover, if $q:\catC\to\catD$ 
     is a categorical equivalence between $\infty$-categories, then the induced map $\catC_{/p}\to\catD_{/qp}$ is also a categorical equivalence.
+    The case for undercategories is similar.
 }
 
 We next talk about fully faithful and essentially surjective functors, together with subcategories.
@@ -313,3 +314,110 @@ By definition, $f$ is a categorical equivalence if and only if it is fully faith
 
 By definition, if $\catC'$ is a full subcategory of $\catC$, then the inclusion $\catC'\hookrightarrow\catC$ is fully faithful.
 
+Next we discuss initial and terminal objects together with limits and colimits. Since they are dual concepts, we will only talk about
+initial objects in details, leave the arguments for terminal objects to the reader.
+
+Our first approach to initial objects is the following:
+
+\defn{
+    Suppose $\catC$ is a simplicial set (or other models for $\infty$-categories). An object $x$ in $\catC$ is called \term{initial},
+    if for any object $Y\in\catC$, the mapping space $\Map_\catC(x,y)$ is weakly contractible.
+}
+
+This definition is really natural and is useful. However, in the setting of $\infty$-categories, there exists an alternative definition
+which is also very useful:
+
+\defn{
+    Suppose $\catC$ is a simpliciual set. An object $x$ in $\catC$ is called \term{strongly initial} if the projection $\catC_{x/}\to\catC$
+    is a trivial fibration.
+}
+
+In other words, $x$ is strongly initial, if and only if any map $\p\d[n]\to\catC$ with the vertex $0$ mapped to $x$ extends to a map
+$\d[n]\to\catC$. The reader should verify that if $\catC$ is the nerve of an ordinary category, then $x$ is strongly initial
+if and only if $x$ is initial.
+
+The following proposition will be proved in Section \texttt{\color{ff0000}[ERROR! SECTION NOT FOUND]}.
+
+\prop{
+    Suppose $\catC$ is an $\infty$-category. An object $x$ in $\catC$ is strongly initial, if and only if for every object $y\in\catC$, 
+    the Kan complex $\Hom^L_\catC(x,y)$ is contractible.
+}
+
+\cor{
+    If $\catC$ is a simplicial set, then every strongly final vertex in $\catC$ are final. The converse holds if $\catC$ is an $\infty$-category.
+}
+
+The initial object, if exists, is unique in the following sense:
+
+\prop{
+    Suppose $\catC$ is an $\infty$-category. The full subcategory of $\catC$ spanned by all initial objects, is either empty,
+    or a contractible Kan complex.
+}
+
+We are now at the position to define colimits and limits.
+
+\defn{
+    Suppose $p:K\to\catC$ is a diagram in an $\infty$-category $\catC$. A \term{limit} of $p$ is a terminal object pf $\catC_{/p}$. 
+    A \term{colimit} of $p$ is a initial object of $\catC_{p/}$. More generally, 
+    a diagram $\overline{p}:K^\tril\to\catC$ is called a \term{limit diagram} if $\overline{p}$ is a limit of 
+    $p:=\overline{p}|_K$; a diagram $\overline{p}:K^\trir\to\catC$ is called a \term{colimit diagram} if $\overline{p}$ is a colimit of 
+    $p:=\overline{p}|_K$.
+}
+
+By the uniqueness of initial objects, the colimit of a diagram, if exists, is unique up to a contractible choice.
+
+We note that there has already existed a theory of homotopy limits and colimits in simplicial or topological categories,
+as well as in model categories, that we have defined them in Section \ref{secb}. We will discuss the relations between these theories
+of limits and colimits in Section \texttt{\color{ff0000}[ERROR! SECTION NOT FOUND]}. By now, we will just give the basic definitions and examples.
+
+\eg{
+    Suppose $\catC'$ is a full subcategory in $\catC$, and $p:K\to\catC'$ is a diagram in $\catC'$.
+    Then $\catC'_{p/}\cong\catC_{p/}\times_\catC\catC'$ is a full subcategory of $\catC_{p/}$. In particular,
+    if $p$ has a colimit in $\catC$ and the colimit lies in $\catC'$, then the same object can be regarded as the colimit of $p$
+    in $\catC'$.
+}
+
+\defn{
+    Suppose $f:\catC\to\catD$ is a functor between $\infty$-categories, $p:K\to\catC$ is a diagram in $\catC$ with colimit
+    $x\in\catC_{p/}$. If $f(x)\in\catD_{fp/}$ is the colimit of $fp$, then we say that $f$ \term{preserves} the colimit of $p$.
+    The definition for limits is similar.
+}
+
+We now introduce a simple example of colimit-preserving functors.
+
+\prop{
+    Suppose $\catC$ is an $\infty$-category, $q:T\to\catC$ is a diagram in $\catC$, $f:\catC_{/q}\to\catC$ is the projection. 
+    Suppose more that $p:K\to\catC_{/q}$ is a diagram in $\catC_{/q}$, and $p_0=fp$. If $p_0$ has a colimit in $\catC$,
+    then $p$ has a colimit in $\catC_{/q}$, and the colimit is preserved by $f$. Moreover an extension $\overline{p}:K^\trir\to\catC$
+    is a colimit of $p$ if and only if $f\overline{p}$ is a colimit of $p_0$.
+}
+
+We next deduce with the set-theoretic technicalities. In the theory of 1-categories, mostly we may use the convention that 
+the hom-set between two objects to be indeed a set but allowing the object to form, a proper class. However,
+in our theory of $\infty$-categories, objects and morphisms are treated equally, meaning that we are facing set-theoretic problems.
+To fix this problem, we shall use the following terminology: for any cardinal $\tau$, we assume that there exists a strongly inaccessible cardinal
+$\kappa$ that is greater than $\tau$. We will mostly fix a strongly inaccessible cardinal $\kappa$, and we will mainly deal with
+mathematical objects that are $\kappa$-small. When we need to deal with mathematical objects that are too large to be
+$\kappa$-small, we shall take another strongly inaccessible cardinal $\kappa'$ that is greater than $\kappa$, and to work
+with mathematical objects that are $\kappa'$-small, in which case it is okay to talk about objects that are not $\kappa$-small.
+This terminology will work throughout the remainder of this chapter.
+
+To end this section, we shall give names to some specific $\infty$-categories.
+
+\defn{
+    We define $\cat{Kan}$ to be the simplicial category of all (small) Kan complexes, viewed as a full subcategory of $\cat{SSet}$.
+    We define $\cat S:=\N(\cat{Kan})$, and call it the \term{$\infty$-category of spaces}.
+    We define $\cat{Cat}_\infty^\d$ to be the simplicial category with objects being all (small) $\infty$-categories,
+    and $\Hom_{\cat{Cat}_\infty^\d}(\catC,\catD)$ is the largest Kan complex in $\Fun(\catC,\catD)$ for $\infty$-categories $\catC,\catD$.
+    We define $\cat{Cat}_\infty=\N(\cat{Cat}_\infty^\d)$, and call it the \term{$\infty$-category of $\infty$-categories}.
+}
+
+The reader can verify that $\cat S$ and $\cat{Cat}_\infty$ are indeed $\infty$-categories. The $\infty$-category
+$\cat S$ plays a central role in the theory of $\infty$-categories, just as the category $\cat{Set}$ plays a central role 
+in the theory of ordinary categories. On the other hand, $\cat{Cat}_\infty$ to the theory of $\infty$-categories is very similar to the category 
+$\cat{Cat}$ of all categories to the theory of ordinary categories.
+
+We remark that we also need to distinguish small objects and large objects. In this case, we will use $\hatcat S$ and
+$\hatcat{Cat}_\infty$ to describe the $\infty$-category of not necessarily small spaces, and the $\infty$-category 
+of not necessarily small $\infty$-categories, respectively. We notice that $\cat S$ and $\cat{Cat}_\infty$ are large
+$\infty$-categories and $\hatcat S$ and $\hatcat{Cat}_\infty$ are even larger.
