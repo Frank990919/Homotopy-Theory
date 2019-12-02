@@ -1,0 +1,79 @@
+In this section, we will discuss the Grothendieck construction in $\infty$-category theory.
+We will see how this is useful to link simplicial categories and topological categories.
+We will start with the Grothendieck construction in classical category theory to get some get some first sense,
+and we will generalize it to the case of $\infty$-categories.
+
+The Grothendieck construction in classical category theory is as follows. Suppose $F:\catC\to\catD$ is a functor of categories.
+Then for every object $D\in\catD$, the fiber $\catC_{D}$ is a category. We sometimes wish that the action ``taking the fiber''
+yields a functor $\catD\to\cat{Cat}$ (in the covariant fashion), or $\catD^\op\to\cat{Cat}$ (in the contravariant fashion);
+or at least, in a homotopy-coherent sense. We will show that this can be done in the case that the functor $F$ is some ``fibration''.
+The translation between certain ``fibrations'' over $\catD$, and homotopy-coherent functors $\catD\to\cat{Cat}$,
+is called the \term{Grothendieck construction}.
+
+\eg{
+    Consider the category of all quasi-coherent sheaves, $\cat{QCoh}$. It has objects $(X,\mathscr{F})$, where $X$ is a scheme
+    and $\mathscr{F}$ is a quasi-coherent sheaf on $X$; and a morphism from $(X,\mathscr{F})$ to $(Y,\mathscr{G})$
+    consists of a map $f:Y\to X$ of schemes, together with a map $f^\sharp:\mathscr{F}\to f_*\mathscr{G}$ of $\mathscr{O}_X$-modules.
+    Now take the functor $\cat{QCoh}\to\cat{Sch}^\op$ that takes a pair $(X,\mathscr{F})$ to its underlying scheme $X$.
+    Then for every scheme $X$, the fiber of this functor at $X$ is the category of all quais-coherent sheaves on $X$,
+    $\cat{QCoh}(X)$. Therefore the action ``taking the fiber'' actually yields a homotopy-coherent functor
+    $\cat{QCoh}(-):\cat{Sch}^\op\to\cat{Cat}$.
+}
+
+To give a partial solution to the question, let us restrict to the case where the fibers of $F$ are groupoids, so we would
+like to form a functor $\catD\to\cat{Gpd}$. The converse is easy: for any functor $\chi:\catD\to\cat{Gpd}$, we may form a functor
+$F:\catC_\chi\to\catD$, where the category $\catC_\chi$ has:
+\begin{itemize}
+    \item Objects being $(D,\eta)$, where $D$ is an object in $\catD$ and $\eta$ is an object in $\chi(D)$;
+    \item A morphism $(D,\eta)\to(D',\eta')$ consists of a morphism $f:D\to D'$ in $\catD$, and a morphism $\alpha:\chi(f)(\eta)\to\eta'$
+    in $\chi(D')$;
+\end{itemize}
+and the functor $F$ takes every object $(D,\eta)$ to $D$, ignoring the $\eta$.
+(In fact, this construction is also available in the case that $\chi$ is a homotopy-coherent functor,
+or is a (homotopy-coherent) functor $\catD\to\cat{Cat}$.) 
+
+For the converse, we make the following observation: for every map $f:D\to D'$ in $\catD$, we must construct a transport functor
+$f_!:\catC_D\to\catC_{D'}$. In other words, we require the functor $F$ satisfies the following properties:
+\begin{itemize}
+    \item Transport of objects: for any object $C\in\catC$ such that $F(C)=D$, there exists a morphism $g:C\to C'$
+    in $\catC$ such that $F(g)=f$;
+    \item Transport of morphisms: for any diagram $$\xymatrix{C\ar[r]^{g}\ar[d]_{h}&C'\\\overline{C}\ar[r]^{\overline{g}}&\overline{C}',}$$
+    such that $F(g)=F(\overline g)=f,F(h)=\1_D$, there exists UNIQUELY a map $h':C'\to\overline{C'}$ such that $h'g=\overline{g}h$
+    and $F(h')=\1_{D'}$.
+\end{itemize}
+We now make this idea into a definition:
+
+\defn{
+    Suppose $F:\catC\to\catD$ is a functor. $F$ is called a \term{left fibration} if the following conditions are satisfied:
+    \begin{itemize}
+        \item The lifting problem $$\xymatrix{\Ho\l^0[1]\ar[r]\ar[d]&\catC\ar[d]\\\Ho\d[1]\ar[r]\ar@{-->}[ru]&\catD}$$ has a solution;
+        \item The lifting problem $$\xymatrix{\Ho\l^0[2]\ar[r]\ar[d]&\catC\ar[d]\\\Ho\d[2]\ar[r]\ar@{-->}[ru]&\catD}$$ has a unique solution.
+    \end{itemize}
+}
+
+The reader should verify that this definition is equivalent to the transport axioms given above, and that this definition
+yields that every fiber of $F$ is a groupoid. Moreover, by the discussion given above, we have the following theorem:
+
+\thm{
+    A left fibration between small categories $\catC\to\catD$ gives rise to a 2-functor $\catD\to\cat{Gpd}$ by taking the fibers. 
+    Conversely, every 2-functor $\catD\to\cat{Gpd}$ corresponds to a left fibration $\catC\to\catD$ in this manner.
+}
+
+We finally make the following definition.
+
+\defn{
+    We call a functor $F:\catC\to\catD$ a \term{right fibration} if $F^\op$ is a left fibration.
+}
+
+Under this definition, right fibrations $\catC\to\catD$ correspond to 2-functors $\catD^\op\to\cat{Gpd}$.
+
+We will generalize the idea to left and right fibrations between simplicial sets, and discuss the corresponding
+Grothendieck construction (on $\infty$-groupoids, which is equivalent to spaces) in the first three subsections.
+In the last four subsections, we will be more general and discuss the Grothendieck construction on $\infty$-categories.
+
+\rmk{
+    In Lurie's book, he mainly considered the contravariant-fashioned structures, such as right fibrations and cartesian fibrations.
+    This is also what the lecturer had done in class. However, the lecturer decided to write the notes mainly using
+    the covariant-fashioned structures, such as left fibrations and cocartesian fibrations, in order to make it more intuitive
+    and readable.
+}
