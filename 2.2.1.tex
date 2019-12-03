@@ -14,7 +14,7 @@ We first give the following definitions:
 An inner fibration is what we generally want a ``good functor'' between $\infty$-categories look like, since for every functor $F:\catC\to\catD$
 between ordinary categories, $\N(F)$ is an inner fibration. On the other hand, left and right fibrations come from the previous section,
 and the reader may verify that a functor $F:\catC\to\catD$ between ordinary categories is a left (or right) fibration if and only if
-$\N(f)$ is.
+$\N(F)$ is.
 
 We also shall give the following definition:
 
@@ -28,3 +28,40 @@ We also shall give the following definition:
 }
 
 We will first study the stability properties of such maps under certain constructions.
+
+\lem{
+    Suppose $f:A\to A',g:B\to B'$ are cofibrations of simplicial sets. Suppose that $f$ is right anodyne or $g$ is left anodyne.
+    Then the pushout product $$(A\star B')\coprod_{A\star B}(A'\star B)\to A'\star B'$$ is inner anodyne.
+}
+
+\lem{
+    Suppose $f:A\to A',g:B\to B'$ are cofibrations of simplicial sets. Suppose that $f$ is anodyne.
+    Then the pushout product $$(A\star B')\coprod_{A\star B}(A'\star B)\to A'\star B'$$ is left anodyne.
+    (The dual statement is left for the reader.)
+}
+
+We now deduce the following proposition.
+
+\prop{
+    Suppose $i:A\to B$ is a cofibration of simplicial sets, $p:B\to X$ is a map of simplicial sets, and $q:X\to S$
+    is an inner fibration. Define $r=qp,r_0=ri,p_0=pi$. Then:
+    \begin{enumerate}[i)]
+        \item The induced map $$X_{p/}\to X_{p_0/}\times_{S_{r_0/}}S_{r/}$$ is a left fibration;
+        \item If $q$ is a right fibration then the induced map $$X_{p/}\to X_{p_0/}\times_{S_{r_0/}}S_{r/}$$ is a Kan fibration;
+        \item If $i$ is right anodyne then the induced map $$X_{p/}\to X_{p_0/}\times_{S_{r_0/}}S_{r/}$$ is a trivial fibration;
+        \item If $i$ is anodyne and $q$ is a left fibration then the induced map $$X_{p/}\to X_{p_0/}\times_{S_{r_0/}}S_{r/}$$ is a trivial fibration.
+    \end{enumerate} 
+}
+
+We may now deduce the following proposition mentioned in \ref{seci}:
+
+\cor{[Part 1 of Proposition \ref{tagl}]
+    Suppose $\catC$ is an $\infty$-category, $p:K\to\catC$ is a diagram in $\catC$. Then the projection $\catC_{p/}\to\catC$ 
+    is a left fibration. In particular, $\catC_{p/}$ is an $\infty$-category.
+}
+
+We furthermore hane the following propositions:
+
+\prop{
+    Suppose 
+}
