@@ -31,12 +31,12 @@ We will first study the stability properties of such maps under certain construc
 
 \lem{
     Suppose $f:A\to A',g:B\to B'$ are cofibrations of simplicial sets. Suppose that $f$ is right anodyne or $g$ is left anodyne.
-    Then the pushout product $$(A\star B')\coprod_{A\star B}(A'\star B)\to A'\star B'$$ is inner anodyne.
+    Then the map $$(A\star B')\amalg_{A\star B}(A'\star B)\to A'\star B'$$ is inner anodyne.
 }
 
 \lem{
     Suppose $f:A\to A',g:B\to B'$ are cofibrations of simplicial sets. Suppose that $f$ is anodyne.
-    Then the pushout product $$(A\star B')\coprod_{A\star B}(A'\star B)\to A'\star B'$$ is left anodyne.
+    Then the pushout product $$(A\star B')\amalg_{A\star B}(A'\star B)\to A'\star B'$$ is left anodyne.
     (The dual statement is left for the reader.)
 }
 
@@ -60,8 +60,61 @@ We may now deduce the following proposition mentioned in \ref{seci}:
     is a left fibration. In particular, $\catC_{p/}$ is an $\infty$-category.
 }
 
-We furthermore hane the following propositions:
+We furthermore have the following propositions:
 
 \prop{
-    Suppose 
+    We define $$\begin{aligned}I&=\{\l^i[n]\to\d[n]\mid 0\le i<n\},\\
+    I'&=\{(\p\d[n]\times\d[1])\amalg_{\p\d[n]\times\{0\}}(\d[n]\times\{0\})\to\d[n]\times\d[1]\mid n\ge 0\},\\
+    I''&=\{(A\times\d[1])\amalg_{A\times\{0\}}(B\times\{0\})\to B\times\d[1]\mid n\ge 0,A\to B\text{ is a cofibration}\}.\end{aligned}$$
+    Then $\Cof(I)=\Cof(I')=\Cof(I'')$.
 }
+
+\cor{
+    The pushout product of any cofibration and left anodyne extension is a left anodyne extension.
+}
+
+\cor{
+    For any cofibration $i$ and left fibration $p$, $p_{\squ}^i$ is a left fibration. If moreover $i$ is left anodyne,
+    then $p$ is a trivial fibration.
+}
+
+\cor{
+    A map $p:X\to S$ is a left fibration if and only if the induced map $$X^{\d[1]}\to X^{\{0\}}\times_{S^{\{0\}}}S^{\d[1]}$$
+    is a trivial fibration.
+}
+
+\prop{
+    We define $$\begin{aligned}I&=\{\l^i[n]\to\d[n]\mid 0<i<n\},\\
+    I'&=\{(\p\d[n]\times\d[2])\amalg_{\p\d[n]\times\l^1[2]}(\d[n]\times\l^1[2])\to\d[n]\times\d[2]\mid n\ge 0\},\\
+    I''&=\{(A\times\d[2])\amalg_{A\times\l^1[2]}(B\times\l^1[2])\to B\times\d[2]\mid n\ge 0,A\to B\text{ is a cofibration}\}.\end{aligned}$$
+    Then $\Cof(I)=\Cof(I')=\Cof(I'')$.
+}
+
+\cor{
+    The pushout product of any cofibration and inner anodyne extension is an inner anodyne extension.
+}
+
+\cor{
+    For any cofibration $i$ and innder fibration $p$, $p_{\squ}^i$ is an inner fibration. If moreover $i$ is inner anodyne,
+    then $p$ is a trivial fibration.
+}
+
+\cor{
+    A map $p:X\to S$ is an inner fibration if and only if the induced map $$X^{\d[2]}\to X^{\l^1[2]}\times_{S^{\l^1[2]}}S^{\d[2]}$$
+    is a trivial fibration.
+}
+
+We next establish some more properties enjoyed by left fibrations:
+
+\prop{
+    Suppose $p:\catC\to\catD$ is a left fibration, $f$ is a morphism in $\catC$ such that $p(f)$ is an equivalence.
+    Then $f$ is an equivalence.
+}
+
+\prop{
+    Suppose $p:\catC\to\catD$ is a left fibration, $y\in\catC$, $\overline{f}:\overline{x}\to p(y)$ is an equivalence in $\catD$.
+    Then there exists a morphism $f$ in $\catC$ such that $p(f)=\overline f$.
+}
+
+Using these propositions, one can now deduce Proposition \ref{tagm} by noticing that 
+$\l^0[n]\cong(\{0\}\star\d[n-2])\amalg_{\{0\}\star\p\d[n-2]}(\d[1]\star\p\d[n-2])$.
