@@ -46,10 +46,10 @@ We now deduce the following proposition.
     Suppose $i:A\to B$ is a cofibration of simplicial sets, $p:B\to X$ is a map of simplicial sets, and $q:X\to S$
     is an inner fibration. Define $r=qp,r_0=ri,p_0=pi$. Then:
     \begin{enumerate}[i)]
-        \item The induced map $$X_{p/}\to X_{p_0/}\times_{S_{r_0/}}S_{r/}$$ is a left fibration;
-        \item If $q$ is a right fibration then the induced map $$X_{p/}\to X_{p_0/}\times_{S_{r_0/}}S_{r/}$$ is a Kan fibration;
-        \item If $i$ is right anodyne then the induced map $$X_{p/}\to X_{p_0/}\times_{S_{r_0/}}S_{r/}$$ is a trivial fibration;
-        \item If $i$ is anodyne and $q$ is a left fibration then the induced map $$X_{p/}\to X_{p_0/}\times_{S_{r_0/}}S_{r/}$$ is a trivial fibration.
+        \item The induced map $X_{p/}\to X_{p_0/}\times_{S_{r_0/}}S_{r/}$ is a left fibration;
+        \item If $q$ is a right fibration then the induced map $X_{p/}\to X_{p_0/}\times_{S_{r_0/}}S_{r/}$ is a Kan fibration;
+        \item If $i$ is right anodyne then the induced map $X_{p/}\to X_{p_0/}\times_{S_{r_0/}}S_{r/}$ is a trivial fibration;
+        \item If $i$ is anodyne and $q$ is a left fibration then the induced map $X_{p/}\to X_{p_0/}\times_{S_{r_0/}}S_{r/}$ is a trivial fibration.
     \end{enumerate} 
 }
 
@@ -118,3 +118,79 @@ We next establish some more properties enjoyed by left fibrations:
 
 Using these propositions, one can now deduce Proposition \ref{tagm} by noticing that 
 $\l^0[n]\cong(\{0\}\star\d[n-2])\amalg_{\{0\}\star\p\d[n-2]}(\d[1]\star\p\d[n-2])$.
+
+Now we come back to the Grothendieck construction to left fibrations. Suppose $p:X\to S$ is a left fibration. Then for every $s\in S$,
+$X_s\to\{s\}$ is a left fibration, which means that $X_s$ is Kan complex, by Proposition \ref{tagn}. Moreover for any $f:s\to s'$
+a $1$-simplex in $S$, the diagram $$\xymatrix{\{0\}\times X_s\ar[r]\ar[d]&X_s\ar[r]&X\ar[d]\\\d[1]\times X_s\ar[r]&\d[1]\ar[r]^f&S}$$
+is commutative, and the left vertical map is a left anodyne extension. Thus this diagram obtains a lifting $\d[1]\times X_s\to X$,
+and its restriction to $\{1\}\times X_s$ yields a map $f_!:X_s\to X_{s'}$, which is unique up to a contractible choice.
+Moreover the following proposition holds:
+
+\prop{
+    The assignment $$S_0\ni s\mapsto X_s, S_1\ni f\mapsto f_!$$ determines a (covariant) functor from $\h S$ to $\cat{H}$.
+}
+
+This is a na\"ive view to the Grothendieck construction to left fibrations. However, this is not precise enough, since
+this loses the information of higher morphisms. In the next section, we will introduce a functor called the straightening functor,
+that keeps the information of higher morphisms, and we will study the properties of the straightening functor.
+
+Now, in order to formulate a more precise relationship between left fibrations over a simplicial set $S$ and functors
+from $S$ into spaces. it will be more convenient to form a model structure on the category $\cat{SSet}_{/S}$,
+that classifies left fibrations over $S$. We will form a model structure on $\cat{SSet}_{/S}$ called the covariant model structure.
+
+\defn{
+    Suppose $f:X\to Y$ is a map in $\cat{SSet}_{/S}$. $f$ is called:
+    \begin{itemize}
+        \item A \term{covariant cofibration} if it is a cofibration in the statndard model structure;
+        \item A \term{covariant equivalence} if the map $X^\tril\amalg_{X}S\to Y^\tril\amalg_{Y}S$ is a categorical equivalence;
+        \item A \term{covariant fibration} if it has RLP with respect to $\Cof\cap\operatorname{CovEq}$, where
+        $\operatorname{CovEq}$ is the class of all covariant equivalences.
+    \end{itemize}
+}
+
+We note that the simplicial set $X^\tril\amalg_{X}S$ can be regarded as the ``left mapping cone'' of the map $X\to S$, and naively
+for any $s\in S$, the simplicial set $X_s^\tril\amalg_{X_s}\{s\}$ is some sort of ``suspension'' of $X_s$,
+thus we expect that $\Map_{X^\tril\amalg_{X}S}(-\infty,s)=\Map_{X_s^\tril\amalg_{X_s}\{s\}}(-\infty,s)$
+has the same homotopy type with $X_s$. We will make this idea precise in the next section.
+
+Now, we have the following proposition:
+
+\prop{
+    Suppose $S$ is a simplicial set. Then the class of covariant cofibrations, covariant equivalences and covarinat fibrations,
+    form a left proper combinatorial model structure on $\cat{SSet}_{/S}$. The model structure is called the 
+    \term{covariant model structure} on $\cat{SSet}_{/S}$, and will be written as $(\cat{SSet}_{/S},\text{Cov})$.
+}
+
+The proof of this proposition makes use of Theorem {\color{FF0000}\texttt{[ERROR! THEOREM NOT FOUND]}} (in Section \ref{secb}).
+The following lemmas are also used in the proof of the proposition:
+
+\lem{
+    Suppose $S$ is a simplicial set. Every left anodyne map in $\cat{SSet}_{/S}$ is a covariant equivalence.
+}
+
+\lem{
+    Suppose $p:X\to S$ is an arbitrary map of simplicial sets. Suppose more that $p$ has a section $s$ and
+    $h\in\Hom_{\cat{SSet}_{/S}}(X\times\d[1],X)$ is a homotopy from $s\circ p=h|_{X\times\{0\}}$ to $\1=h|_{X\times\{1\}}$.
+    Then $s$ is left anodyne.
+}
+
+Before we come to the next proposition, we first construct a closed $\cat{SSet}$-module structure on $\cat{SSet}_{/S}$. 
+The structure functors $$\ox:\cat{SSet}_{/S}\times\cat{SSet}\to\cat{SSet}_{/S},\sHom_r:\cat{SSet}^\op\times\cat{SSet}_{/S}\to\cat{SSet}_{/S}$$
+are easy to define: they are just the usual product and the usual exponential. The structure functor
+$$\sHom_l:(\cat{SSet}_{/S})^\op\times\cat{SSet}_{/S}\to\cat{SSet}$$ is a bit different. We make the following definition:
+
+\defn{
+    Suppose $f:X\to S,g:Y\to S$ are two objects in $\cat{SSet}_{/S}$ for some simplicial set $S$. We define the \term{based exponential},
+    $Y^X_S$, to be the pullback of the diagram $$Y^X\xrightarrow{g_*}S^X\hookleftarrow\{f\}.$$ We also define $\Hom_S(X,Y)$
+    to be the set $\Hom_{\cat{SSet}_{/S}}(X,Y)$.
+}
+
+It is clear that the based exponential is functorial, and the usual product, the usual exponential and the based exponential
+form a closed $\cat{SSet}$-module structure on $\cat{SSet}_{/S}$. 
+
+We now have the following proposition, whose proof is not difficult using Proposition 
+{\color{FF0000}\texttt{[ERROR! PROPOSITION NOT FOUND]}} (in Section \ref{secb}):
+
+\prop{
+    The model category $(\cat{SSet}_{/S},\text{Cov})$ is a simplicial model category, with respect to the standard model structure.
+}
