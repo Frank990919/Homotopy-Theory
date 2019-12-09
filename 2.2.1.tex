@@ -27,6 +27,11 @@ We also shall give the following definition:
     \end{enumerate}
 }
 
+\eg{
+    By transfinite induction, one can easily show that $\{-\infty\}\hookrightarrow K^\tril$ is a left anodyne extension for every
+    simplicial set $K$. Dually the map $\{\infty\}\hookrightarrow K^\trir$ is a right anodyne extension.
+}
+
 We will first study the stability properties of such maps under certain constructions.
 
 \lem{
@@ -78,7 +83,7 @@ We furthermore have the following propositions:
     then $p$ is a trivial fibration.
 }
 
-\cor{
+\cor{\label{tago}
     A map $p:X\to S$ is a left fibration if and only if the induced map $$X^{\d[1]}\to X^{\{0\}}\times_{S^{\{0\}}}S^{\d[1]}$$
     is a trivial fibration.
 }
@@ -141,7 +146,7 @@ that classifies left fibrations over $S$. We will form a model structure on $\ca
 \defn{
     Suppose $f:X\to Y$ is a map in $\cat{SSet}_{/S}$. $f$ is called:
     \begin{itemize}
-        \item A \term{covariant cofibration} if it is a cofibration in the statndard model structure;
+        \item A \term{covariant cofibration} if it is a cofibration in the standard model structure;
         \item A \term{covariant equivalence} if the map $X^\tril\amalg_{X}S\to Y^\tril\amalg_{Y}S$ is a categorical equivalence;
         \item A \term{covariant fibration} if it has RLP with respect to $\Cof\cap\operatorname{CovEq}$, where
         $\operatorname{CovEq}$ is the class of all covariant equivalences.
@@ -151,7 +156,8 @@ that classifies left fibrations over $S$. We will form a model structure on $\ca
 We note that the simplicial set $X^\tril\amalg_{X}S$ can be regarded as the ``left mapping cone'' of the map $X\to S$, and naively
 for any $s\in S$, the simplicial set $X_s^\tril\amalg_{X_s}\{s\}$ is some sort of ``suspension'' of $X_s$,
 thus we expect that $\Map_{X^\tril\amalg_{X}S}(-\infty,s)=\Map_{X_s^\tril\amalg_{X_s}\{s\}}(-\infty,s)$
-has the same homotopy type with $X_s$. We will make this idea precise in the next section.
+has the same homotopy type with $X_s$. Thus a map $X\to Y$ in $\cat{SSet}_{/S}$ is a covariant equivalence, is roughly equivalent to
+$X_s\to Y_s$ is a homotopy equivalence for every $s\in S$. We will make this idea precise in the next section.
 
 Now, we have the following proposition:
 
@@ -162,6 +168,8 @@ Now, we have the following proposition:
 }
 
 The proof of this proposition makes use of Theorem {\color{FF0000}\texttt{[ERROR! THEOREM NOT FOUND]}} (in Section \ref{secb}).
+It also uses the fact that $(\cat{Cat}_{\cat{SSet}},\text{Std})$ is left proper and that
+$\C$ takes cofibrations between simplicial sets to cofibrations between simplicial categories.
 The following lemmas are also used in the proof of the proposition:
 
 \lem{
@@ -194,3 +202,68 @@ We now have the following proposition, whose proof is not difficult using Propos
 \prop{
     The model category $(\cat{SSet}_{/S},\text{Cov})$ is a simplicial model category, with respect to the standard model structure.
 }
+
+We now make some basic observations:
+
+\prop{
+    Suppose $S$ is a simplicial set. Every left anodyne extension is a trivial cofibration in $(\cat{SSet}_{/S},\text{Cov})$.
+    Every covariant fibration in $\cat{SSet}_{/S}$ is a left fibration. Every fibrant object in $(\cat{SSet}_{/S},\text{Cov})$
+    determines a left fibration $X\to S$.
+}
+
+In the next section, we will prove that the fibrant objects in $(\cat{SSet}_{/S},\text{Cov})$ are precisely the left fibrations
+$X\to S$, and we will come up with more criterions to prove whether a map between fibrant objects in $(\cat{SSet}_{/S},\text{Cov})$
+is a covariant equivalence or not.
+
+We now show that the covariant model structure is functorial on the base $S$:
+
+\prop{
+    Suppose $j:S\to T$ is a map of simplicial sets. Consider the adjunction $(j_!,j^*):\cat{SSet}_{/S}\to\cat{SSet}_{/T}$,
+    where $j_!(X\to S)=(X\to S\to T)$, and $j^*(X\to T)=(X\times_TS\to S)$. Then $$(j_!,j^*):(\cat{SSet}_{/S},\text{Cov})
+    \to(\cat{SSet}_{/T},\text{Cov})$$ is a Quillen adjunction.
+}
+
+The proof can be done by using the fact that $(\cat{Cat}_{\cat{SSet}},\text{Std})$ is left proper and that
+$\C$ takes cofibrations between simplicial sets to cofibrations between simplicial categories.
+
+We will prove in the nect section that this Quillen adjunction is a Quillen equivalence whenever $j$ is a categorical equivalence.
+
+\rmk{
+    Taking the dual construction, we may obtain the \term{contravariant model structure} on $\cat{SSet}_{/S}$,
+    where a map $f:X\to Y$ in $\cat{SSet}_{/S}$ is called:
+    \begin{itemize}
+        \item A \term{contravariant cofibration} if it is a cofibration in the standard model structure;
+        \item A \term{contravariant equivalence} if the map $X^\trir\amalg_{X}S\to Y^\trir\amalg_{Y}S$ is a categorical equivalence;
+        \item A \term{contravariant fibration} if it has RLP with respect to $\Cof\cap\operatorname{ContrvEq}$, where
+        $\operatorname{ContrvEq}$ is the class of all covariant equivalences.
+    \end{itemize}
+    This model structure will be written as $(\cat{SSet}_{/S},\text{Contrv})$.
+}
+
+We conclude this section with a criterion to decide whether a left fibration is a Kan fibration or not. By the above discussions,
+a left fibration $p:X\to S$ determines a morphism $f_!:X_s\to X_{s'}$ for any $1$-simplex $f:s\to s'\in S$. If $p$ is a Kan fibration,
+then the same argument allows us to form a map $f^!:X_{s'}\to X_{s}$ that is a homotopy inverse to $f_!$. To the converse, we have 
+the following proposition:
+
+\prop{
+    Suppose $p:X\to S$ is a left fibration. The following conditions are equivalent:
+    \begin{enumerate}[i)]
+        \item $p$ is a Kan fibration;
+        \item For any $1$-simplex $f:s\to s'\in S$, the map $f_!:X_s\to X_{s'}$ is an isomorphism in $\cat{H}$.
+    \end{enumerate}
+}
+
+The main idea of the proof, is to show that $p$ is a right fibration, and use the dual of Corollary \ref{tago} to proceed.
+For details, we refer to [Lurie HTT, Section 2.1.3]. The following lemmas are also used in the proof of the proposition,
+and also has a lot of usage in the future:
+
+\lem{
+    Suppose $p:X\to S$ is a left fibration such that $S$ is a Kan complex. Then $p$ is a Kan fibration.
+}
+
+\lem{
+    Suppose $p:X\to S$ is a left fibration such that $X_s$ is contractible for every $s\in S$. Then $p$ is a trivial fibration.
+}
+
+Note that in the proof of the second lemma, we pullback the fibration along the map $\d[n]\to S$ and are reduced
+to the case where $S=\d[n]$. This is a very useful strategy and will be used over and over in the next sections.
