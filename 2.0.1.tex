@@ -1,7 +1,69 @@
 \label{secc}
 
-\nyw
+We now give some review to some ideas in classical category theory.
 
-% To be added: Enriched category theory
+The first point is the theory of enriched category theory.
+
+\defn{
+    Suppose $(\catC,\ox,\1_{\catC})$ is a monoidal category (where $\1_{\catC}$ is the tensor unit). A \term{$\catC$-enriched category},
+    $\catD$, consists of the following data:
+    \begin{enumerate}[i)]
+        \item A class of objects;
+        \item A object $\Hom_{\catD}(X,Y)\in\catC$ for every pair of object $X,Y\in\catD$;
+        \item An identity $\1_{\catC}\to\Hom_{\catD}(X,X)$ for every object $X\in\catD$;
+        \item A composition map $\Hom_{\catD}(Y,Z)\ox\Hom_{\catD}(X,Y)\to\Hom_{catD}(X,Z)$ for every triple of objects $X,Y,Z\in\catD$;
+        \item Such that the composition is associative and unital, i.e. the following diagrams are commutative:
+        $$\xymatrix{(\Hom_{\catD}(Z,W)\ox\Hom_{\catD}(Y,Z))\ox\Hom_{\catD}(X,Y)\ar[dd]\ar[r]&\Hom_{\catD}(Y,W)\ox\Hom_{\catD}(X,Y)\ar[d]\\
+        &\Hom_{\catD}(X,W)\\\Hom_{\catD}(Z,W)\ox(\Hom_{\catD}(Y,Z)\ox\Hom_{\catD}(X,Y))\ar[r]&\Hom_{\catD}(Z,W)\ox\Hom_{\catD}(X,Z),\ar[u]}$$
+        $$\xymatrix{\1_{\catC}\ox\Hom_{\catD}(X,Y)\ar[rr]\ar[rd]&&\Hom_{\catD}(Y,Y)\ox\Hom_{\catD}(X,Y)\ar[ld]\\&\Hom_{\catD}(X,Y),&}$$
+        $$\xymatrix{\Hom_{\catD}(X,Y)\ox\1_{\catC}\ar[rr]\ar[rd]&&\Hom_{\catD}(X,Y)\ox\Hom_{\catD}(X,X)\ar[ld]\\&\Hom_{\catD}(X,Y).&}$$
+    \end{enumerate}
+}
+
+For example, for any closed left $\catC$-module $\catD$, $\catD$ can be regarded as a $\catC$-enriched category, by making
+$\Hom_{\catD}(X,Y)=\sHom(X,Y)$.
+
+\defn{
+    Suppose $\catC$ is a monoidal category, and $\catD,\catD'$ are $\catC$-enriched categories. A \term{$\catC$-enriched functor}
+    $F$ from $\catD$ to $\catD'$ consists of the following data:
+    \begin{enumerate}[i)]
+        \item A map from the objects of $\catD$ to the objects of $\catD'$;
+        \item A morphism $\Hom_{\catD}(X,Y)\to\Hom_{\catD'}(FX,FY)$ for any pair of objects $X,Y\in\catD$;
+        \item Such that the following diagrams are commutative:
+        $$\xymatrix{\Hom_{\catD}(Y,Z)\ox\Hom_{\catD}(X,Y)\ar[r]\ar[d]&\Hom_{\catD}(X,Z)\ar[d]\\
+        \Hom_{\catD'}(FY,FZ)\ox\Hom_{\catD'}(FX,FY)\ar[r]&\Hom_{\catD'}(FX,FZ),}$$
+        $$\xymatrix{&\1\ar[ld]\ar[rd]\\\Hom_{\catD}(X,X)\ar[rr]&&\Hom_{\catD'}(FX,FX).}$$
+    \end{enumerate}
+}
+
+\defn{
+    Suppose $\catC$ is a monoidal category, $F,F':\catD\to \catD'$ are two $\catC$-enriched functors between $\catC$-enriched categories.
+    \tbc
+}
+
+We also make the following definition:
+
+\defn{
+    Suppose $\catC,\catD$ are monoidal categories. A \term{lax monoidal functor} between $\catC$ and $\catD$ is a triple $(F,\mu,\beta)$, 
+    where $F:\catC\to\catD$ is a functor, $\mu_{XY}:FX\ox FY\to F(X\ox Y)$ is a natural isomorphism, $\beta:\1_{\catD}\to F(\1_{\catC})$ is a map, 
+    such that the following diagrams are commutative for any objects $X,Y,Z$:
+    $$\xymatrix @C=60pt{
+    (FX\ox FY)\ox FZ\ar[d]_{\mu_{XY}\ox\1_{FZ}}\ar[r]^{a_{(FX)(FY)(FZ)}}&FX\ox(FY\ox FZ)\ar[d]^{\1_{FX}\ox\mu_{YZ}}\\
+    F(X\ox Y)\ox FZ\ar[d]_{\mu_{(X\ox Y)Z}}&FX\ox F(Y\ox Z)\ar[d]^{\mu_{X(Y\ox Z)}}\\
+    F((X\ox Y)\ox Z)\ar[r]^{F(a_{XYZ})}&F(X\ox(Y\ox Z))
+    }$$ 
+    $$\xymatrix @C=40pt{
+    F\1\ox FX\ar[d]_{\mu_{\1X}}&\1\ox FX\ar[d]^{l_{FX}}\ar[l]^{\beta\ox\1_{FX}}\\
+    F(\1\ox X)\ar[r]^{F(l_X)}&FX
+    }\xymatrix @C=40pt{
+    FX\ox F\1\ar[d]_{\mu_{X\1}}&FX\ox \1\ar[d]^{r_{FX}}\ar[l]^{\1_{FX}\ox\beta}\\
+    F(X\ox \1)\ar[r]^{F(r_X)}&FX
+    }$$ 
+}
+
+By definition, a monoidal functor is a lax monoidal functor. For example, if $\catC$ is a monoidal category, then $\Hom_{\catC}(\1,-):\catC\to\cat{Set}$
+is a lax monoidal functor.
+
+\tbc
 
 % To be added: Slice categories
