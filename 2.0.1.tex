@@ -1,8 +1,6 @@
 \label{secc}
 
-We now give some review to some ideas in classical category theory.
-
-The first point is the theory of enriched category theory.
+We now give some review to some ideas in classical category theory. First, we discuss the theory of enriched categories.
 
 \defn{
     Suppose $(\catC,\ox,\1_{\catC})$ is a monoidal category (where $\1_{\catC}$ is the tensor unit). A \term{$\catC$-enriched category},
@@ -18,6 +16,8 @@ The first point is the theory of enriched category theory.
         $$\xymatrix{\1_{\catC}\ox\Hom_{\catD}(X,Y)\ar[rr]\ar[rd]&&\Hom_{\catD}(Y,Y)\ox\Hom_{\catD}(X,Y)\ar[ld]\\&\Hom_{\catD}(X,Y),&}$$
         $$\xymatrix{\Hom_{\catD}(X,Y)\ox\1_{\catC}\ar[rr]\ar[rd]&&\Hom_{\catD}(X,Y)\ox\Hom_{\catD}(X,X)\ar[ld]\\&\Hom_{\catD}(X,Y).&}$$
     \end{enumerate}
+    For objects $X,Y$ in $\catD$, a \term{morphism} $f$ from $X$ to $Y$ is a map $\1_\catC\to\Hom_{\catD}(X,Y)$ in $\catC$.
+    When $\catC=\cat{SSet}$, a $\catC$-enriched category is also called a \term{simplicial category}.
 }
 
 For example, for any closed left $\catC$-module $\catD$, $\catD$ can be regarded as a $\catC$-enriched category, by making
@@ -34,19 +34,31 @@ $\Hom_{\catD}(X,Y)=\sHom(X,Y)$.
         \Hom_{\catD'}(FY,FZ)\ox\Hom_{\catD'}(FX,FY)\ar[r]&\Hom_{\catD'}(FX,FZ),}$$
         $$\xymatrix{&\1\ar[ld]\ar[rd]\\\Hom_{\catD}(X,X)\ar[rr]&&\Hom_{\catD'}(FX,FX).}$$
     \end{enumerate}
+    When $\catC=\cat{SSet}$, a $\catC$-enriched functor is also called a \term{simplicial functor}.
 }
 
 \defn{
     Suppose $\catC$ is a monoidal category, $F,F':\catD\to \catD'$ are two $\catC$-enriched functors between $\catC$-enriched categories.
-    \tbc
+    A \term{$\catC$-enriched natural transformation} $\tau$ from $F$ to $F'$ consists of a map $\1\to\Hom_{\catD'}(FX,F'X)$ for any object
+    $X\in\catD$, such that the following diagram commutes:
+    $$\xymatrix{\Hom_{\catD'}(FX,FY)\ar[r]&\1\ox\Hom_{\catD'}(FX,FY)\ar[r]&\Hom_{\catD'}(FY,F'Y)\ox\Hom_{\catD'}(FX,FY)\ar[d]\\
+    \Hom_{\catD}(X,Y)\ar[d]\ar[u]&&\Hom_{\catD'}(FX,F'Y)\\
+    \Hom_{\catD'}(F'X,F'Y)\ar[r]&\Hom_{\catD'}(F'X,F'Y)\ox\1\ar[r]&\Hom_{\catD'}(F'X,F'Y)\ox\Hom_{\catD'}(FX,F'X)\ar[u]}$$
+    When $\catC=\cat{SSet}$, a $\catC$-enriched natural transformation is also called a \term{simplicial natural transformation}.
 }
+
+Note that these definitions restricts to ordinary category theory when $\catC=(\cat{Set},\times)$.
+
+By the above definitions, we may form the category $\cat{Cat}_{\catC}$ of all (small) $\catC$-enriched categories,
+and the 2-category $\catt{Cat}_{\catC}$ of all (small) $\catC$-enriched categories. Also, for any two $\catC$-enriched categories
+$\catD,\catD'$, we have the category $\Fun(\catD,\catD')$ of all $\catC$-enriched functors.
 
 We also make the following definition:
 
 \defn{
     Suppose $\catC,\catD$ are monoidal categories. A \term{lax monoidal functor} between $\catC$ and $\catD$ is a triple $(F,\mu,\beta)$, 
-    where $F:\catC\to\catD$ is a functor, $\mu_{XY}:FX\ox FY\to F(X\ox Y)$ is a natural isomorphism, $\beta:\1_{\catD}\to F(\1_{\catC})$ is a map, 
-    such that the following diagrams are commutative for any objects $X,Y,Z$:
+    where $F:\catC\to\catD$ is a functor, $\mu_{XY}:FX\ox FY\to F(X\ox Y)$ is a natural transformation, 
+    $\beta:\1_{\catD}\to F(\1_{\catC})$ is a map, such that the following diagrams are commutative for any objects $X,Y,Z$:
     $$\xymatrix @C=60pt{
     (FX\ox FY)\ox FZ\ar[d]_{\mu_{XY}\ox\1_{FZ}}\ar[r]^{a_{(FX)(FY)(FZ)}}&FX\ox(FY\ox FZ)\ar[d]^{\1_{FX}\ox\mu_{YZ}}\\
     F(X\ox Y)\ox FZ\ar[d]_{\mu_{(X\ox Y)Z}}&FX\ox F(Y\ox Z)\ar[d]^{\mu_{X(Y\ox Z)}}\\
@@ -61,8 +73,56 @@ We also make the following definition:
     }$$ 
 }
 
-By definition, a monoidal functor is a lax monoidal functor. For example, if $\catC$ is a monoidal category, then $\Hom_{\catC}(\1,-):\catC\to\cat{Set}$
-is a lax monoidal functor.
+By definition, a monoidal functor is a lax monoidal functor. For example, if $\catC$ is a monoidal category,
+then $\Hom_{\catC}(\1,-):\catC\to\cat{Set}$ is a lax monoidal functor.
+
+\rmk{
+    Now, suppose we have a lax monoidal functor $F:\catC\to\catC'$ between monoidal categories. Then for any $\catC$-enriched category
+    $\catD$, we may form a $\catC'$-enriched category $F\catD$, with:
+    \begin{enumerate}[i)]
+        \item Objects being the objects of $\catD$;
+        \item For any $X,Y\in\catD$, $\Hom_{F\catD}(X,Y)=F\Hom_{\catD}(X,Y)\in\catC'$;
+        \item The unit is defined to be $$\1_{\catC'}\to F\1_{\catC}\to F\Hom_{\catD}(X,X)=\Hom_{F\catD}(X,X);$$
+        \item The composition is defined to be $$\begin{aligned}\Hom_{F\catD}(Y,Z)\ox\Hom_{F\catD}(X,Y)&=(F\Hom_{\catD}(Y,Z))\ox(F\Hom_{\catD}(X,Y))\\
+        &\to F(\Hom_{\catD}(Y,Z)\ox\Hom_{\catD}(X,Y))\\&\to F\Hom_{\catD}(X,Z)=\Hom_{F\catD}(X,Z).\end{aligned}$$
+    \end{enumerate}
+    This construction extends to a functor $F:\cat{Cat}_{\catC}\to\cat{Cat}_{\catC'}$ and a $2$-functor $F:\catt{Cat}_{\catC}\to\catt{Cat}_{\catC'}$,
+    and also a functor $F:\Fun(\catD,\catD')\to\Fun(F\catD,F\catD')$ for any two $\catC$-enriched categories $\catD,\catD'$.
+
+    In particular, if the functor $F$ is chosen to be $U=\Hom_{\catC}(\1,-):\catC\to\cat{Set}$, then for any $\catC$-enriched category
+    $\catD$, the ordinary category $U\catD$ is called the \term{underlying category} of $\catD$. In this case, 
+    we notice that for objects $X,Y$ in $\catD$, the set of all morphisms from $X$ to $Y$ is simply $\Hom_{U\catD}(X,Y)$. 
+    Therefore it is reasonable to call a morphism $f:X\to Y$ in $\catD$ an \term{isomorphism},
+    if it is an isomorphism in $U\catD$.
+}
+
+We next make the following definition.
+
+\defn{
+    Suppose $\catD$ is a $\catC$-enriched category, where $\catC$ is a closed monoidal category. $\catD$ is called \term{tensored over $\catC$},
+    if for all $D\in\catD$ and $C\in\catC$, the functor $$\catD\to\catC,E\mapsto\sHom_r(C,\Hom_{\catD}(D,E))$$ is representable. 
+    We denote the representation of the functor by $C\ox D$. $\catD$ is called \term{cotensored over $\catC$},
+    if for all $D\in\catD$ and $C\in\catC$, the functor $$\catD^\op\to\catC,E\mapsto\sHom_l(C,\Hom_{\catD}(E,D))$$ is representable. 
+    We denote the representation of the functor by $D^C$.
+}
+
+We note that for any $\catC$-enriched category $\catD$ that is tensored over $\catC$, $\catD$ is naturally a left $\catC$-module.
+If moreover $\catD$ is also tensored over $\catC$, the module structure is closed. 
+
+We next discuss limits and colimits in enriched category theory. We fix the monoidal category $\catC$, and suppose that the tensor unit
+is the terminal object of $\catC$.
+
+\defn{
+    Suppose $\catD$, $\catI$ are $\catC$-enriched categories, and $D\in\catD$ is an object. The \term{constant functor at $D$}
+    is define to be the functor $$\const_D:\catI\to\catD$$ with the formulae $$\const_D(I)=D,\forall I\in\catI;$$
+    $$\const_D:\Hom_\catI(I,J)\to\1_\catC\xrightarrow{\1_D}\Hom_{\catD}(D,D),\forall I,J\in\catI.$$
+}
+
+\defn{
+    Suppose $\catD$, $\catI$ are $\catC$-enriched categories, and $p:\catI\to\catD$ is a functor. The \term{colimit}
+    of $p$, is an object $D$ in $\catD$ and a natural transformation $\tau:p\to\const_D$, such that for every $D'$ 
+    in $\catD$, the \tbc
+}
 
 \tbc
 
