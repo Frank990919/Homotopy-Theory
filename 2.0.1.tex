@@ -109,21 +109,34 @@ We next make the following definition.
 We note that for any $\catC$-enriched category $\catD$ that is tensored over $\catC$, $\catD$ is naturally a left $\catC$-module.
 If moreover $\catD$ is also tensored over $\catC$, the module structure is closed. 
 
-We next discuss limits and colimits in enriched category theory. We fix the monoidal category $\catC$, and suppose that the tensor unit
-is the terminal object of $\catC$.
+We next give the following proposition, whose prove may be found in [nLab]:
 
-\defn{
-    Suppose $\catD$, $\catI$ are $\catC$-enriched categories, and $D\in\catD$ is an object. The \term{constant functor at $D$}
-    is define to be the functor $$\const_D:\catI\to\catD$$ with the formulae $$\const_D(I)=D,\forall I\in\catI;$$
-    $$\const_D:\Hom_\catI(I,J)\to\1_\catC\xrightarrow{\1_D}\Hom_{\catD}(D,D),\forall I,J\in\catI.$$
+\prop{[$\dagger$]
+    For any two $\catC$-enriched category $\catD,\catD'$ where $\catC$ is closed symmetric monoidal, the functor category
+    $\Fun(\catD,\catD')$ has a natural $\catC$-enriched structure, which we will denote by $(\catD')^\catD$ (or again $\Fun(\catD,\catD')$),
+    whose underlying category is the ordinary category $\Fun(\catD,\catD')$, such that we have the following reciprocity formula
+    between $\catC$-enriched categories:
+    $$\Fun(\catD,\Fun(\catD',\catD''))\cong\Fun(\catD\ox\catD',\catD''),$$
+    where $\catD\ox\catD'$ is the $\catC$-enriched category with objects being pairs $(D,D')$ where $D\in\catD,D'\in\catD'$,
+    and $\Hom_{\catD\ox\catD'}((X,X'),(Y,Y'))=\Hom_{\catD}(X,Y)\ox\Hom_{\catD'}(X',Y')$ for $X,Y\in\catD,X',Y'\in\catD'$.
 }
 
+The next concept is the slice categories.
+
 \defn{
-    Suppose $\catD$, $\catI$ are $\catC$-enriched categories, and $p:\catI\to\catD$ is a functor. The \term{colimit}
-    of $p$, is an object $D$ in $\catD$ and a natural transformation $\tau:p\to\const_D$, such that for every $D'$ 
-    in $\catD$, the \tbc
+    Suppose $\catC$ is a category, $p:\catI\to\catC$ is a diagram in $\catC$. The \term{category of objects of $\catC$ over $p$}, $\catC_{/p}$
+    is the following category:
+    \begin{enumerate}[i)]
+        \item The objects in $\catC_{/p}$ are pairs $(X,\tau)$, where $X$ is an object in $\catC$ and $\tau:\const_X\to p$
+        is a natural transformation;
+        \item A morphism from $(X,\tau)$ to $(Y,\sigma)$ is a map $f:X\to Y$ in $\catC$ such that $\sigma\circ\const_f=\tau$.
+    \end{enumerate}
+    Dually, the \term{category of objects of $\catC$ under $p$}, $\catC_{p/}$ is the following category:
+    \begin{enumerate}[i)]
+        \item The objects in $\catC_{/p}$ are pairs $(X,\tau)$, where $X$ is an object in $\catC$ and $\tau:p\to\const_X$
+        is a natural transformation;
+        \item A morphism from $(X,\tau)$ to $(Y,\sigma)$ is a map $f:X\to Y$ in $\catC$ such that $\const_f\circ\tau=\sigma$.
+    \end{enumerate}
 }
 
 \tbc
-
-% To be added: Slice categories
