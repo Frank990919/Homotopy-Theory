@@ -78,6 +78,7 @@
 \def\catE{\mathcal{E}}
 \def\catF{\mathcal{F}}
 \def\catI{\mathcal{I}}
+\def\catJ{\mathcal{J}}
 \def\catS{\mathcal{S}}
 \def\catT{\mathcal{T}}
 \def\cattC{\mathbb{C}}

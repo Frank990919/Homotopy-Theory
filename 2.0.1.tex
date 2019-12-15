@@ -1,6 +1,34 @@
 \label{secc}
 
-We now give some review to some ideas in classical category theory. First, we discuss the theory of enriched categories.
+We now give some review to some ideas in classical category theory. 
+
+First we give some definitions on cardinal theory:
+
+\defn{
+    Suppose $\kappa$ is an infinte cardinal. $\kappa$ is called \term{regular}, if for any collection of sets $\{A_i\}_{i\in I}$,
+    such that $\abs I<\kappa$ and $\abs{A_i}<\kappa$ for all $I$, we have $\abs{\coprod_{i\in I}A_i}<\kappa$.
+    $\kappa$ is called \term{strongly inaccessible}, if $\kappa$ is regular, uncountable, and for any cardinal $\tau<\kappa$
+    we have $2^\tau<\kappa$.
+}
+
+By definition, if $\kappa$ is strongly inaccessible, all sets with cardinality less than $\kappa$ satisfies the ZF axioms.
+Thus the existence of strongly inaccessible cardinals cannot be proven in the ZF axioms.
+
+\tbc
+
+We now deduce with the set-theoretic technicalities. In the theory of 1-categories, mostly we may assume that 
+the hom-set between two objects to be indeed a set but allowing the object to form a proper class.
+(A category with all hom's between two objects to be (small) sets is called \term{locally small}.) However,
+we will see that in our theory of $\infty$-categories, objects and morphisms are treated equally,
+meaning that we are facing set-theoretic problems. To fix this problem, we shall use the following terminology:
+for any cardinal $\tau$, we assume that there exists a strongly inaccessible cardinal
+$\kappa$ that is greater than $\tau$. We will mostly fix a strongly inaccessible cardinal $\kappa$, and we will mainly deal with
+mathematical objects that are $\kappa$-small. When we need to deal with mathematical objects that are too large to be
+$\kappa$-small, we shall take another strongly inaccessible cardinal $\kappa'$ that is greater than $\kappa$, and to work
+with mathematical objects that are $\kappa'$-small, in which case it is okay to talk about objects that are not $\kappa$-small.
+This terminology will work throughout this chapter.
+
+Next, we discuss the theory of enriched categories.
 
 \defn{
     Suppose $(\catC,\ox,\1_{\catC})$ is a monoidal category (where $\1_{\catC}$ is the tensor unit). A \term{$\catC$-enriched category},
@@ -137,6 +165,50 @@ The next concept is the slice categories.
         is a natural transformation;
         \item A morphism from $(X,\tau)$ to $(Y,\sigma)$ is a map $f:X\to Y$ in $\catC$ such that $\const_f\circ\tau=\sigma$.
     \end{enumerate}
+}
+
+We also use the following notation:
+
+\defn{
+    Suppose $\catC$ is a category and $Z\in\catC$. For any $X,Y\in\catC$, we define $\Hom_Z(X,Y):=\Hom_{\catC_{/Z}}(X,Y)$.
+}
+
+The slice category enjoy the following property:
+
+\prop{
+    Suppose $\catC$ is a category, $p:\catI\to\catC$ is a diagram in $\catC$. The initial object of $\catC_{p/}$ is exactly
+    colimit of $p$ in $\catC$. Dually the terminal object of $\catC_{/p}$ is exactly the limit of $p$ in $\catC$.
+}
+
+The slice category can also be defined by a universal property. We first make the following property:
+
+\defn{
+    Suppose $\catC,\catC'$ are two categories. The \term{join} of the two categories, $\catC\star\catC'$, is defined as follows:
+    \begin{enumerate}[i)]
+        \item The objects of $\catC\star\catC'$ is the disjoint union of the objects $\catC$ and $\catC'$;
+        \item $$\Hom_{\catC\star\catC'}(C,C')=\begin{cases}\Hom_{\catC}(C,C'),&(C,C'\in\catC)\\\{*\},&(C\in\catC,C'\in\catC')\\
+        \varnothing,&(C\in\catC',C'\in\catC)\\\Hom_{\catC'}(C,C').&(C,C'\in\catC')\end{cases}$$
+    \end{enumerate}
+}
+
+We note that there exists natural inclusions $\catC\to\catC\star\catC'$ and $\catC'\to\catC\star\catC'$.
+
+Now we may show that the slice category enjoys the following universal property:
+
+\prop{
+    Suppose $\catC$ is a category, $p:\catI\to\catC$ is a diagram in $\catC$. Then for any category $\catJ$, there exists a
+    natural isomorphism $$\Fun(\catJ,\catC_{/p})\cong\Fun(\catJ\star\catI,\catC)\times_{\Fun(\catI,\catC)}\{p\}.$$
+    There is a dual statement for undercategories.
+}
+
+Now we can generalize this idea to joins, overcategories, undercategories, limits and colimits to $\catC$-enriched categories,
+where $\catC$ is a closed symmetric monoidal category whose tensor unit is the terminal object. Details are left to the reader.
+
+We conclude this section with a brief discussion of presentable categories and accessible categories:
+
+\defn{
+    We call a category \term{presentable} if the category is locally small, every object of the category is small,
+    the category admits small colimits, and there exists a small set of objects that generates the category under small colimits.
 }
 
 \tbc
