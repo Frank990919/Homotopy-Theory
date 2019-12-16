@@ -14,7 +14,16 @@ First we give some definitions on cardinal theory:
 By definition, if $\kappa$ is strongly inaccessible, all sets with cardinality less than $\kappa$ satisfies the ZF axioms.
 Thus the existence of strongly inaccessible cardinals cannot be proven in the ZF axioms.
 
-\tbc
+We note more that for any cardinal $\kappa$, there exists a cardinal $\kappa'>\kappa$ such that $\kappa$ is regular.
+
+\defn{
+    Suppose $\kappa$ and $\tau$ are regular cardinals. We write $\tau\ll\kappa$, if for any $\tau_0<\tau$ and $\kappa_0<\kappa$
+    we have $\kappa_0^{\tau_0}<\kappa$.
+}
+
+We note that for any regular cardinal $\tau$, there exists a regular cardinal $\kappa>\tau$ such that $\kappa\gg\tau$.
+Also note that a regular cardinal $\kappa$ satisfies that $\kappa\ll\kappa$ if and only if $\kappa=\omega$
+or $\kappa$ is strongly inaccessible.
 
 We now deduce with the set-theoretic technicalities. In the theory of 1-categories, mostly we may assume that 
 the hom-set between two objects to be indeed a set but allowing the object to form a proper class.
@@ -204,7 +213,19 @@ Now we may show that the slice category enjoys the following universal property:
 Now we can generalize this idea to joins, overcategories, undercategories, limits and colimits to $\catC$-enriched categories,
 where $\catC$ is a closed symmetric monoidal category whose tensor unit is the terminal object. Details are left to the reader.
 
+We next introduce the language of Kan extensions:
+
+\tbc
+
 We conclude this section with a brief discussion of presentable categories and accessible categories:
+
+\defn{
+    Suppose $\kappa$ is a regular cardinal. A category $\catC$ is called \term{$\kappa$-filtered},
+    if for any category $\catD$ that is $\kappa$-small (that is, the arrows in $\catD$ hava cardinality less than $\kappa$),
+    and any diagram $p:\catD\to\catC$, the category $\catC_{p/}$ is nonempty. A diagram is called \term{$\kappa$-filtered}
+    if it is indexed by a $\kappa$-filtered category. A colimit is called \term{$\kappa$-filtered} if 
+    it is the colimit of a $\kappa$-filtered diagram. We say a structure is \term{filtered} if it is $\omega$-filtered.
+}
 
 \defn{
     We call a category \term{presentable} if the category is locally small, every object of the category is small,
