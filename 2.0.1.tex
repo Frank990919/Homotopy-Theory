@@ -224,9 +224,24 @@ We next introduce the language of Kan extensions:
     the natural transformation $$\Hom_{\catC^\catJ}(i_!F,G)\to\Hom_{\catC^\catI}(i^*i_!F,i^*G)\to\Hom_{\catC^\catI}(F,i^*G)$$
     is a natural isomorphism. Dually the \term{right Kan extension} of a functor $F:\catI\to\catC$, is a functor 
     $i_*F:\catJ\to\catC$, together with a natural transformation $i^*i_*F\to F$, such that for any functor $G:\catJ\to\catC$,
-    the natural transformation $$\Hom_{\catC^\catJ}(G,i_F)\to\Hom_{\catC^\catI}(i^*G,i^*i_*F)\to\Hom_{\catC^\catI}(i^*G,F)$$
-    is a natural isomorphism.
+    the natural transformation $$\Hom_{\catC^\catJ}(G,i_*F)\to\Hom_{\catC^\catI}(i^*G,i^*i_*F)\to\Hom_{\catC^\catI}(i^*G,F)$$
+    is a natural isomorphism. A functor $i_!:\catC^\catI\to\catC^\catJ$ is called a \term{left Kan extension functor}
+    if it is a left adjoint to $i^*$. Dually a functor $i_*:\catC^\catI\to\catC^\catJ$ is called a \term{right Kan extension functor}
+    if it is a right adjoint to $i^*$.
 }
+
+Kan extensions are generalizations of limits and colimits, as one can see from the following proposition:
+
+\prop{
+    Suppose $\catC$ is a category, $i:\catI\to\catJ$ is a functor between categories. If $\catC$ has all colimits,
+    then the left Kan extension functor exists, and for any functor $F:\catI\to\catC$ and object $Y\in\catJ$,
+    $$i_!F=\colim_{X\in\catI,iX\to Y}F(X).$$ Dually, if $\catC$ has all limits,
+    then the right Kan extension functor exists, and for any functor $F:\catI\to\catC$ and object $Y\in\catJ$,
+    $$i_*F=\lim_{X\in\catI,Y\to iX}F(X).$$
+}
+
+The following definition and proposition also hold in enriched category theory. We will discuss the theory of homotopy Kan extensions
+in the next section, and its $\infty$-categorical generalization in Section \ref{secj}.
 
 We conclude this section with a brief discussion of presentable categories and accessible categories:
 
@@ -239,8 +254,53 @@ We conclude this section with a brief discussion of presentable categories and a
 }
 
 \defn{
-    We call a category \term{presentable} if the category is locally small, every object of the category is small,
+    Suppose $\kappa$ is a regular cardinal. We call a category \term{$\kappa$-accessible} if the category is locally small,
+    every object of the category is small, the category admits small $\kappa$-filtered colimits, and there exists a small set of objects
+    that generates the category under small $\kappa$-filtered colimits. We call a category \term{accessible} if it is $\kappa$-accessible
+    for some regular cardinal $\kappa$.
+}
+
+\defn{
+    We call a category \term{presentable} if it is accessible and has all small colimits.
+}
+
+\lem{
+    A category is presentable if the category is locally small, every object of the category is small,
     the category admits small colimits, and there exists a small set of objects that generates the category under small colimits.
 }
 
-\tbc
+\defn{
+    Suppose $\catC$ is a category, $S$ is a class of morphisms. $S$ is called \term{weakly saturated}, if $S$ is closed under
+    pushouts, retracts and transfinite compositions.
+}
+
+By the small object argument, we deduce the following:
+
+\prop{
+    Suppose $\catC$ is a presentable category. Then for any set of morphisms $S$ in $\catC$, the smallest weakly saturated class
+    of morphisms in $\catC$ containing $S$ is $\Cof(S)$.
+}
+
+For further use, we state the following proposition:
+
+\prop{[$\dagger$]
+    Suppose $\catC$ is a presentable category, $\catC'$ is a full subcategory of $\catC$ that is closed under small $\kappa$-filtered colimits
+    for some regular cardinal $\kappa$. The following conditions are equivalent:
+    \begin{enumerate}[i)]
+        \item There exists a small set of objects in $\catC'$ that generates $\catC'$ under small colimits;
+        \item For any sufficiently large cardinals $\tau$ with $\tau\gg\kappa$, any $\tau$-filtered partially ordered set $A$,
+        and any diagram $\{X_\alpha\}_{\alpha\in A}$ of $\kappa$-small objects in $\catC$ indexed by $A$, if $X_A\in\catC'$,
+        where $X_B$ is the colimit of $\{X_\alpha\}_{\alpha\in B}$ for all $B\subseteq A$, then for every $\tau$-small subset $C\subseteq A$,
+        there exists a $\tau$-small $\kappa$-filtered subset $B\subseteq A$ containing $C$ such that $X_B\in\catC_0$.
+    \end{enumerate}
+}
+
+\cor{
+    Suppose $F:\catC\to\catD$ is a functor between presebntable categories which preserves $\kappa$-filtered colimits and 
+    $\catD'$ is a $\kappa$-filtered full subcategory of $\catD$. Then $F^{-1}(\catD)$ is a $\kappa$-filtered full subcategory of $\catC$.
+}
+
+We will discuss more about presentable categories and accessible categories in Section \ref{seck} and Section \ref{secl}.
+\footnote{We note that even though we are discussing on presentable and accessible $\infty$-categories in Section \ref{seck}
+and Section \ref{secl}, all arguments are also available for ordinary categories, and not circularity will result from
+using the results given in the two stated sections now.}
