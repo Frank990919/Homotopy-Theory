@@ -120,11 +120,13 @@ then $\Hom_{\catC}(\1,-):\catC\to\cat{Set}$ is a lax monoidal functor.
         \item Objects being the objects of $\catD$;
         \item For any $X,Y\in\catD$, $\Hom_{F\catD}(X,Y)=F\Hom_{\catD}(X,Y)\in\catC'$;
         \item The unit is defined to be $$\1_{\catC'}\to F\1_{\catC}\to F\Hom_{\catD}(X,X)=\Hom_{F\catD}(X,X);$$
-        \item The composition is defined to be $$\begin{aligned}\Hom_{F\catD}(Y,Z)\ox\Hom_{F\catD}(X,Y)&=(F\Hom_{\catD}(Y,Z))\ox(F\Hom_{\catD}(X,Y))\\
-        &\to F(\Hom_{\catD}(Y,Z)\ox\Hom_{\catD}(X,Y))\\&\to F\Hom_{\catD}(X,Z)=\Hom_{F\catD}(X,Z).\end{aligned}$$
+        \item The composition is defined to be $$\begin{aligned}\Hom_{F\catD}(Y,Z)\ox\Hom_{F\catD}(X,Y)
+        &=(F\Hom_{\catD}(Y,Z))\ox(F\Hom_{\catD}(X,Y))\\&\to F(\Hom_{\catD}(Y,Z)\ox\Hom_{\catD}(X,Y))\\
+        &\to F\Hom_{\catD}(X,Z)=\Hom_{F\catD}(X,Z).\end{aligned}$$
     \end{enumerate}
-    This construction extends to a functor $F:\cat{Cat}_{\catC}\to\cat{Cat}_{\catC'}$ and a $2$-functor $F:\catt{Cat}_{\catC}\to\catt{Cat}_{\catC'}$,
-    and also a functor $F:\Fun(\catD,\catD')\to\Fun(F\catD,F\catD')$ for any two $\catC$-enriched categories $\catD,\catD'$.
+    This construction extends to a functor $F:\cat{Cat}_{\catC}\to\cat{Cat}_{\catC'}$ and a $2$-functor
+    $F:\catt{Cat}_{\catC}\to\catt{Cat}_{\catC'}$, and also a functor $F:\Fun(\catD,\catD')\to\Fun(F\catD,F\catD')$ 
+    for any two $\catC$-enriched categories $\catD,\catD'$.
 
     In particular, if the functor $F$ is chosen to be $U=\Hom_{\catC}(\1,-):\catC\to\cat{Set}$, then for any $\catC$-enriched category
     $\catD$, the ordinary category $U\catD$ is called the \term{underlying category} of $\catD$. In this case, 
@@ -215,7 +217,16 @@ where $\catC$ is a closed symmetric monoidal category whose tensor unit is the t
 
 We next introduce the language of Kan extensions:
 
-\tbc
+\defn{
+    Suppose $\catC$ is a category, $i:\catI\to\catJ$ is a functor between categories, which induces a functor
+    $i^*:\catC^\catJ\to\catC^\catI.$ The \term{left Kan extension} of a functor $F:\catI\to\catC$, is a functor 
+    $i_!F:\catJ\to\catC$, together with a natural transformation $F\to i^*i_!F$, such that for any functor $G:\catJ\to\catC$,
+    the natural transformation $$\Hom_{\catC^\catJ}(i_!F,G)\to\Hom_{\catC^\catI}(i^*i_!F,i^*G)\to\Hom_{\catC^\catI}(F,i^*G)$$
+    is a natural isomorphism. Dually the \term{right Kan extension} of a functor $F:\catI\to\catC$, is a functor 
+    $i_*F:\catJ\to\catC$, together with a natural transformation $i^*i_*F\to F$, such that for any functor $G:\catJ\to\catC$,
+    the natural transformation $$\Hom_{\catC^\catJ}(G,i_F)\to\Hom_{\catC^\catI}(i^*G,i^*i_*F)\to\Hom_{\catC^\catI}(i^*G,F)$$
+    is a natural isomorphism.
+}
 
 We conclude this section with a brief discussion of presentable categories and accessible categories:
 
