@@ -54,23 +54,24 @@
 \def\h{\mathrm{h}}
 \def\N{\mathrm{N}}
 \def\C{\mathfrak{C}}
-\def\pr{\operatorname{pr}}
-\def\inn{\operatorname{in}}
-\def\Cyl{\operatorname{Cyl}}
-\def\Path{\operatorname{Path}}
-\def\colim{\mathop{\operatorname{colim}}}
-\def\Ho{\operatorname{Ho}}
-\def\diag{\operatorname{diag}}
-\def\Sing{\operatorname{Sing}}
-\def\Adj{\operatorname{Adj}}
-\def\Cell{\operatorname{Cell}}
-\def\RLP{\operatorname{RLP}}
-\def\LLP{\operatorname{LLP}}
-\def\Map{\operatorname{Map}}
+\def\pr{ \operatorname{pr}}
+\def\inn{ \operatorname{in}}
+\def\Cyl{ \operatorname{Cyl}}
+\def\Path{ \operatorname{Path}}
+\def\const{ \operatorname{const}}
+\def\colim{ \mathop{\operatorname{colim}}}
+\def\Ho{ \operatorname{Ho}}
+\def\diag{ \operatorname{diag}}
+\def\Sing{ \operatorname{Sing}}
+\def\Adj{ \operatorname{Adj}}
+\def\Cell{ \operatorname{Cell}}
+\def\RLP{ \operatorname{RLP}}
+\def\LLP{ \operatorname{LLP}}
+\def\Map{ \operatorname{Map}}
 %\def\Mapsq{\Map_\square}
-\def\Hom{\operatorname{Hom}}
-\def\Fun{\operatorname{Fun}}
-\def\sHom{\mathscr{H}\mkern-3mu\mathit{om}}
+\def\Hom{ \operatorname{Hom}}
+\def\Fun{ \operatorname{Fun}}
+\def\sHom{ \mathscr{H}\mkern-3mu\mathit{om}}
 
 \def\catB{\mathcal{B}}
 \def\catC{\mathcal{C}}
