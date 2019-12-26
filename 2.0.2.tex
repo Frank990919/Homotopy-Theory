@@ -1,5 +1,125 @@
 \label{secb}
 
-\nyw
+Although the study of model categories given in Chapter 1 are rather useful, in this chapter we still need to use some more properties
+of model categories that we have not discussed yet. Most of these properties are related with enriched categories and presentable categories,
+that have been discussed in the previous section. We will discuss these properties in this section.
+
+We start with a lifting criterion:
+
+\prop{
+    Suppose $\catC$ is a model category, $i:A\to B$ is a cofibration between cofibrant objects, $X$ is a fibrant object,
+    and $f:A\to X$ is a map. If there exists a map $\bar{g}\in[B,X]$ such that $[f]=\bar g[i]$ in $\Ho\catC$, then
+    there exists a map $g\in\Hom_\catC(B,X)$ such that $f=gi$.
+}
+
+Next we discuss about the stability of weak equivalences under pushouts and pullbacks:
+
+\defn{
+    Suppose $\catC$ is a model category. $\catC$ is called \term{left proper}, if weak equivalences is stable under pushouts by cofibrations.
+    Dually $\catC$ is called \term{right proper}, if weak equivalences is stable under pullback by fibrations.
+}
+
+The following lemma and corollary can be used to deduce whether a category is left proper or not:
+
+\lem{
+    In a model category, weak equivalences between cofibrant objects is stable under pushouts by cofibrations.
+}
+
+\cor{
+    A model category with all objects cofibrant is left proper.
+}
+
+The following proposition can be deduced from the previous chapter:
+
+\prop{
+    $\cat{SSet}$, with the standard model structure, is right proper.
+}
+
+The study of left proper model categories is also related with homotopy pushouts:
+
+\prop{
+    Suppose $$\xymatrix{A\ar[r]^i\ar[d]_j&B\ar[d]\\C\ar[r]&B\amalg_AC}$$ is a pushout square in a model category $\catC$.
+    If:
+    \begin{enumerate}[i)]
+        \item Either $A,B$ are cofibrant and $j$ is a cofibration;
+        \item Or $\catC$ is left proper and $i$ is a cofibration;
+    \end{enumerate}
+    Then the square is a homotopy pushout square.
+}
+
+The next concept is the study of combinatorial model categories:
+
+\defn{
+    A model category is called \term{combinatorial}, if it is presentable and cofibrantly generated.
+}
+
+Combinatorial model categories enjoy certain accessibility properties:
+
+\prop{
+    Suppose $\catC$ is a combinatorial model category. The full subcategories $\Fib,\W,\W\cap\Fib$ of $\catC^{[1]}$ are accessible.
+}
+
+To the converse, given certain accessibilities, one can construct examples of combinatorial model categories:
+
+\lem{[$\dagger$]
+    Suppose $\catC$ is a presentable category, $\Cof$ and $\W$ are two classes of morphisms in $\catC$. Suppose more that:
+    \begin{enumerate}[i)]
+        \item $\Cof$ is a weakly saturated class of morphisms in $\catC$ and is \term{of small generation};
+        that is, there exists a set of morphisms $I$ such that $\Cof=\Cof(I)$;
+        \item $\Cof\cap\W$ is a weakly saturated class of morphisms;
+        \item $\W$ is an accessible full subcategory of $\catC^{[1]}$;
+        \item $\W$ has the 2-out-of-3 property.
+    \end{enumerate}
+    Then $\Cof\cap\W$ is of small generation.
+}
+
+\prop{
+    Suppose $\catC$ is a presentable category, $\Cof$ and $\W$ are two classes of morphisms in $\catC$. Suppose more that:
+    \begin{enumerate}[i)]
+        \item $\Cof$ is a weakly saturated class of morphisms in $\catC$ and is \term{of small generation};
+        that is, there exists a set of morphisms $I$ such that $\Cof=\Cof(I)$;
+        \item $\Cof\cap\W$ is a weakly saturated class of morphisms;
+        \item $\W$ is an accessible full subcategory of $\catC^{[1]}$;
+        \item $\W$ has the 2-out-of-3 property;
+        \item $\RLP(\Cof)\subseteq\W$.
+    \end{enumerate}
+    Then $\catC$ admits a combinatorial model structure, with cofibrations being $\Cof$ and weak equivalences being $\W$.
+}
+
+\cor{
+    Suppose $\catC$ is a presentable model category such that $\Cof$, as a weakly saturated class of morphisms, is of small generation.
+    Then the following are equivalent:
+    \begin{itemize}
+        \item $\catC$ is combinatorial;
+        \item $\W$ is an accessible full subcategory of $\catC^{[1]}$.
+    \end{itemize}
+}
+
+We now present another version of the above proposition that we will frequently use in the following section:
+
+\defn{
+    Suppose $\catC$ is a presentable category. A class of morphisms $\W$ in $\catC$ is called \term{perfect},
+    if it contains every isomorphism, satisfies the 2-out-of-3 property, and is an $\omega$-accessible full subcatgeory of $\catC^{[1]}$.
+}
+
+For example, the class of all isomorphisms in $\catC$ is perfect, whenever $\catC$ is presentable. Also, the class of weak homotopy equivalences
+in $\cat{SSet}$ is perfect.
+
+\prop{
+    Suppose $F:\catC\to\catD$ is a functor between presentable categories which preserves filtered colimits and 
+    $\W$ is a perfect class of morphisms in $\catD$. Then $F^{-1}(\W)$ is a perfect class of morphisms in $\catC$.
+}
+
+\prop{\label{tagp}
+    Suppose $\catC$ is a presentable category, $\W$ is a class of morphisms in $\catC$, $I$ is a set of morphisms in $\catC$. Suppose more that:
+    \begin{enumerate}[i)]
+        \item $\W$ is a perfect class of morphisms;
+        \item $\W$ is stble under pushouts by pushouts of elements in $I$;
+        \item $\RLP(I)\subseteq\W$.
+    \end{enumerate}
+    Then $\catC$ admits a left proper combinatorial model structure, with cofibrations being $\Cof(I)$ and weak equivalences being $\W$.
+}
+
+\tbc
 
 % To be added: Enriched homotopy theory
