@@ -73,7 +73,7 @@ To the converse, given certain accessibilities, one can construct examples of co
     Then $\Cof\cap\W$ is of small generation.
 }
 
-\prop{
+\prop{\label{tagq}
     Suppose $\catC$ is a presentable category, $\Cof$ and $\W$ are two classes of morphisms in $\catC$. Suppose more that:
     \begin{enumerate}[i)]
         \item $\Cof$ is a weakly saturated class of morphisms in $\catC$ and is \term{of small generation};
@@ -119,6 +119,52 @@ in $\cat{SSet}$ is perfect.
     \end{enumerate}
     Then $\catC$ admits a left proper combinatorial model structure, with cofibrations being $\Cof(I)$ and weak equivalences being $\W$.
 }
+
+The next concept is the theory of diagram categories and homotopy limits and colimits. We first make the following definitions:
+
+\defn{
+    Suppose $\catI$ is a small category and $\catC$ is a model category. We define a map $\alpha\in\catC^\catI$ to be:
+    \begin{enumerate}[i)]
+        \item An \term{injective cofibration} if it is a degreewise cofibration;
+        \item A \term{projective fibration} if it is a degreewise fibration;
+        \item A \term{weak equivalence} if it is a degreewise weak equivalence;
+        \item A \term{projective cofibration} if it has LLP with respect to every map that is both a projective fibration and a weak equivalence;
+        \item An \term{injective fibration} if it has RLP with respect to every map that is both a injective cofibration and a weak equivalence.
+    \end{enumerate}
+}
+
+We now state the following proposition:
+
+\prop{
+    Suppose $\catC$ is a combinatorial model category, $\catI$ is a small category. Then the projective cofibrations, projective fibrations
+    and weak equivalences form a combinatorial model structure on $\catC^\catI$, which will be called the \term{projective model structure},
+    denoted $(\catC^\catI,\text{proj})$; the injective cofibrations, injective fibrations
+    and weak equivalences form a combinatorial model structure on $\catC^\catI$, which will be called the \term{injective model structure},
+    denoted $(\catC^\catI,\text{inj})$.
+}
+
+The projective model structure is easy: One can even write down the generating cofibrations and the generating trivial cofibrations.
+For any $I\in\catI$ and $C\in\catC$ we define the functor $F_C^I:\catI\to\catC$ by $$F_C^I(I')=\coprod_{\alpha\in\Hom_\catI(I,I')}C.$$
+Then, if $I_0$ is the set of generating cofibrations in $\catC$, $\{F_C^I\to F_{C'}^I\mid C\to C'\in I_0,I\in\catI\}$ is the 
+set of generating cofibrations in $\catC^\catI$, and similar for the generating trivial cofibrations. The injective model structure 
+is more complicated and requires Proposition \ref{tagq}. The following lemma is also needed:
+
+\lem{
+    Suppose $\catC$ is a presentable category and $\catI$ be a small category. Suppose $S_0$ is a weakly saturated class of morphisms in
+    $\catC$ that is of small generation. Let $S$ be the class of morphisms in $\catC^\catI$ that degreewise belongs to $S_0$.
+    Then $S$ is a weakly saturated class of morphisms that is of small generation.
+}
+
+We note that if $\catC$ is left or right proper, then the projective model structure and the injective model struture on $\catC^\catI$ 
+are left or right proper, respetively. Also note that every projective cofibration is an injective cofibration, and every
+injective fibration is a projective fibration.
+
+The projective model structure and the injective model struture is fonctorial in $\catC$. Namely, if $(F,G):\catC\to\catD$ is a 
+Quillem adjunction between combinatorial model categories, then $$(F^\catI,G^\catI):(\catC^\catI,\text{proj})\to(\catD^\catI,\text{proj})$$
+and $$(F^\catI,G^\catI):(\catC^\catI,\text{inj})\to(\catD^\catI,\text{inj})$$ are Quillen adjunctions, that are Quillen equivalences 
+if $(F,G)$ is one.
+
+%We now focus on enriched homotopy theory. The 
 
 \tbc
 
