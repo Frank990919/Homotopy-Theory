@@ -155,16 +155,81 @@ is more complicated and requires Proposition \ref{tagq}. The following lemma is 
     Then $S$ is a weakly saturated class of morphisms that is of small generation.
 }
 
-We note that if $\catC$ is left or right proper, then the projective model structure and the injective model struture on $\catC^\catI$ 
-are left or right proper, respetively. Also note that every projective cofibration is an injective cofibration, and every
+We note that if $\catC$ is left or right proper, then the projective model structure and the injective model structure on $\catC^\catI$ 
+are left or right proper, respectively. Also note that every projective cofibration is an injective cofibration, and every
 injective fibration is a projective fibration.
 
-The projective model structure and the injective model struture is fonctorial in $\catC$. Namely, if $(F,G):\catC\to\catD$ is a 
-Quillem adjunction between combinatorial model categories, then $$(F^\catI,G^\catI):(\catC^\catI,\text{proj})\to(\catD^\catI,\text{proj})$$
+The projective model structure and the injective model structure are functorial in $\catC$. Namely, if $(F,G):\catC\to\catD$ is a 
+Quillen adjunction between combinatorial model categories, then $$(F^\catI,G^\catI):(\catC^\catI,\text{proj})\to(\catD^\catI,\text{proj})$$
 and $$(F^\catI,G^\catI):(\catC^\catI,\text{inj})\to(\catD^\catI,\text{inj})$$ are Quillen adjunctions, that are Quillen equivalences 
 if $(F,G)$ is one.
 
-%We now focus on enriched homotopy theory. The 
+The projective and injective model structures are also functorial in $\catI$ in the following sense:
+
+\prop{
+    Suppose $f:\catI\to\catJ$ is a functor between small categories, $\catC$ is a combinatorial model category. Then:
+    \begin{enumerate}[i)]
+        \item The adjunction $(f_!,f^*):(\catC^\catI,\text{proj})\to(\catC^\catJ,\text{proj})$ is a Quillen adjunction;
+        \item The adjunction $(f^*,f_*):(\catC^\catJ,\text{inj})\to(\catC^\catI,\text{inj})$ is a Quillen adjunction.
+    \end{enumerate}
+    Both adjunctions are Quillen equivalences if $f$ is an equivalence between categories.
+}
+
+We now discuss homotopy limits and colimits. Since the concepts are dual to each other we only give discussions to homotopy limits,
+leaving the dual statements for the reader. 
+
+\defn{
+    Suppose $\catC$ is a combinatorial model category, $f:\catI\to\catJ$ is a functor between small categories, $F:\catI\to\catC$
+    is a functor. A \term{homotopy right Kan extension of $F$} consists of a functor $G:\catJ\to\catC$ and a natural transformation
+    $G\to f_*F$, such that the composition $G\to f_*F\to f_*RF$ is a weak equivalence, where $R$ is the fibrant replacement functor
+    with respect to the injective model structure.
+}
+
+Note that a homotopy right Kan extension, if exists, is unique up to weak equivalences.
+
+\defn{
+    Suppose $\catC$ is a combinatorial model category, $\catI$ is a small category, $F:\catI\to\catC$ is a functor. 
+    A \term{homotopy limit} of $F$ is a homotopy right Kan extension of $F$ along the map $\catI\to[0]$.
+}
+
+One can show that, as an example, homotopy pullback squares are a special type of homotopy limits.
+
+The following proposition reduce the study of homotopy right Kan extensions to the study of homotopy limits:
+
+\prop{
+    Suppose $\catC$ is a combinatorial model category, $f:\catI\to\catJ$ is a functor between small categories, $F:\catI\to\catC$
+    is a functor. A natural transformation $G\to f_*F$ exhibits $G$ as a homotopy right Kan extension of $F$, if and only if
+    for every $a\in\catJ$, the natural transformation exhibits $G(a)$ as a homotopy limit of $F:\catI\times_{\catJ}\catJ_{a/}\to\catC$.
+}
+
+We now focus on enriched homotopy theory and enriched model categories. The reason we discuss enriched homotopy theory, is that even though
+our main model for $(\infty,1)$-categories is the theory of quasi-categories, the theory of simplicial categories is also used very often. 
+Enriched homotopy theory, though not being introduced in this lecture, can also be viewed as models of other higher category theory, such as 
+the $(\infty,2)$-categories, with the model being $(\cat{SSet},\text{Joyal})$-enriched categories. In the remaining of this section, we fix 
+a symmetric monoidal model category $\catS$ as the base of our enrichment, and we will be adding more assumptions on $\catS$ as we discuss further.
+Note that in the following discussions, it is also available to set $\catS$ to be the trivial model structure on $\cat{Set}$, which will reduce
+to the study of ordinary model categories and the homotopy theory of the category of categories.
+
+We first discuss the model structure on the category of $\catS$-enriched categories.
+
+\defn{
+    For a $\catS$-enriched category $\catC$, we define $\h\catC$ to be the $\Ho\catS$-enriched category under the map $\catS\to\Ho\catS$.
+    A map $F:\catC\to\catD$ between $\catS$-enriched categories is called a \term{weak equivalence} if $\h F:\h\catC\to\h\catD$
+    is fully faithful and essentially surjective.
+}
+
+Note that whenever the weak equivalences in $\catS$ is stable under filtered colimits, the weak equivalences in $\cat{Cat}_{\catS}$
+is stable under filtered colimits. If moreover $\catS$ is a combinatorial model category, then the weak equivalences in $\cat{Cat}_{\catS}$
+is a perfect class of morphisms.
+
+Next, we make the following definition:
+
+\defn{
+    For any $S\in\catS$ we define the $\catS$-enriched category $[1]_S$ to be the category with two objects $0,1$ and 
+    $$\Hom_{[1]_S}(0,0)=\Hom_{[1]_S}(1,1)=\1_{\catS},\Hom_{[1]_S}(0,1)=S,\Hom_{[1]_S}(1,0)=\varnothing.$$ We define $[0]_{\catS}$ or $[0]$
+    to be the $\catS$-enriched category with only one object $0$ and its endomorphism space $\1_{\catS}$.
+    We define $I_0$ to be the set of morphisms $$\{\varnothing\to[0]\}\cup\{[1]_A\to[1]_B\mid A\to B\text{ is a generating cofibration}\}.$$
+}
 
 \tbc
 
